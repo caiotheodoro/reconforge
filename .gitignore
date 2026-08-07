@@ -1,0 +1,32 @@
+# Secrets
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# ML artifacts
+model/adapters/
+model/checkpoints/
+model/data/raw/
+mlx_model/
+*.safetensors
+
+# Node
+node_modules/
+dist/
+
+# Validation artifacts (keep study JSONs, ignore bulky logs)
+*.log
+docs/validation/**/*.png
+
+# OS
+.DS_Store
