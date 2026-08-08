@@ -7,8 +7,6 @@ tags:
   - reconciliation
   - mlx
   - lora
-datasets:
-  - synthetic (reconforge generator)
 metrics:
   - accuracy
   - severity-weighted recall
@@ -71,6 +69,14 @@ a frontier model, at zero API cost and zero reasoning-token overhead.
 ## Reproduce
 
 ```sh
+# load from the hub (MLX adapter)
+from huggingface_hub import snapshot_download
+from mlx_lm.lora import load
+
+adapter_dir = snapshot_download("caiotheodoro/reconforge-recon-lora")
+model, tokenizer = load("mlx-community/Qwen3-1.7B-4bit", adapter_path=adapter_dir,
+                        tokenizer_config={"trust_remote_code": True})
+
 # datasets + benchmark
 cd model && PYTHONPATH=../forge/src:src uv run python -m reconforge_model.benchmark_eval \
   --adapter-path adapters/champion --tasks-file data/benchmark.jsonl --run x5 --samples 5
