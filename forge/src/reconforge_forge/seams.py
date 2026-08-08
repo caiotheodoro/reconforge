@@ -108,8 +108,13 @@ async def judge_kappa(golden_path: str | None = None) -> dict[str, Any]:
     Golden format: JSONL of ``{"label": str, "judge": str}`` records.
     """
     if golden_path is None:
+        # Exclude "-local-judge" files: the local fine-tuned worker is
+        # prompt-brittle as a judge (C2 study — kappa collapsed 0.74->0.37
+        # when given the rubric-extended judge prompt it was never trained
+        # on), so DeepSeek is the designated production judge and its
+        # golden-*.jsonl artifacts are the ones auto-selected here.
         candidates = sorted(
-            VALIDATION_DIR.glob("golden-*.jsonl"),
+            (p for p in VALIDATION_DIR.glob("golden-*.jsonl") if "local-judge" not in p.name),
             key=lambda p: p.stat().st_mtime,
             reverse=True,
         )

@@ -62,7 +62,9 @@ Airbnb eval-engineering articles, ported to a vertical domain:
   sampling marginal, not seed variance.
 - **Judge calibration loop** (Airbnb EDD §2.2.1): a golden set with verifier
   labels, Cohen's kappa as the recalibration target (0.85 bar), weekly
-  schedule to re-measure. Current kappa: 0.74 (both judges) — open gap.
+  schedule to re-measure. DeepSeek judge kappa 0.90 with the C2 rubric-fixed
+  prompt (bar cleared); local fine-tuned judge kappa 0.74→0.37 (regressed —
+  prompt-brittle, open gap remains there).
 - **Durable HITL** (Adopt AI harness pattern): Temporal workflow opens a
   review, blocks on a human signal with timeout, records the final verdict
   with `source: human` and full audit trail. Proven live against Temporal
@@ -99,7 +101,8 @@ headline (0.9128). Both artifacts published.
 | Study | Question | Result |
 |---|---|---|
 | **B2** | Does rebalancing the training mix fix low-recall classes? | **Negative.** R_w 0.913 → 0.723. Cutting a class's training weight destroys its recall (MEDIUM 0.84→0.40, AMOUNT 73→56 correct); upsampling subtle-signal classes buys ~nothing (DUPLICATE 0→1). Training distribution must match deployment distribution. |
-| **C1** | Judge calibration (golden-100, seed 333, verifier labels) | DeepSeek judge kappa 0.741/0.82; fine-tuned local judge 0.736/0.81. Tied, both below the 0.85 bar. The weekly recalibration schedule has a live target. |
+| **C1** | Judge calibration (golden-100, seed 333, verifier labels) | DeepSeek judge kappa 0.741/0.82; fine-tuned local judge 0.736/0.81. Tied, both below the 0.85 bar. |
+| **C2** | Fix C1's gap with an explicit-rules judge prompt (same golden set) | DeepSeek kappa 0.741→**0.904** (bar cleared); local judge kappa 0.736→**0.367** (regressed — prompt-brittle, off-distribution for a model fine-tuned on one fixed prompt). DeepSeek is now the designated production judge for the weekly schedule. |
 | **Contamination ROC** | Does the monitor detect leaks? | Fire-on-leaked 1.0 at every leak fraction (0.05–0.5); false-fire-on-clean 0.0. |
 | **A4 gate** | Is the verifier an oracle? | 100% agreement on 300- and 400-task pilots; byte-identical across runs. |
 | **S1-style sweeps** | (from substrate Foundry, reused here) | Difficulty monotonicity, split predictability, judge-ladder economics — the methodology lineage is documented in the research repo's HANDOFF. |
@@ -140,8 +143,12 @@ headline (0.9128). Both artifacts published.
 3. **Zero escalations.** The model never says "unsure" — a cost of pure
    supervised fine-tuning. The system compensates (HIGH severity always
    escalates to HITL); the E3 escalation-policy study remains open.
-4. **Judge kappa 0.74 < 0.85.** Open workstream: judge-specific fine-tune or
-   rubric revision.
+4. **Local judge kappa 0.37 < 0.85 (regressed from 0.74).** The C2 rubric fix
+   closed the gap for the DeepSeek judge (kappa 0.90, now production) but
+   broke the local fine-tuned judge — it hallucinates exceptions on true
+   MATCH pairs when given prompt text it wasn't trained on. A local judge
+   needs a judge-specific fine-tune (train ON the rubric prompt), not more
+   prompting, if one is wanted.
 5. **16GB M5 ceiling.** Training is 1.7B-class only; a 7B+ run needs a GPU
    (RunPod/Colab ~$50–200). The pipeline (dataset → train → eval → publish)
    is unchanged in that case.
@@ -151,8 +158,11 @@ headline (0.9128). Both artifacts published.
 
 ## 8. Open paths (priority order)
 
-1. **Judge calibration to 0.85.** Judge-specific fine-tune (small judge model
-   trained on golden labels) or rubric changes; re-measure kappa weekly.
+1. **Local judge calibration to 0.85.** DeepSeek judge cleared the bar (C2,
+   kappa 0.90) via an explicit-rules prompt; the local fine-tuned judge
+   regressed on the same prompt (0.37) because it's off-distribution for a
+   model trained on one fixed prompt. Needs a judge-specific fine-tune
+   (train on the rubric prompt directly), not more prompting.
 2. **Real-human HITL evaluation.** Run a genuine review queue through the
    hitl service + Temporal workflow with a human; measure review agreement
    and the escalation-economics curve (E3).
