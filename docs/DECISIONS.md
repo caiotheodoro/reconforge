@@ -433,3 +433,17 @@ measured evidence.
   `uv sync --no-editable` + `chflags -R nohidden .venv`.
 - Rationale: uv marks new venvs UF_HIDDEN by design; CPython 3.11+ skips .pth files
   under hidden dirs → editable installs silently break on every fresh venv (observed 4x).
+
+## 2026-08-08 — M10 — Full training run (iter 740 of 1500, stopped at plateau)
+- Decision: stopped at iter 740 (train loss plateaued at 0.088 since ~iter 330;
+  val trajectory flat). ETA for 1500 steps was +2.5h at ~5.2 it/min with no
+  expected gain; adapter preserved at adapters/lora-full/0000700_final.
+- Rationale: loss-curve plateau is the stopping rule, not the step budget.
+- Evidence: train-full.log (loss 2.4 -> 0.088, peak mem 3.35GB).
+
+## 2026-08-08 — M11 — DeepSeek head-to-head baseline (800-task bench, seed 777)
+- Decision: deepseek-v4-flash scored as the frontier baseline on the held-out
+  benchmark with the identical system prompt + scoring.
+- Evidence: accuracy 0.8762, severity-weighted R 0.8719, escalation precision
+  1.0, parse 99.6%. Fine-tuned @700 steps (old run): 0.781 / 0.729. New
+  iter-740 adapter under evaluation.
