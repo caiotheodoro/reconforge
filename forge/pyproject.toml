@@ -1,0 +1,21 @@
+[project]
+name = "reconforge-forge"
+version = "0.1.0"
+description = "ReconForge measurement core: seeded task generator, verifier-as-oracle, pilot benchmark, contamination monitor for financial back-office reconciliation agents."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/reconforge_forge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

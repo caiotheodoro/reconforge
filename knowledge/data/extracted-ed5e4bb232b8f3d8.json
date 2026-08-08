@@ -1,0 +1,1543 @@
+{
+  "version": 2,
+  "mode": "offline",
+  "generated_at": "2026-08-08T01:26:37Z",
+  "source_key": "ed5e4bb232b8f3d8",
+  "entities": [
+    {
+      "name": "pacs.008",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "pacs.009",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.053",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.054",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "GrpHdr GroupHeader",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "PmtId PaymentIdentification",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "InstrId InstructionIdentification",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "EndToEndId EndToEndIdentification",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "IntrBkSttlmAmt InterbankSettlementAmount",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "ValDt ValueDate",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Dbtr Debtor",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Cdtr Creditor",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "DbtrAgt DebtorAgent",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "CdtrAgt CreditorAgent",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Stmt StatementIdentification",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Ntry Entry",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "BookgDt BookingDate",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Ntfctn Notification",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "MT103",
+      "type": "MessageType",
+      "properties": {
+        "aliases": [
+          "single customer credit transfer",
+          "customer credit transfer",
+          "customer transfer"
+        ]
+      }
+    },
+    {
+      "name": "SingleCustomerCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "single customer credit transfer",
+          "customer credit transfer",
+          "customer transfer"
+        ]
+      }
+    },
+    {
+      "name": "MT202",
+      "type": "MessageType",
+      "properties": {
+        "aliases": [
+          "general financial institution transfer",
+          "bank to bank transfer",
+          "interbank funding"
+        ]
+      }
+    },
+    {
+      "name": "FinancialInstitutionTransfer",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "general financial institution transfer",
+          "bank to bank transfer",
+          "interbank funding"
+        ]
+      }
+    },
+    {
+      "name": "MT202COV",
+      "type": "MessageType",
+      "properties": {
+        "aliases": [
+          "cover payment",
+          "cover",
+          "MT202 COV",
+          "the cover for a customer credit transfer"
+        ]
+      }
+    },
+    {
+      "name": "CoverPaymentForCustomerCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "cover payment",
+          "cover",
+          "MT202 COV",
+          "the cover for a customer credit transfer"
+        ]
+      }
+    },
+    {
+      "name": "FXTradeSettlement",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "settlement of FX trades",
+          "FX settlement"
+        ]
+      }
+    },
+    {
+      "name": "MT940",
+      "type": "MessageType",
+      "properties": {
+        "aliases": [
+          "account statement",
+          "end-of-day bank statement",
+          "customer statement"
+        ]
+      }
+    },
+    {
+      "name": "EndOfDayStatement",
+      "type": "Instrument",
+      "properties": {
+        "aliases": [
+          "account statement",
+          "end-of-day bank statement",
+          "customer statement"
+        ]
+      }
+    },
+    {
+      "name": "MT300",
+      "type": "MessageType",
+      "properties": {
+        "aliases": [
+          "FX trade confirmation",
+          "confirms an FX trade",
+          "confirmation of an FX trade"
+        ]
+      }
+    },
+    {
+      "name": "ForeignExchangeConfirmation",
+      "type": "Instrument",
+      "properties": {
+        "aliases": [
+          "FX trade confirmation",
+          "confirms an FX trade",
+          "confirmation of an FX trade"
+        ]
+      }
+    },
+    {
+      "name": "FIToFICustomerCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "customer credit transfer",
+          "FI to FI customer credit transfer",
+          "SCT interbank message"
+        ]
+      }
+    },
+    {
+      "name": "FinancialInstitutionCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "financial institution credit transfer",
+          "bank to bank transfer"
+        ]
+      }
+    },
+    {
+      "name": "BankToCustomerStatement",
+      "type": "Instrument",
+      "properties": {
+        "aliases": [
+          "bank to customer statement",
+          "account statement",
+          "end-of-day statement"
+        ]
+      }
+    },
+    {
+      "name": "DebitCreditNotification",
+      "type": "Instrument",
+      "properties": {
+        "aliases": [
+          "debit credit notification",
+          "booking notification"
+        ]
+      }
+    },
+    {
+      "name": "MT910",
+      "type": "MessageType",
+      "properties": {
+        "aliases": [
+          "ISO replacement of MT900 MT910",
+          "ISO counterpart of MT900"
+        ]
+      }
+    },
+    {
+      "name": "ISO20022",
+      "type": "SettlementSystem",
+      "properties": {
+        "aliases": [
+          "XML syntax",
+          "ISO standard for electronic data interchange"
+        ]
+      }
+    },
+    {
+      "name": "XMLSyntax",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "XML syntax",
+          "ISO standard for electronic data interchange"
+        ]
+      }
+    },
+    {
+      "name": "CustomerCoverPayment",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "plain MT202",
+          "must not be used as the cover for a customer credit transfer",
+          "MT202 COV is mandatory for customer covers since 2009"
+        ]
+      }
+    },
+    {
+      "name": "MT103Announcement",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "MT103 announcement",
+          "announcement and cover are two halves of one transaction",
+          "cover pair"
+        ]
+      }
+    },
+    {
+      "name": "CoverPayment",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "cover requires the MT103 announcement"
+        ]
+      }
+    },
+    {
+      "name": "Tag20_SendersReference",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "field 20 sender reference",
+          "sender unique ref"
+        ]
+      }
+    },
+    {
+      "name": "Tag32A_ValueDateCurrencyAmount",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "value date currency amount",
+          "interbank settled amount"
+        ]
+      }
+    },
+    {
+      "name": "Tag33B_InstructedAmount",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "instructed amount",
+          "currency instructed amount"
+        ]
+      }
+    },
+    {
+      "name": "Tag71A_DetailsOfCharges",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "details of charges",
+          "BEN OUR SHA"
+        ]
+      }
+    },
+    {
+      "name": "Tag50_OrderingCustomer",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "ordering customer mandatory"
+        ]
+      }
+    },
+    {
+      "name": "Tag59_BeneficiaryCustomer",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "beneficiary customer mandatory"
+        ]
+      }
+    },
+    {
+      "name": "MT103Cover",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "senders correspondent",
+          "cover method uses 53 54"
+        ]
+      }
+    },
+    {
+      "name": "Tag53a_SendersCorrespondent",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "senders correspondent",
+          "cover method uses 53 54"
+        ]
+      }
+    },
+    {
+      "name": "MT103Serial",
+      "type": "PaymentInstruction",
+      "properties": {
+        "aliases": [
+          "account with institution",
+          "serial method uses 56 57"
+        ]
+      }
+    },
+    {
+      "name": "Tag57a_AccountWithInstitution",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "account with institution",
+          "serial method uses 56 57"
+        ]
+      }
+    },
+    {
+      "name": "Tag21_RelatedReference",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "related reference links the MT103 reference"
+        ]
+      }
+    },
+    {
+      "name": "Tag50a_OrderingCustomer",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "ordering customer mandatory in MT202 COV"
+        ]
+      }
+    },
+    {
+      "name": "Tag59a_BeneficiaryCustomer",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "beneficiary customer mandatory in MT202 COV"
+        ]
+      }
+    },
+    {
+      "name": "Tag61_TransactionDetails",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "statement line",
+          "transaction details"
+        ]
+      }
+    },
+    {
+      "name": "Tag62F_ClosingBalance",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "closing balance",
+          "62F mandatory"
+        ]
+      }
+    },
+    {
+      "name": "Tag25_AccountNumber",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "account number",
+          "account identification"
+        ]
+      }
+    },
+    {
+      "name": "Tag30T_TradeDate",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "t",
+          "r",
+          "a",
+          "d",
+          "e",
+          " ",
+          "d",
+          "a",
+          "t",
+          "e"
+        ]
+      }
+    },
+    {
+      "name": "Tag30V_ValueDate",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "v",
+          "a",
+          "l",
+          "u",
+          "e",
+          " ",
+          "d",
+          "a",
+          "t",
+          "e"
+        ]
+      }
+    },
+    {
+      "name": "Tag36_ExchangeRate",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "exchange rate",
+          "single rate for two amounts"
+        ]
+      }
+    },
+    {
+      "name": "Tag32B_AmountBought",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "a",
+          "m",
+          "o",
+          "u",
+          "n",
+          "t",
+          " ",
+          "b",
+          "o",
+          "u",
+          "g",
+          "h",
+          "t"
+        ]
+      }
+    },
+    {
+      "name": "Tag33B_AmountSold",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "a",
+          "m",
+          "o",
+          "u",
+          "n",
+          "t",
+          " ",
+          "s",
+          "o",
+          "l",
+          "d"
+        ]
+      }
+    },
+    {
+      "name": "EndToEndId",
+      "type": "Field",
+      "properties": {
+        "aliases": [
+          "end to end id",
+          "end to end reference"
+        ]
+      }
+    },
+    {
+      "name": "CLS",
+      "type": "SettlementSystem",
+      "properties": {
+        "aliases": [
+          "continuous linked settlement",
+          "settlement risk",
+          "principal risk"
+        ]
+      }
+    },
+    {
+      "name": "HerstattRisk",
+      "type": "Risk",
+      "properties": {
+        "aliases": [
+          "continuous linked settlement",
+          "settlement risk",
+          "principal risk"
+        ]
+      }
+    },
+    {
+      "name": "PaymentVersusPayment",
+      "type": "SettlementSystem",
+      "properties": {
+        "aliases": [
+          "PvP",
+          "payment versus payment",
+          "settles the two legs simultaneously"
+        ]
+      }
+    },
+    {
+      "name": "FXSettlementRisk",
+      "type": "Risk",
+      "properties": {
+        "aliases": [
+          "PvP",
+          "payment versus payment",
+          "settles the two legs simultaneously"
+        ]
+      }
+    },
+    {
+      "name": "18Currencies",
+      "type": "Currency",
+      "properties": {
+        "aliases": [
+          "settles in 18 currencies",
+          "central multicurrency PvP"
+        ]
+      }
+    },
+    {
+      "name": "FiveHourSettlementWindow",
+      "type": "DateConvention",
+      "properties": {
+        "aliases": [
+          "five hour settlement window",
+          "5 hour window",
+          "PvP window"
+        ]
+      }
+    },
+    {
+      "name": "FXGlobalCode",
+      "type": "Rule",
+      "properties": {
+        "aliases": [
+          "use PvP where possible",
+          "GFXC"
+        ]
+      }
+    },
+    {
+      "name": "PvPAdoption",
+      "type": "Workflow",
+      "properties": {
+        "aliases": [
+          "use PvP where possible",
+          "GFXC"
+        ]
+      }
+    },
+    {
+      "name": "ValueDate",
+      "type": "DateConvention",
+      "properties": {
+        "aliases": [
+          "the date funds become available",
+          "the date on which a transaction settles",
+          "often differs from the trade or booking date"
+        ]
+      }
+    },
+    {
+      "name": "DateFundsBecomeAvailable",
+      "type": "DateConvention",
+      "properties": {
+        "aliases": [
+          "the date funds become available",
+          "the date on which a transaction settles",
+          "often differs from the trade or booking date"
+        ]
+      }
+    },
+    {
+      "name": "SpotFxTrade",
+      "type": "Instrument",
+      "properties": {
+        "aliases": [
+          "FX spot value date is T+2",
+          "two business days after trade date"
+        ]
+      }
+    },
+    {
+      "name": "ValueDateTPlus2",
+      "type": "DateConvention",
+      "properties": {
+        "aliases": [
+          "FX spot value date is T+2",
+          "two business days after trade date"
+        ]
+      }
+    },
+    {
+      "name": "SEPACreditTransfer",
+      "type": "Instrument",
+      "properties": {
+        "aliases": [
+          "beneficiary credited at the latest on D+1",
+          "SCT D+1 rule"
+        ]
+      }
+    },
+    {
+      "name": "BeneficiaryCreditByDPlus1",
+      "type": "DateConvention",
+      "properties": {
+        "aliases": [
+          "beneficiary credited at the latest on D+1",
+          "SCT D+1 rule"
+        ]
+      }
+    },
+    {
+      "name": "ValueDateMismatch",
+      "type": "Risk",
+      "properties": {
+        "aliases": [
+          "VALUE_DATE_MISMATCH",
+          "late value date",
+          "breaks the T+2 convention"
+        ]
+      }
+    },
+    {
+      "name": "TPlus2Convention",
+      "type": "DateConvention",
+      "properties": {
+        "aliases": [
+          "VALUE_DATE_MISMATCH",
+          "late value date",
+          "breaks the T+2 convention"
+        ]
+      }
+    },
+    {
+      "name": "SerialMethod",
+      "type": "Workflow",
+      "properties": {
+        "aliases": [
+          "serial method uses 56 57",
+          "serial method conflicts with 53 54 usage"
+        ]
+      }
+    },
+    {
+      "name": "LateValueDateRule",
+      "type": "Rule",
+      "properties": {
+        "aliases": [
+          "late value date",
+          "value date later than the booking date",
+          "late booking"
+        ]
+      }
+    },
+    {
+      "name": "PreSettlementNetting",
+      "type": "SettlementSystem",
+      "properties": {
+        "aliases": [
+          "bilateral offsetting of obligations"
+        ]
+      }
+    },
+    {
+      "name": "MissingInformation",
+      "type": "Risk",
+      "properties": {
+        "aliases": [
+          "missing information breaks STP"
+        ]
+      }
+    },
+    {
+      "name": "NonSTP",
+      "type": "Risk",
+      "properties": {
+        "aliases": [
+          "missing information breaks STP"
+        ]
+      }
+    },
+    {
+      "name": "ManualDataEntryError",
+      "type": "Risk",
+      "properties": {
+        "aliases": [
+          "manual data entry errors",
+          "transposed routing code"
+        ]
+      }
+    },
+    {
+      "name": "StraightThroughProcessing",
+      "type": "Workflow",
+      "properties": {
+        "aliases": [
+          "STP",
+          "straight through processing",
+          "automated end-to-end processing without human intervention"
+        ]
+      }
+    },
+    {
+      "name": "NoManualIntervention",
+      "type": "Workflow",
+      "properties": {
+        "aliases": [
+          "STP",
+          "straight through processing",
+          "automated end-to-end processing without human intervention"
+        ]
+      }
+    },
+    {
+      "name": "CoverMethodSettlement",
+      "type": "Workflow",
+      "properties": {
+        "aliases": [
+          "European method",
+          "cover method sends two messages"
+        ]
+      }
+    },
+    {
+      "name": "HerstattBankFailure",
+      "type": "Risk",
+      "properties": {
+        "aliases": [
+          "Herstatt bank collapse 1974",
+          "Herstatt failure"
+        ]
+      }
+    },
+    {
+      "name": "CLSCreation",
+      "type": "Workflow",
+      "properties": {
+        "aliases": [
+          "CLS was created in response to the Herstatt failure",
+          "founded July 1997"
+        ]
+      }
+    }
+  ],
+  "relations": [
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "GrpHdr GroupHeader",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "PmtId PaymentIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "InstrId InstructionIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId EndToEndIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "IntrBkSttlmAmt InterbankSettlementAmount",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt ValueDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "Dbtr Debtor",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "Cdtr Creditor",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "GrpHdr GroupHeader",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "PmtId PaymentIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "InstrId InstructionIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId EndToEndIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "IntrBkSttlmAmt InterbankSettlementAmount",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt ValueDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "DbtrAgt DebtorAgent",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "CdtrAgt CreditorAgent",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "GrpHdr GroupHeader",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Stmt StatementIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Ntry Entry",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt ValueDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "BookgDt BookingDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId EndToEndIdentification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "GrpHdr GroupHeader",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "Ntfctn Notification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "Ntry Entry",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt ValueDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "BookgDt BookingDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "COVERS",
+      "tail": "SingleCustomerCreditTransfer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "COVERS",
+      "tail": "FinancialInstitutionTransfer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "COVERS",
+      "tail": "CoverPaymentForCustomerCreditTransfer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "COVERS",
+      "tail": "FXTradeSettlement",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "COVERS",
+      "tail": "EndOfDayStatement",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "COVERS",
+      "tail": "ForeignExchangeConfirmation",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "COVERS",
+      "tail": "FIToFICustomerCreditTransfer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "COVERS",
+      "tail": "FinancialInstitutionCreditTransfer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "COVERS",
+      "tail": "BankToCustomerStatement",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "COVERS",
+      "tail": "DebitCreditNotification",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT103",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT202",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT940",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT910",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "ISO20022",
+      "relation": "RELATED_TO",
+      "tail": "XMLSyntax",
+      "evidence": "| **MessageType** | A standardized financial message format exchanged between institutions (MT or ISO 20022).",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "CONFLICTS_WITH",
+      "tail": "CustomerCoverPayment",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "CONFLICTS_WITH",
+      "tail": "CoverPaymentForCustomerCreditTransfer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103Announcement",
+      "relation": "RELATED_TO",
+      "tail": "MT202COV",
+      "evidence": "| (MT202 COV) -REQUIRES-> (:50a Ordering Customer); (MT202 COV) -REQUIRES-> (:59a Beneficiary Customer); (MT103) -REQUIRES-> (:32A); (CoverPayment) -REQUIRES-> (MT103 Announcement) + (MT202 COV) |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CoverPayment",
+      "relation": "REQUIRES",
+      "tail": "MT103Announcement",
+      "evidence": "| SingleCustomerCreditTransfer, FinancialInstitutionTransfer, CoverPayment (MT103+MT202COV pair), FXSpotDeal (USD/GBP, T+2) |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CoverPayment",
+      "relation": "REQUIRES",
+      "tail": "MT202COV",
+      "evidence": "| SingleCustomerCreditTransfer, FinancialInstitutionTransfer, CoverPayment (MT103+MT202COV pair), FXSpotDeal (USD/GBP, T+2) |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "RELATED_TO",
+      "tail": "MT910",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.6,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Tag20_SendersReference",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Tag32A_ValueDateCurrencyAmount",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Tag33B_InstructedAmount",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Tag71A_DetailsOfCharges",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "REQUIRES",
+      "tail": "Tag50_OrderingCustomer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "REQUIRES",
+      "tail": "Tag59_BeneficiaryCustomer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103Cover",
+      "relation": "HAS_FIELD",
+      "tail": "Tag53a_SendersCorrespondent",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103Serial",
+      "relation": "HAS_FIELD",
+      "tail": "Tag57a_AccountWithInstitution",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "Tag21_RelatedReference",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.85,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "REQUIRES",
+      "tail": "Tag50a_OrderingCustomer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.93,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "REQUIRES",
+      "tail": "Tag59a_BeneficiaryCustomer",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.93,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Tag61_TransactionDetails",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Tag62F_ClosingBalance",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Tag25_AccountNumber",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Tag30T_TradeDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Tag30V_ValueDate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Tag36_ExchangeRate",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Tag32B_AmountBought",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Tag33B_AmountSold",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId",
+      "evidence": "| MT103, MT202, MT202 COV, MT300, MT940, pacs.008, pacs.009, camt.053, camt.054 |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CLS",
+      "relation": "MITIGATES",
+      "tail": "HerstattRisk",
+      "evidence": "| CLS (Continuous Linked Settlement), RTGS (Fedwire/T2/CHAPS), T2 (Eurosystem RTGS) |",
+      "confidence": 0.97,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "PaymentVersusPayment",
+      "relation": "MITIGATES",
+      "tail": "FXSettlementRisk",
+      "evidence": "| MT202COV-mandate (2009), Serial/Cover-method rule (53/54 vs 56/57), SCT-D+1 rule, MT940 :62F mandatory, FX Global Code PvP principle |",
+      "confidence": 0.97,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CLS",
+      "relation": "APPLIES_TO",
+      "tail": "18Currencies",
+      "evidence": "| CLS (Continuous Linked Settlement), RTGS (Fedwire/T2/CHAPS), T2 (Eurosystem RTGS) |",
+      "confidence": 0.97,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CLS",
+      "relation": "RELATED_TO",
+      "tail": "FiveHourSettlementWindow",
+      "evidence": "| CLS (Continuous Linked Settlement), RTGS (Fedwire/T2/CHAPS), T2 (Eurosystem RTGS) |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "FXGlobalCode",
+      "relation": "APPLIES_TO",
+      "tail": "PvPAdoption",
+      "evidence": "| MT202COV-mandate (2009), Serial/Cover-method rule (53/54 vs 56/57), SCT-D+1 rule, MT940 :62F mandatory, FX Global Code PvP principle |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "ValueDate",
+      "relation": "RELATED_TO",
+      "tail": "DateFundsBecomeAvailable",
+      "evidence": "| :20 Sender's Reference, :32A Value Date/CCY/Amount, :50a Ordering Customer, :59a Beneficiary Customer, :61 statement line, :36 Exchange Rate, EndToEndId, InstrId, ValDt, Amt |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "SpotFxTrade",
+      "relation": "REQUIRES",
+      "tail": "ValueDateTPlus2",
+      "evidence": "| SingleCustomerCreditTransfer, FinancialInstitutionTransfer, CoverPayment (MT103+MT202COV pair), FXSpotDeal (USD/GBP, T+2) |",
+      "confidence": 0.95,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "SEPACreditTransfer",
+      "relation": "REQUIRES",
+      "tail": "BeneficiaryCreditByDPlus1",
+      "evidence": "| FX Spot, FX Forward, SEPA Credit Transfer (SCT), Securities Trade (T+1) |",
+      "confidence": 0.9,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "ValueDateMismatch",
+      "relation": "CONFLICTS_WITH",
+      "tail": "TPlus2Convention",
+      "evidence": "| :20 Sender's Reference, :32A Value Date/CCY/Amount, :50a Ordering Customer, :59a Beneficiary Customer, :61 statement line, :36 Exchange Rate, EndToEndId, InstrId, ValDt, Amt |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "SerialMethod",
+      "relation": "CONFLICTS_WITH",
+      "tail": "Tag53a_SendersCorrespondent",
+      "evidence": "| MT202COV-mandate (2009), Serial/Cover-method rule (53/54 vs 56/57), SCT-D+1 rule, MT940 :62F mandatory, FX Global Code PvP principle |",
+      "confidence": 0.8,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "LateValueDateRule",
+      "relation": "TRIGGERS",
+      "tail": "ValueDateMismatch",
+      "evidence": "**ValDt** (value date), FctvDt",
+      "confidence": 0.8,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "PreSettlementNetting",
+      "relation": "MITIGATES",
+      "tail": "FXSettlementRisk",
+      "evidence": "- settlement risk management posture (PvP usage, netting, limits) per the FX",
+      "confidence": 0.95,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MissingInformation",
+      "relation": "TRIGGERS",
+      "tail": "NonSTP",
+      "evidence": "- missing information;",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "ManualDataEntryError",
+      "relation": "TRIGGERS",
+      "tail": "NonSTP",
+      "evidence": "- manual errors: transposed routing-code digits/letters, data-format errors,",
+      "confidence": 0.85,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "StraightThroughProcessing",
+      "relation": "REQUIRES",
+      "tail": "NoManualIntervention",
+      "evidence": "Straight-through processing (STP)",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CoverMethodSettlement",
+      "relation": "RELATED_TO",
+      "tail": "MT202COV",
+      "evidence": "| Announcement received, cover/credit never arrives | MISSING_MESSAGE | Cover method: MT103 announcement \u2260 funds; credit arrives via MT202 COV \u2192 MT910/950.",
+      "confidence": 0.8,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "HerstattBankFailure",
+      "relation": "TRIGGERS",
+      "tail": "HerstattRisk",
+      "evidence": "Herstatt risk \u2014 definition and the 1974 collapse",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "HerstattRisk",
+      "relation": "TRIGGERS",
+      "tail": "CLSCreation",
+      "evidence": "Herstatt risk \u2014 definition and the 1974 collapse",
+      "confidence": 0.93,
+      "source": "settlement-risk.md"
+    }
+  ]
+}

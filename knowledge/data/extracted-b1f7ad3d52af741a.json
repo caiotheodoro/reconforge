@@ -1,0 +1,3770 @@
+{
+  "version": 2,
+  "mode": "mixed",
+  "generated_at": "2026-08-08T01:56:17Z",
+  "source_key": "b1f7ad3d52af741a",
+  "entities": [
+    {
+      "name": "MT103",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT202",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT202COV",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT300",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT940",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT910",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT900",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "pacs.008",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "pacs.009",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.053",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.054",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.056",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.029",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": ":20",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":32A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":50a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":59a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":61",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":36",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":62F",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "EndToEndId",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "InstrId",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "ValDt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Amt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":53a/:54a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":56a/:57a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": ":21",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "SingleCustomerCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "FinancialInstitutionTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "FIToFICustomerCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "BankToCustomerStatement",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "CoverPayment",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "CustomerCoverPayment",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "MT103Announcement",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "FXSpotDeal",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "CLS",
+      "type": "SettlementSystem",
+      "properties": {}
+    },
+    {
+      "name": "RTGS",
+      "type": "SettlementSystem",
+      "properties": {}
+    },
+    {
+      "name": "T2",
+      "type": "SettlementSystem",
+      "properties": {}
+    },
+    {
+      "name": "HerstattRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "PrincipalRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "ValueDateMismatch",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "SettlementRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "FXSettlementRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "AMLopacityInCovers",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "MT202COVMandate",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "SerialCoverMethodRule",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "SCTDPlus1Rule",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "MT94062FMandatory",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "FXGlobalCodePvPPrinciple",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "MT202COVTraceability",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "FX Spot",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "FX Forward",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "SEPA Credit Transfer",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "Securities Trade",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "EndOfDayStatement",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "NostroReconciliation",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "CoverMethodSettlement",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "SerialMethodSettlement",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "ExceptionInvestigation",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "PvP",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "PreSettlementNetting",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "NonSTPRepair",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "MISSING_MESSAGE",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "USD",
+      "type": "Currency",
+      "properties": {}
+    },
+    {
+      "name": "EUR",
+      "type": "Currency",
+      "properties": {}
+    },
+    {
+      "name": "GBP",
+      "type": "Currency",
+      "properties": {}
+    },
+    {
+      "name": "JPY",
+      "type": "Currency",
+      "properties": {}
+    },
+    {
+      "name": "18Currencies",
+      "type": "Currency",
+      "properties": {}
+    },
+    {
+      "name": "T+1",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "T+2",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "D+1",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "CLS5HourSettlementWindow",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "HerstattBankFailure1974",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "AnnouncementWithoutCover",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "MissingData",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "MT942",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT101",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.052",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "pain.001",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "GrpHdr",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "PmtId",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "TxId",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "UETR",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "PmtTpInf",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "IntrBkSttlmAmt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "IntrBkSttlmDt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "FctvDt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Dbtr",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "DbtrAcct",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "DbtrAgt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Cdtr",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "CdtrAcct",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "CdtrAgt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Stmt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "StmtId",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Acct",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Bal",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Ntry",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "CdtDbtInd",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "BookgDt",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "NtryRef",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "BkTxCd",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "TxDtls",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "RmtInf",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Ntfctn",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "MsgId",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "CreDtTm",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "NbOfTxs",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "SttlmInf",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "CustomerCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "FinancialInstitutionCreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "SWIFTNetwork",
+      "type": "SettlementSystem",
+      "properties": {}
+    },
+    {
+      "name": "AccountStatement",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "DebitCreditNotification",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "AccountReport",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "StraightThroughProcessing",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "AutomatedMatching",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "ExceptionHandling",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "NoFixedCutoff",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "OperationalRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "ISO20022",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "CBPRPlus",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "SEPA",
+      "type": "SettlementSystem",
+      "properties": {}
+    },
+    {
+      "name": "Reconciliation",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "MT950",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT192",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT195",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT292",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "MT295",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "camt.087",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "pacs.004",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "InternalLedger",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "SenderReference",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "RelatedReference",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "ValueDateAndAmount",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "RateOfExchange",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "OrderingInstitution",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "BeneficiaryInstitution",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "AccountIdentification",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "StatementLine",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "SEPACreditTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "CreditConfirmation",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "TradeConfirmation",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "PaymentReturn",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "CancellationRequest",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "PaymentModificationRequest",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "ForeignExchangeTrade",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "CancellationWorkflow",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "AutoAdjust",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "RejectReturn",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "Rebook",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "FlagReview",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "ValueDate",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "TPlus2",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "DPlus1",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "Field50a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field59a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "SerialPayment",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "STP",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "Netting",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "AMLSanctionsScreening",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "SWIFTTrail",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "DeliveryRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "CounterpartyRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "CreditRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "LiquidityRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "FXTrade",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "Spot",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "OutrightForward",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "FXSwap",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "CurrencySwap",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "Equity",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "PvP",
+      "type": "SettlementSystem",
+      "properties": {}
+    },
+    {
+      "name": "DvP",
+      "type": "SettlementSystem",
+      "properties": {}
+    },
+    {
+      "name": "MultilateralNetting",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "OnUsSettlement",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "InOutSwap",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "FXGlobalCode",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "BCPMISupervisoryGuidance",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "CLSSettlementWindow",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "Field32A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field30T",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field30V",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field61",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field60F",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field62F",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "LineValueDate",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "FxSpot",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "SCT",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "ValueDateMismatchRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "FxConversionError",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "CutOffs",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "FinalityRule",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "CoverBeforeCreditRule",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "GeneralFinancialInstitutionTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "FXConfirmation",
+      "type": "Instrument",
+      "properties": {}
+    },
+    {
+      "name": "field-20",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-23B",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-23E",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-32A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-33B",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-50a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-52a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-53a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-54a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-56a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-57a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-59a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-70",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-71A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-72",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-21",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-58a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-15A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-22A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-22C",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-82a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-87a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-15B",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-30T",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-30V",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-36",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-32B",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-24D",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "field-15C",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "SerialTransfer",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "CoverMethod",
+      "type": "Workflow",
+      "properties": {}
+    },
+    {
+      "name": "MoneyLaunderingRisk",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "MT202COVRequiredForCover",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "TradeDate",
+      "type": "DateConvention",
+      "properties": {}
+    },
+    {
+      "name": "MT202 COV",
+      "type": "MessageType",
+      "properties": {}
+    },
+    {
+      "name": "Field20",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field22A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field24D",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field32B",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field33B",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field36",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field57a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field77H",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field77D",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field82a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field87a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field22B",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field21",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field25",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field28C",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field60M",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field62M",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field86",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field53a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field54a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field56a",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field71A",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "Field72",
+      "type": "Field",
+      "properties": {}
+    },
+    {
+      "name": "BankToBankTransfer",
+      "type": "PaymentInstruction",
+      "properties": {}
+    },
+    {
+      "name": "AmountMismatch",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "MissingMessageException",
+      "type": "Risk",
+      "properties": {}
+    },
+    {
+      "name": "NoExplicitSerialCoverFlag",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "MandatoryMT202COVForCustomerCreditTransfer",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "CreditAtDiscretion",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "ChargeDeduction",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "NoFixedCutoffForReportingMessages",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "SenderReceiverIdentityInHeader",
+      "type": "Rule",
+      "properties": {}
+    },
+    {
+      "name": "PerCurrencyZeroDecimalConventions",
+      "type": "Rule",
+      "properties": {}
+    }
+  ],
+  "relations": [
+    {
+      "head": "MT103",
+      "relation": "COVERS",
+      "tail": "SingleCustomerCreditTransfer",
+      "evidence": "(MT103) -COVERS-> (SingleCustomerCreditTransfer)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "COVERS",
+      "tail": "FinancialInstitutionTransfer",
+      "evidence": "(MT202) -COVERS-> (FinancialInstitutionTransfer)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "COVERS",
+      "tail": "FIToFICustomerCreditTransfer",
+      "evidence": "(pacs.008) -COVERS-> (FIToFICustomerCreditTransfer)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "COVERS",
+      "tail": "BankToCustomerStatement",
+      "evidence": "(camt.053) -COVERS-> (BankToCustomerStatement)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "REQUIRES",
+      "tail": ":50a",
+      "evidence": "(MT202 COV) -REQUIRES-> (:50a Ordering Customer)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "REQUIRES",
+      "tail": ":59a",
+      "evidence": "(MT202 COV) -REQUIRES-> (:59a Beneficiary Customer)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "REQUIRES",
+      "tail": ":32A",
+      "evidence": "(MT103) -REQUIRES-> (:32A)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CoverPayment",
+      "relation": "REQUIRES",
+      "tail": "MT103Announcement",
+      "evidence": "(CoverPayment) -REQUIRES-> (MT103 Announcement) + (MT202 COV)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CoverPayment",
+      "relation": "REQUIRES",
+      "tail": "MT202COV",
+      "evidence": "(CoverPayment) -REQUIRES-> (MT103 Announcement) + (MT202 COV)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": ":20",
+      "evidence": "(MT103) -HAS_FIELD-> (:20 Sender's Reference)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": ":62F",
+      "evidence": "(MT940) -HAS_FIELD-> (:62F Closing Balance)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": ":36",
+      "evidence": "(MT300) -HAS_FIELD-> (:36 Exchange Rate)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId",
+      "evidence": "(camt.053) -HAS_FIELD-> (EndToEndId)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "CONFLICTS_WITH",
+      "tail": "CustomerCoverPayment",
+      "evidence": "(MT202 plain) -CONFLICTS_WITH-> (CustomerCoverPayment) [MT202 COV is mandated]",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "SerialMethodSettlement",
+      "relation": "CONFLICTS_WITH",
+      "tail": ":53a/:54a",
+      "evidence": "(SerialMethod) -CONFLICTS_WITH-> (:53a/:54a usage) [serial uses :56a/:57a]",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "ValueDateMismatch",
+      "relation": "CONFLICTS_WITH",
+      "tail": "T+2",
+      "evidence": "(ValueDateMismatch) -CONFLICTS_WITH-> (T+2 convention)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "HerstattBankFailure1974",
+      "relation": "TRIGGERS",
+      "tail": "HerstattRisk",
+      "evidence": "(HerstattBankFailure 1974) -TRIGGERS-> (HerstattRisk)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "HerstattRisk",
+      "relation": "TRIGGERS",
+      "tail": "CLS",
+      "evidence": "(HerstattRisk) -TRIGGERS-> (CLS creation)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "AnnouncementWithoutCover",
+      "relation": "TRIGGERS",
+      "tail": "MISSING_MESSAGE",
+      "evidence": "(AnnouncementWithoutCover) -TRIGGERS-> (MISSING_MESSAGE exception)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MissingData",
+      "relation": "TRIGGERS",
+      "tail": "NonSTPRepair",
+      "evidence": "(MissingData) -TRIGGERS-> (NonSTP/repair)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CLS",
+      "relation": "APPLIES_TO",
+      "tail": "18Currencies",
+      "evidence": "(CLS) -APPLIES_TO-> (18 currencies)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "FXGlobalCodePvPPrinciple",
+      "relation": "APPLIES_TO",
+      "tail": "PvP",
+      "evidence": "(FXGlobalCode) -APPLIES_TO-> (PvP adoption)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "SCTDPlus1Rule",
+      "relation": "APPLIES_TO",
+      "tail": "D+1",
+      "evidence": "(SCT rule) -APPLIES_TO-> (D+1 credit)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "APPLIES_TO",
+      "tail": "EndOfDayStatement",
+      "evidence": "(MT940) -APPLIES_TO-> (EndOfDayStatement)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "CLS",
+      "relation": "MITIGATES",
+      "tail": "HerstattRisk",
+      "evidence": "(CLS) -MITIGATES-> (HerstattRisk)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "PvP",
+      "relation": "MITIGATES",
+      "tail": "FXSettlementRisk",
+      "evidence": "(PvP) -MITIGATES-> (FXSettlementRisk)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "PreSettlementNetting",
+      "relation": "MITIGATES",
+      "tail": "FXSettlementRisk",
+      "evidence": "(PreSettlementNetting) -MITIGATES-> (FXSettlementRisk)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT202COVTraceability",
+      "relation": "MITIGATES",
+      "tail": "AMLopacityInCovers",
+      "evidence": "(MT202 COV traceability) -MITIGATES-> (AML opacity in covers)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "RELATED_TO",
+      "tail": "MT202COV",
+      "evidence": "(MT103) -RELATED_TO-> (MT202 COV) [cover pair]",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "RELATED_TO",
+      "tail": "MT910",
+      "evidence": "(MT940) -RELATED_TO-> (MT910) [credit confirmation]",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": ":21",
+      "relation": "RELATED_TO",
+      "tail": ":20",
+      "evidence": "(MT103 :21) -RELATED_TO-> (MT202 COV :20 ref linkage)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.056",
+      "relation": "RELATED_TO",
+      "tail": "ExceptionInvestigation",
+      "evidence": "(camt.056) -RELATED_TO-> (exception investigation workflow)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT103",
+      "evidence": "(pacs.008) -COUNTERPART_OF-> (MT103)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT202",
+      "evidence": "(pacs.009) -COUNTERPART_OF-> (MT202/MT202 COV)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT202COV",
+      "evidence": "(pacs.009) -COUNTERPART_OF-> (MT202/MT202 COV)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT940",
+      "evidence": "(camt.053) -COUNTERPART_OF-> (MT940)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT900",
+      "evidence": "(camt.054) -COUNTERPART_OF-> (MT900/MT910)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "COUNTERPART_OF",
+      "tail": "MT910",
+      "evidence": "(camt.054) -COUNTERPART_OF-> (MT900/MT910)",
+      "confidence": 1.0,
+      "source": "entity-schema.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "COVERS",
+      "tail": "CustomerCreditTransfer",
+      "evidence": "pacs.008 \u2014 FIToFICustomerCreditTransfer \u2014 the interbank customer credit transfer",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "COVERS",
+      "tail": "FinancialInstitutionCreditTransfer",
+      "evidence": "pacs.009 \u2014 FinancialInstitutionCreditTransfer \u2014 the bank-to-bank transfer",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "COVERS",
+      "tail": "CoverPayment",
+      "evidence": "including the MT202 COV pattern for covers: pacs.009 with cover",
+      "confidence": 0.85,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "COVERS",
+      "tail": "AccountStatement",
+      "evidence": "camt.053 \u2014 BankToCustomerStatement: end-of-day statement with booked entries",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "COVERS",
+      "tail": "DebitCreditNotification",
+      "evidence": "camt.054 \u2014 BankToCustomerDebitCreditNotification: single debit/credit booking notifications",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.052",
+      "relation": "COVERS",
+      "tail": "AccountReport",
+      "evidence": "camt.052 (BankToCustomerAccountReport) replaces MT942 (intraday)",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "COVERS",
+      "tail": "CustomerCreditTransfer",
+      "evidence": "the standard message for a customer (non-bank) credit transfer between financial institutions.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "COVERS",
+      "tail": "FinancialInstitutionCreditTransfer",
+      "evidence": "MT202 / MT202 COV (FI transfer / cover)",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "COVERS",
+      "tail": "AccountStatement",
+      "evidence": "Provides balance and transaction details of an account to a financial institution on behalf of the account owner \u2014 the end-of-day bank statement",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT900",
+      "relation": "COVERS",
+      "tail": "DebitCreditNotification",
+      "evidence": "MT900 / MT910 (debit/credit confirmation)",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT910",
+      "relation": "COVERS",
+      "tail": "DebitCreditNotification",
+      "evidence": "MT900 / MT910 (debit/credit confirmation)",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT942",
+      "relation": "COVERS",
+      "tail": "AccountReport",
+      "evidence": "MT942 (intraday report)",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "COUNTERPART_OF",
+      "tail": "pacs.008",
+      "evidence": "MT103 (single customer credit transfer) | pacs.008 FIToFICustomerCreditTransfer | customer payment",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "COUNTERPART_OF",
+      "tail": "pacs.009",
+      "evidence": "MT202 / MT202 COV (FI transfer / cover) | pacs.009 FinancialInstitutionCreditTransfer | bank-to-bank / cover",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "COUNTERPART_OF",
+      "tail": "camt.053",
+      "evidence": "MT940 (customer statement, EOD) | camt.053 BankToCustomerStatement | statement",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT900",
+      "relation": "COUNTERPART_OF",
+      "tail": "camt.054",
+      "evidence": "MT900 / MT910 (debit/credit confirmation) | camt.054 BankToCustomerDebitCreditNotification | booking notification",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT910",
+      "relation": "COUNTERPART_OF",
+      "tail": "camt.054",
+      "evidence": "MT900 / MT910 (debit/credit confirmation) | camt.054 BankToCustomerDebitCreditNotification | booking notification",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT942",
+      "relation": "COUNTERPART_OF",
+      "tail": "camt.052",
+      "evidence": "MT942 (intraday report) | camt.052 BankToCustomerAccountReport | interim report",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT101",
+      "relation": "COUNTERPART_OF",
+      "tail": "pain.001",
+      "evidence": "MT101 (customer request) | pain.001 | initiation",
+      "confidence": 0.99,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "GrpHdr",
+      "evidence": "GrpHdr (group header): MsgId, CreDtTm, NbOfTxs, SttlmInf (SettlementInformation)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "MsgId",
+      "evidence": "GrpHdr (group header): MsgId, CreDtTm, NbOfTxs, SttlmInf (SettlementInformation)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "CreDtTm",
+      "evidence": "GrpHdr (group header): MsgId, CreDtTm, NbOfTxs, SttlmInf (SettlementInformation)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "NbOfTxs",
+      "evidence": "GrpHdr (group header): MsgId, CreDtTm, NbOfTxs, SttlmInf (SettlementInformation)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "SttlmInf",
+      "evidence": "GrpHdr (group header): MsgId, CreDtTm, NbOfTxs, SttlmInf (SettlementInformation)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "PmtId",
+      "evidence": "PmtId (payment identification): InstrId, EndToEndId, TxId, UETR",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "InstrId",
+      "evidence": "InstrId (instruction identification)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId",
+      "evidence": "EndToEndId (end-to-end reference \u2014 survives the whole chain)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "TxId",
+      "evidence": "TxId",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "UETR",
+      "evidence": "UETR (unique end-to-end transaction reference)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "PmtTpInf",
+      "evidence": "PmtTpInf",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "IntrBkSttlmAmt",
+      "evidence": "IntrBkSttlmAmt (interbank settlement amount)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "IntrBkSttlmDt",
+      "evidence": "IntrBkSttlmDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt",
+      "evidence": "ValDt (value date)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "FctvDt",
+      "evidence": "FctvDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "Dbtr",
+      "evidence": "Dbtr/DbtrAcct",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "DbtrAcct",
+      "evidence": "Dbtr/DbtrAcct",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "DbtrAgt",
+      "evidence": "DbtrAgt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "Cdtr",
+      "evidence": "Cdtr/CdtrAcct",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "CdtrAcct",
+      "evidence": "Cdtr/CdtrAcct",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.008",
+      "relation": "HAS_FIELD",
+      "tail": "CdtrAgt",
+      "evidence": "CdtrAgt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "PmtId",
+      "evidence": "same header/payment-id family as pacs.008",
+      "confidence": 0.95,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "InstrId",
+      "evidence": "same header/payment-id family as pacs.008 (InstrId, EndToEndId, IntrBkSttlmAmt, ValDt)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId",
+      "evidence": "same header/payment-id family as pacs.008 (InstrId, EndToEndId, IntrBkSttlmAmt, ValDt)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "IntrBkSttlmAmt",
+      "evidence": "same header/payment-id family as pacs.008 (InstrId, EndToEndId, IntrBkSttlmAmt, ValDt)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt",
+      "evidence": "same header/payment-id family as pacs.008 (InstrId, EndToEndId, IntrBkSttlmAmt, ValDt)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "DbtrAgt",
+      "evidence": "with DbtrAgt/CdtrAgt being banks",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "pacs.009",
+      "relation": "HAS_FIELD",
+      "tail": "CdtrAgt",
+      "evidence": "with DbtrAgt/CdtrAgt being banks",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Stmt",
+      "evidence": "Key elements: Stmt/StmtId",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "StmtId",
+      "evidence": "Key elements: Stmt/StmtId",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Acct",
+      "evidence": "Acct",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Bal",
+      "evidence": "Bal (balances with Tp/Dt/Amt)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Ntry",
+      "evidence": "Ntry (entries: Amt, CdtDbtInd, ValDt, BookgDt, NtryRef, BkTxCd, TxDtls)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Amt",
+      "evidence": "Ntry (entries: Amt, CdtDbtInd, ValDt, BookgDt, NtryRef, BkTxCd, TxDtls)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "CdtDbtInd",
+      "evidence": "Ntry (entries: Amt, CdtDbtInd, ValDt, BookgDt, NtryRef, BkTxCd, TxDtls)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt",
+      "evidence": "Ntry (entries: Amt, CdtDbtInd, ValDt, BookgDt, NtryRef, BkTxCd, TxDtls)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "BookgDt",
+      "evidence": "Ntry (entries: Amt, CdtDbtInd, ValDt, BookgDt, NtryRef, BkTxCd, TxDtls)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "NtryRef",
+      "evidence": "Ntry (entries: Amt, CdtDbtInd, ValDt, BookgDt, NtryRef, BkTxCd, TxDtls)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "BkTxCd",
+      "evidence": "Ntry (entries: Amt, CdtDbtInd, ValDt, BookgDt, NtryRef, BkTxCd, TxDtls)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "TxDtls",
+      "evidence": "TxDtls with PmtId/EndToEndId, InstrId, Dbtr/Cdtr",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "PmtId",
+      "evidence": "TxDtls with PmtId/EndToEndId, InstrId, Dbtr/Cdtr",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "InstrId",
+      "evidence": "TxDtls with PmtId/EndToEndId, InstrId, Dbtr/Cdtr",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Dbtr",
+      "evidence": "TxDtls with PmtId/EndToEndId, InstrId, Dbtr/Cdtr",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.053",
+      "relation": "HAS_FIELD",
+      "tail": "Cdtr",
+      "evidence": "TxDtls with PmtId/EndToEndId, InstrId, Dbtr/Cdtr",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "Ntfctn",
+      "evidence": "Ntfctn (notification) with Ntry (entry) carrying Amt, CdtDbtInd, ValDt, BookgDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "Ntry",
+      "evidence": "Ntfctn (notification) with Ntry (entry) carrying Amt, CdtDbtInd, ValDt, BookgDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "Amt",
+      "evidence": "Ntfctn (notification) with Ntry (entry) carrying Amt, CdtDbtInd, ValDt, BookgDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "CdtDbtInd",
+      "evidence": "Ntfctn (notification) with Ntry (entry) carrying Amt, CdtDbtInd, ValDt, BookgDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "ValDt",
+      "evidence": "Ntfctn (notification) with Ntry (entry) carrying Amt, CdtDbtInd, ValDt, BookgDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "BookgDt",
+      "evidence": "Ntfctn (notification) with Ntry (entry) carrying Amt, CdtDbtInd, ValDt, BookgDt",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "TxDtls",
+      "evidence": "TxDtls (PmtId/EndToEndId, Dbtr/Cdtr, RmtInf)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "PmtId",
+      "evidence": "TxDtls (PmtId/EndToEndId, Dbtr/Cdtr, RmtInf)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "EndToEndId",
+      "evidence": "TxDtls (PmtId/EndToEndId, Dbtr/Cdtr, RmtInf)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "Dbtr",
+      "evidence": "TxDtls (PmtId/EndToEndId, Dbtr/Cdtr, RmtInf)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "Cdtr",
+      "evidence": "TxDtls (PmtId/EndToEndId, Dbtr/Cdtr, RmtInf)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.054",
+      "relation": "HAS_FIELD",
+      "tail": "RmtInf",
+      "evidence": "TxDtls (PmtId/EndToEndId, Dbtr/Cdtr, RmtInf)",
+      "confidence": 0.97,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "CONFLICTS_WITH",
+      "tail": "SWIFTNetwork",
+      "evidence": "after the migration, MT103/MT202 will no longer be exchanged over the SWIFT network for these flows",
+      "confidence": 0.95,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "CONFLICTS_WITH",
+      "tail": "SWIFTNetwork",
+      "evidence": "core MT103/MT202 will no longer be allowed on the SWIFT network for cross-border",
+      "confidence": 0.95,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.056",
+      "relation": "RELATED_TO",
+      "tail": "ExceptionHandling",
+      "evidence": "camt.056 (FIToFIPaymentCancellationRequest) and camt.029 (ResolutionOfInvestigation) support the return/cancel/investigation workflow used in exception handling",
+      "confidence": 0.9,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "camt.029",
+      "relation": "RELATED_TO",
+      "tail": "ExceptionHandling",
+      "evidence": "camt.056 (FIToFIPaymentCancellationRequest) and camt.029 (ResolutionOfInvestigation) support the return/cancel/investigation workflow used in exception handling",
+      "confidence": 0.9,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "NoFixedCutoff",
+      "relation": "APPLIES_TO",
+      "tail": "MT940",
+      "evidence": "Reporting messages (MT940 etc.) have no fixed cut-off; banks may keep using MT940 over FIN during transition",
+      "confidence": 0.9,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "EndToEndId",
+      "relation": "RELATED_TO",
+      "tail": "StraightThroughProcessing",
+      "evidence": "EndToEndId end-to-end, UETR ... all of which support higher straight-through processing and automated matching",
+      "confidence": 0.75,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "UETR",
+      "relation": "RELATED_TO",
+      "tail": "StraightThroughProcessing",
+      "evidence": "UETR ... all of which support higher straight-through processing and automated matching",
+      "confidence": 0.75,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "EndToEndId",
+      "relation": "RELATED_TO",
+      "tail": "AutomatedMatching",
+      "evidence": "EndToEndId end-to-end, UETR ... all of which support higher straight-through processing and automated matching",
+      "confidence": 0.75,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "UETR",
+      "relation": "RELATED_TO",
+      "tail": "AutomatedMatching",
+      "evidence": "EndToEndId end-to-end, UETR ... all of which support higher straight-through processing and automated matching",
+      "confidence": 0.75,
+      "source": "iso20022.md"
+    },
+    {
+      "head": "StraightThroughProcessing",
+      "relation": "MITIGATES",
+      "tail": "OperationalRisk",
+      "evidence": "automated end-to-end processing of payment transactions without human intervention; reduces operational risk, cost and cycle time.",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "ISO20022",
+      "relation": "APPLIES_TO",
+      "tail": "StraightThroughProcessing",
+      "evidence": "ISO 20022/CBPR+ and SEPA are explicitly justified as STP enablers",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CBPRPlus",
+      "relation": "APPLIES_TO",
+      "tail": "StraightThroughProcessing",
+      "evidence": "ISO 20022/CBPR+ and SEPA are explicitly justified as STP enablers",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "SEPA",
+      "relation": "APPLIES_TO",
+      "tail": "StraightThroughProcessing",
+      "evidence": "ISO 20022/CBPR+ and SEPA are explicitly justified as STP enablers",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT950",
+      "relation": "COVERS",
+      "tail": "AccountStatement",
+      "evidence": "MT950 for account owners",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT910",
+      "relation": "COVERS",
+      "tail": "CreditConfirmation",
+      "evidence": "MT910 credit confirmations",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "SenderReference",
+      "evidence": "map MT fields to a common model (sender ref `:20`, value date/amount `:32A`, ordering/beneficiary `:50a`/`:59a`, statement line `:61`)",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "ValueDateAndAmount",
+      "evidence": "map MT fields to a common model (sender ref `:20`, value date/amount `:32A`, ordering/beneficiary `:50a`/`:59a`, statement line `:61`)",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "OrderingInstitution",
+      "evidence": "ordering/beneficiary `:50a`/`:59a` are mandatory in MT103",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "BeneficiaryInstitution",
+      "evidence": "ordering/beneficiary `:50a`/`:59a` are mandatory in MT103",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "OrderingInstitution",
+      "evidence": ":50a`/`:59a` are mandatory in MT103 and in MT202 COV Sequence B",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "BeneficiaryInstitution",
+      "evidence": ":50a`/`:59a` are mandatory in MT103 and in MT202 COV Sequence B",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "RelatedReference",
+      "evidence": "MT202 COV linkage via `:21`\u2192`:20`",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "SenderReference",
+      "evidence": "MT202 COV linkage via `:21`\u2192`:20`",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "AccountIdentification",
+      "evidence": "Account identity: `:25` (MT940)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "StatementLine",
+      "evidence": "Statement lines carry value dates (`:61` in MT940)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "RateOfExchange",
+      "evidence": "MT300 confirms one rate for two amounts (`:36`)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "COVERS",
+      "tail": "TradeConfirmation",
+      "evidence": "MT300 confirms one rate for two amounts",
+      "confidence": 0.8,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "COVERS",
+      "tail": "CoverPayment",
+      "evidence": "MT202 COV is the cover payment message",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "RELATED_TO",
+      "tail": "MT103",
+      "evidence": "in step with the MT103 announcement sent to the beneficiary's bank.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "TRIGGERS",
+      "tail": "MT910",
+      "evidence": "credit arrives via MT202 COV \u2192 MT910/950",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "TRIGGERS",
+      "tail": "MT950",
+      "evidence": "credit arrives via MT202 COV \u2192 MT910/950",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "camt.056",
+      "relation": "COVERS",
+      "tail": "CancellationRequest",
+      "evidence": "camt.056 cancellation",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "pacs.004",
+      "relation": "COVERS",
+      "tail": "PaymentReturn",
+      "evidence": "SEPA pacs.004 Payment Return",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "camt.087",
+      "relation": "COVERS",
+      "tail": "PaymentModificationRequest",
+      "evidence": "camt.087 Request to Modify Payment",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "TPlus2",
+      "relation": "APPLIES_TO",
+      "tail": "ForeignExchangeTrade",
+      "evidence": "value-date conventions: FX spot T+2",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "DPlus1",
+      "relation": "APPLIES_TO",
+      "tail": "SEPACreditTransfer",
+      "evidence": "SCT D+1",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CancellationWorkflow",
+      "relation": "RELATED_TO",
+      "tail": "camt.056",
+      "evidence": "cancellation/return workflows via camt.056/camt.029",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CancellationWorkflow",
+      "relation": "RELATED_TO",
+      "tail": "camt.029",
+      "evidence": "cancellation/return workflows via camt.056/camt.029",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CancellationWorkflow",
+      "relation": "RELATED_TO",
+      "tail": "MT192",
+      "evidence": "cancellation/return workflows via ... MT192/MT195/MT292/MT295 (FIN)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CancellationWorkflow",
+      "relation": "RELATED_TO",
+      "tail": "MT195",
+      "evidence": "cancellation/return workflows via ... MT192/MT195/MT292/MT295 (FIN)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CancellationWorkflow",
+      "relation": "RELATED_TO",
+      "tail": "MT292",
+      "evidence": "cancellation/return workflows via ... MT192/MT195/MT292/MT295 (FIN)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "CancellationWorkflow",
+      "relation": "RELATED_TO",
+      "tail": "MT295",
+      "evidence": "cancellation/return workflows via ... MT192/MT195/MT292/MT295 (FIN)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "RejectReturn",
+      "relation": "RELATED_TO",
+      "tail": "pacs.004",
+      "evidence": "Reject/return: ... return flow (e.g. SEPA pacs.004 Payment Return; camt.056 cancellation)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "RejectReturn",
+      "relation": "RELATED_TO",
+      "tail": "camt.056",
+      "evidence": "Reject/return: ... return flow (e.g. SEPA pacs.004 Payment Return; camt.056 cancellation)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "Rebook",
+      "relation": "RELATED_TO",
+      "tail": "camt.087",
+      "evidence": "Rebook: ... (camt.087 Request to Modify Payment / value-date correction in SEPA)",
+      "confidence": 1.0,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "Field50a",
+      "evidence": "with mandatory `:50a`/`:59a`",
+      "confidence": 0.98,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "Field59a",
+      "evidence": "with mandatory `:50a`/`:59a`",
+      "confidence": 0.98,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "REQUIRES",
+      "tail": "Field50a",
+      "evidence": "with mandatory `:50a`/`:59a`",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "REQUIRES",
+      "tail": "Field59a",
+      "evidence": "with mandatory `:50a`/`:59a`",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "RELATED_TO",
+      "tail": "MT202",
+      "evidence": "MT202 COV ... replaced plain MT202",
+      "confidence": 0.9,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "PvP",
+      "relation": "MITIGATES",
+      "tail": "SettlementRisk",
+      "evidence": "settlement risk management posture (PvP usage, netting, limits)",
+      "confidence": 0.85,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "Netting",
+      "relation": "MITIGATES",
+      "tail": "SettlementRisk",
+      "evidence": "settlement risk management posture (PvP usage, netting, limits)",
+      "confidence": 0.85,
+      "source": "reconciliation-ops.md"
+    },
+    {
+      "head": "SettlementRisk",
+      "relation": "RELATED_TO",
+      "tail": "DeliveryRisk",
+      "evidence": "Settlement risk (also delivery risk / counterparty risk)",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "SettlementRisk",
+      "relation": "RELATED_TO",
+      "tail": "CounterpartyRisk",
+      "evidence": "Settlement risk (also delivery risk / counterparty risk)",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXSettlementRisk",
+      "relation": "RELATED_TO",
+      "tail": "CreditRisk",
+      "evidence": "it combines credit risk and liquidity risk",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXSettlementRisk",
+      "relation": "RELATED_TO",
+      "tail": "LiquidityRisk",
+      "evidence": "it combines credit risk and liquidity risk",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXSettlementRisk",
+      "relation": "RELATED_TO",
+      "tail": "PrincipalRisk",
+      "evidence": "the failure mode is principal risk \u2014 losing the full value of a leg",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "HerstattRisk",
+      "relation": "RELATED_TO",
+      "tail": "FXSettlementRisk",
+      "evidence": "Herstatt risk = foreign-exchange settlement risk / cross-currency settlement risk",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXSettlementRisk",
+      "relation": "APPLIES_TO",
+      "tail": "Spot",
+      "evidence": "In deliverable FX (spot, outright forwards, FX swaps, currency swaps), the failure mode is principal risk",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXSettlementRisk",
+      "relation": "APPLIES_TO",
+      "tail": "OutrightForward",
+      "evidence": "In deliverable FX (spot, outright forwards, FX swaps, currency swaps), the failure mode is principal risk",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXSettlementRisk",
+      "relation": "APPLIES_TO",
+      "tail": "FXSwap",
+      "evidence": "In deliverable FX (spot, outright forwards, FX swaps, currency swaps), the failure mode is principal risk",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXSettlementRisk",
+      "relation": "APPLIES_TO",
+      "tail": "CurrencySwap",
+      "evidence": "In deliverable FX (spot, outright forwards, FX swaps, currency swaps), the failure mode is principal risk",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "PvP",
+      "relation": "MITIGATES",
+      "tail": "PrincipalRisk",
+      "evidence": "This removes principal risk for the covered legs",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "CLS",
+      "relation": "MITIGATES",
+      "tail": "FXSettlementRisk",
+      "evidence": "CLS reduces but does not eliminate FX settlement risk",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "PreSettlementNetting",
+      "relation": "MITIGATES",
+      "tail": "SettlementRisk",
+      "evidence": "Pre-settlement netting (bilateral offsetting of obligations) \u2014 reduced risk on ~$1.3 trillion/day of deliverable turnover",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "OnUsSettlement",
+      "relation": "MITIGATES",
+      "tail": "SettlementRisk",
+      "evidence": "On-us settlement ... with simultaneous settlement or loss protection",
+      "confidence": 0.85,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "DvP",
+      "relation": "MITIGATES",
+      "tail": "SettlementRisk",
+      "evidence": "DvP for securities is the analogous concept",
+      "confidence": 0.7,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "CLS",
+      "relation": "REQUIRES",
+      "tail": "RTGS",
+      "evidence": "CLS settles during a ~5-hour window when all RTGS systems in its currencies are open",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "CLSSettlementWindow",
+      "relation": "APPLIES_TO",
+      "tail": "CLS",
+      "evidence": "CLS settles during a ~5-hour window when all RTGS systems in its currencies are open",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "RTGS",
+      "relation": "RELATED_TO",
+      "tail": "PvP",
+      "evidence": "central banks can extend RTGS hours to widen PvP windows",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "MultilateralNetting",
+      "relation": "RELATED_TO",
+      "tail": "CLS",
+      "evidence": "multilateral netting reduces funding requirements",
+      "confidence": 0.85,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "InOutSwap",
+      "relation": "RELATED_TO",
+      "tail": "CLS",
+      "evidence": "the in/out swap compresses payment obligations by ~75%",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FXGlobalCode",
+      "relation": "REQUIRES",
+      "tail": "PvP",
+      "evidence": "calls on participants to use PvP where possible, else netting/other risk reduction",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "BCPMISupervisoryGuidance",
+      "relation": "RELATED_TO",
+      "tail": "FXGlobalCode",
+      "evidence": "BCBS-CPMI supervisory guidance reinforces this",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "ValueDate",
+      "relation": "APPLIES_TO",
+      "tail": "FXTrade",
+      "evidence": "the delivery date of both FX legs (trading)",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "T+2",
+      "relation": "APPLIES_TO",
+      "tail": "Spot",
+      "evidence": "the value date for spot trades in foreign currencies is usually set for two days after the transaction date",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "T+1",
+      "relation": "APPLIES_TO",
+      "tail": "Equity",
+      "evidence": "US equity settlement moved to T+1 (value date = one business day after trade)",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "D+1",
+      "relation": "APPLIES_TO",
+      "tail": "SEPACreditTransfer",
+      "evidence": "beneficiary credited at the latest on D+1",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Field32A",
+      "evidence": "MT103 :32A = YYMMDD value date",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field30T",
+      "evidence": "MT300 :30T/:30V trade and value dates",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field30V",
+      "evidence": "MT300 :30T/:30V trade and value dates",
+      "confidence": 0.95,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field61",
+      "evidence": "`:61` transaction details (O per the German Wikipedia table: value date, booking date, D/C mark, CCY, amount, transaction-type key, reference, bank reference, additional info)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field60F",
+      "evidence": "`:60F`/`:60M` opening/interim balance (M; sub-fields: D/C mark, date, CCY, amount)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field62F",
+      "evidence": "`:62F`/`:62M` closing/interim balance (M)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "COVERS",
+      "tail": "FXTrade",
+      "evidence": "Independent confirmation from a real MT300: trade date 20020122, value date 20020124",
+      "confidence": 0.7,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "PvP",
+      "relation": "REQUIRES",
+      "tail": "RTGS",
+      "evidence": "central banks can extend RTGS hours to widen PvP windows",
+      "confidence": 0.7,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "ValueDate",
+      "relation": "APPLIES_TO",
+      "tail": "FxSpot",
+      "evidence": "value-date semantics above (FX spot T+2, SCT D+1, MT940 line value dates)",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "T+2",
+      "relation": "APPLIES_TO",
+      "tail": "FxSpot",
+      "evidence": "FX spot T+2",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "D+1",
+      "relation": "APPLIES_TO",
+      "tail": "SCT",
+      "evidence": "SCT D+1",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "LineValueDate",
+      "evidence": "MT940 line value dates",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "ValueDateMismatchRisk",
+      "relation": "RELATED_TO",
+      "tail": "ValueDate",
+      "evidence": "VALUE_DATE_MISMATCH exceptions map directly onto value-date semantics above",
+      "confidence": 0.9,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "FxConversionError",
+      "relation": "RELATED_TO",
+      "tail": "PrincipalRisk",
+      "evidence": "FX_CONVERSION_ERROR in a recon pair is the operational echo of principal-risk controls",
+      "confidence": 0.8,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "HerstattRisk",
+      "relation": "TRIGGERS",
+      "tail": "CutOffs",
+      "evidence": "Settlement-risk facts (Herstatt, CLS, PvP) are the 'why' behind the workflow controls: cut-offs, finality, cover-before-credit rules.",
+      "confidence": 0.7,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "HerstattRisk",
+      "relation": "TRIGGERS",
+      "tail": "FinalityRule",
+      "evidence": "Settlement-risk facts (Herstatt, CLS, PvP) are the 'why' behind the workflow controls: cut-offs, finality, cover-before-credit rules.",
+      "confidence": 0.7,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "HerstattRisk",
+      "relation": "TRIGGERS",
+      "tail": "CoverBeforeCreditRule",
+      "evidence": "Settlement-risk facts (Herstatt, CLS, PvP) are the 'why' behind the workflow controls: cut-offs, finality, cover-before-credit rules.",
+      "confidence": 0.7,
+      "source": "settlement-risk.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "COVERS",
+      "tail": "GeneralFinancialInstitutionTransfer",
+      "evidence": "Requests the movement of funds between financial institutions",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "COVERS",
+      "tail": "FXConfirmation",
+      "evidence": "the confirmation of an FX spot/forward trade between two banks.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-20",
+      "evidence": "`:20` Sender's Reference",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-23B",
+      "evidence": "`:23B` Bank Operation Code",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-23E",
+      "evidence": "`:23E` Instruction Code",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-32A",
+      "evidence": "`:32A` Value Date / Currency / Interbank Settled Amount",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-33B",
+      "evidence": "`:33B` Currency / Instructed Amount",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-50a",
+      "evidence": "`:50a` Ordering Customer",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-52a",
+      "evidence": "`:52a` Ordering Institution",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-53a",
+      "evidence": "`:53a` Sender's Correspondent",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-54a",
+      "evidence": "`:54a` Receiver's Correspondent",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-56a",
+      "evidence": "`:56a` Intermediary Institution",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-57a",
+      "evidence": "`:57a` Account With Institution",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-59a",
+      "evidence": "`:59a` Beneficiary Customer",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-70",
+      "evidence": "`:70` Remittance Information",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-71A",
+      "evidence": "`:71A` Details of Charges",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "field-72",
+      "evidence": "`:72` Sender to Receiver Information",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-20",
+      "evidence": "`:20` Sender's Reference (M)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-21",
+      "evidence": "`:21` Related Reference (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-32A",
+      "evidence": "`:32A` Value Date/CCY/Amount (M)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-33B",
+      "evidence": "`:33B` (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-53a",
+      "evidence": "`:53a` Sender's Correspondent (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-54a",
+      "evidence": "`:54a` Receiver's Correspondent (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-57a",
+      "evidence": "`:57a` Account With Institution (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-58a",
+      "evidence": "`:58a` Beneficiary Institution (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "field-72",
+      "evidence": "`:72` (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "field-50a",
+      "evidence": "`:50a` (ordering customer)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "field-59a",
+      "evidence": "`:59a` (beneficiary customer)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "HAS_FIELD",
+      "tail": "field-21",
+      "evidence": "field `:21` (Related Reference) of the MT202 COV carries the `:20` of the related MT103.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-20",
+      "evidence": ":20:REF1B",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-15A",
+      "evidence": ":15A:",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-22A",
+      "evidence": ":22A:NEWT",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-22C",
+      "evidence": ":22C:BEBEBB4475CRESZZ",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-82a",
+      "evidence": ":82A:BEBEDEBB",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-87a",
+      "evidence": ":87A:CRESCHZZ",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-15B",
+      "evidence": ":15B:",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-30T",
+      "evidence": ":30T:20020122      (trade date YYMMDD)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-30V",
+      "evidence": ":30V:20020124      (value date YYMMDD \u2014 T+2 here)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-36",
+      "evidence": ":36:1,4475         (exchange rate)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-32B",
+      "evidence": ":32B:USD144750,00  (currency + amount bought)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-33B",
+      "evidence": ":33B:GBP100000,00  (currency + amount sold)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-57a",
+      "evidence": ":57A:CHASU33       (account with institution, bought leg)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-24D",
+      "evidence": ":24D:PHON",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "field-15C",
+      "evidence": ":15C:",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "CONFLICTS_WITH",
+      "tail": "CoverPayment",
+      "evidence": "EXCEPT if the transfer is related to an underlying customer credit transfer that was sent with the cover method, in which case the MT 202 COV must be used.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202COV",
+      "relation": "MITIGATES",
+      "tail": "MoneyLaunderingRisk",
+      "evidence": "to give intermediate banks visibility of the origin and destination of funds (ordering and beneficiary customer) for risk/AML checks.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "RELATED_TO",
+      "tail": "FXTrade",
+      "evidence": "the confirmation of an FX spot/forward trade between two banks.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "FXConfirmation",
+      "relation": "RELATED_TO",
+      "tail": "FXTrade",
+      "evidence": "Confirms information agreed to in the buying/selling of two currencies",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "CoverPayment",
+      "relation": "REQUIRES",
+      "tail": "CustomerCreditTransfer",
+      "evidence": "MT202 COV is the bank-to-bank cover instruction used for a customer credit transfer sent with the cover method.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "CoverMethod",
+      "relation": "REQUIRES",
+      "tail": "MT202COV",
+      "evidence": "the accompanying MT202 COV does",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "SerialTransfer",
+      "relation": "APPLIES_TO",
+      "tail": "MT103",
+      "evidence": "Serial MT103: the single message that moves funds hop-by-hop down the correspondent chain to the beneficiary's bank.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "CoverMethod",
+      "relation": "APPLIES_TO",
+      "tail": "MT103",
+      "evidence": "Cover-method MT103 (announcement)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202COVRequiredForCover",
+      "relation": "APPLIES_TO",
+      "tail": "CoverPayment",
+      "evidence": "the MT 202 COV must be used.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "RTGS",
+      "relation": "APPLIES_TO",
+      "tail": "FXTrade",
+      "evidence": "settlement then happens via MT202/MT202 COV or RTGS payments in the two currencies.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "ValueDate",
+      "relation": "APPLIES_TO",
+      "tail": "CustomerCreditTransfer",
+      "evidence": "Value Date / Currency / Interbank Settled Amount",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "TradeDate",
+      "relation": "APPLIES_TO",
+      "tail": "MT300",
+      "evidence": ":30T:20020122      (trade date YYMMDD)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "ValueDate",
+      "relation": "APPLIES_TO",
+      "tail": "MT300",
+      "evidence": ":30V:20020124      (value date YYMMDD \u2014 T+2 here)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "T+2",
+      "relation": "APPLIES_TO",
+      "tail": "MT300",
+      "evidence": "(value date YYMMDD \u2014 T+2 here)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "TRIGGERS",
+      "tail": "MT202",
+      "evidence": "settlement then happens via MT202/MT202 COV or RTGS payments in the two currencies.",
+      "confidence": 0.8,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "TRIGGERS",
+      "tail": "MT202COV",
+      "evidence": "settlement then happens via MT202/MT202 COV or RTGS payments in the two currencies.",
+      "confidence": 0.8,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field20",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field22A",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field36",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field32B",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field33B",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field82a",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field87a",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field57a",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field24D",
+      "evidence": "`:20`, `:22A`, `:30T`, `:30V`, `:36`, `:32B`, `:33B`, `:82a`, `:87a`, `:57a`, `:24D` are all VERIFIED from the example above.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field77H",
+      "evidence": "Other optional fields (e.g. `:77H` ordering customer, `:77D` details) exist in the standard but are UNVERIFIED in our fetched sources.",
+      "confidence": 0.8,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field77D",
+      "evidence": "Other optional fields (e.g. `:77H` ordering customer, `:77D` details) exist in the standard but are UNVERIFIED in our fetched sources.",
+      "confidence": 0.8,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT300",
+      "relation": "HAS_FIELD",
+      "tail": "Field22B",
+      "evidence": "MT300 optional fields beyond the fetched example (`:77H`, `:77D`, `:22B`, etc.).",
+      "confidence": 0.7,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field20",
+      "evidence": "Structure (VERIFIED): `:20` transaction reference (M), `:21` related reference (O), `:25` account number (M), `:28`/`:28C` statement number (M), `:60F`/`:60M` opening/interim balance (M; sub-fields: D/C mark, date, CCY, amount), `:61` transaction details (O per the German Wikipedia table: value date, booking date, D/C mark, CCY, amount, transaction-type key, reference, bank reference, additional info), `:86` free description (O), `:62F`/`:62M` closing/interim balance (M).",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field21",
+      "evidence": "Structure (VERIFIED): `:20` transaction reference (M), `:21` related reference (O), `:25` account number (M), `:28`/`:28C` statement number (M), `:60F`/`:60M` opening/interim balance (M; sub-fields: D/C mark, date, CCY, amount), `:61` transaction details (O per the German Wikipedia table: value date, booking date, D/C mark, CCY, amount, transaction-type key, reference, bank reference, additional info), `:86` free description (O), `:62F`/`:62M` closing/interim balance (M).",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field25",
+      "evidence": "Structure (VERIFIED): `:20` transaction reference (M), `:21` related reference (O), `:25` account number (M), `:28`/`:28C` statement number (M), `:60F`/`:60M` opening/interim balance (M; sub-fields: D/C mark, date, CCY, amount), `:61` transaction details (O per the German Wikipedia table: value date, booking date, D/C mark, CCY, amount, transaction-type key, reference, bank reference, additional info), `:86` free description (O), `:62F`/`:62M` closing/interim balance (M).",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field28C",
+      "evidence": "Structure (VERIFIED): `:20` transaction reference (M), `:21` related reference (O), `:25` account number (M), `:28`/`:28C` statement number (M), `:60F`/`:60M` opening/interim balance (M; sub-fields: D/C mark, date, CCY, amount), `:61` transaction details (O per the German Wikipedia table: value date, booking date, D/C mark, CCY, amount, transaction-type key, reference, bank reference, additional info), `:86` free description (O), `:62F`/`:62M` closing/interim balance (M).",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field60M",
+      "evidence": "`:60F`/`:60M` opening/interim balance (M; sub-fields: D/C mark, date, CCY, amount)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field86",
+      "evidence": "`:86` free description (O)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT940",
+      "relation": "HAS_FIELD",
+      "tail": "Field62M",
+      "evidence": "`:62F`/`:62M` closing/interim balance (M)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Field53a",
+      "evidence": "Cover-method MT103 uses fields `:53a`/`:54a`; serial MT103 uses `:56a`/`:57a`.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Field54a",
+      "evidence": "Cover-method MT103 uses fields `:53a`/`:54a`; serial MT103 uses `:56a`/`:57a`.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Field56a",
+      "evidence": "Cover-method MT103 uses fields `:53a`/`:54a`; serial MT103 uses `:56a`/`:57a`.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Field57a",
+      "evidence": "Cover-method MT103 uses fields `:53a`/`:54a`; serial MT103 uses `:56a`/`:57a`.",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Field71A",
+      "evidence": "Charge codes: `:71A` BEN (beneficiary pays all), OUR (sender pays all), SHA (shared).",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT103",
+      "relation": "HAS_FIELD",
+      "tail": "Field72",
+      "evidence": "`:72` exact format rules for MT103/MT202.",
+      "confidence": 0.8,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "HAS_FIELD",
+      "tail": "Field72",
+      "evidence": "`:72` exact format rules for MT103/MT202.",
+      "confidence": 0.8,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202 COV",
+      "relation": "HAS_FIELD",
+      "tail": "Field53a",
+      "evidence": "the reimbursing bank (the sender's correspondent that holds its nostro account, i.e. field `:53a`'s institution)",
+      "confidence": 0.9,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202 COV",
+      "relation": "COVERS",
+      "tail": "CoverPayment",
+      "evidence": "The MT202 COV carries the cover (the actual interbank funds movement / reimbursement) for a customer credit transfer executed with the cover method.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202 COV",
+      "relation": "COVERS",
+      "tail": "CustomerCreditTransfer",
+      "evidence": "The MT202 COV carries the cover (the actual interbank funds movement / reimbursement) for a customer credit transfer executed with the cover method.",
+      "confidence": 0.8,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MT202",
+      "relation": "COVERS",
+      "tail": "BankToBankTransfer",
+      "evidence": "Plain MT202 is for pure bank-to-bank transfers",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "MandatoryMT202COVForCustomerCreditTransfer",
+      "relation": "APPLIES_TO",
+      "tail": "CustomerCreditTransfer",
+      "evidence": "MT202 COV is mandatory for that since 2009",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "NoExplicitSerialCoverFlag",
+      "relation": "APPLIES_TO",
+      "tail": "MT103",
+      "evidence": "There is no explicit flag marking a message as serial or cover \u2014 the receiver infers it from content.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "CreditAtDiscretion",
+      "relation": "APPLIES_TO",
+      "tail": "MT103",
+      "evidence": "A received announcement does NOT mean funds arrived; banks may credit early only at their own discretion (trust, amount thresholds, customer tier).",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "ChargeDeduction",
+      "relation": "TRIGGERS",
+      "tail": "AmountMismatch",
+      "evidence": "Charge deduction can make statement amounts differ from the instructed amount \u2014 a real-world cause of AMOUNT_MISMATCH.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "NoFixedCutoffForReportingMessages",
+      "relation": "APPLIES_TO",
+      "tail": "MT940",
+      "evidence": "No fixed cut-off for reporting messages as of the migration; MT940 remains usable over FIN during transition.",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "PerCurrencyZeroDecimalConventions",
+      "relation": "APPLIES_TO",
+      "tail": "JPY",
+      "evidence": "Per-currency zero-decimal conventions (JPY etc.) from our sources.",
+      "confidence": 0.6,
+      "source": "swift-messages.md"
+    },
+    {
+      "head": "ValueDate",
+      "relation": "APPLIES_TO",
+      "tail": "Field61",
+      "evidence": "MT940 statement lines carry a D/C mark and their own value date per line (`:61`)",
+      "confidence": 1.0,
+      "source": "swift-messages.md"
+    }
+  ]
+}

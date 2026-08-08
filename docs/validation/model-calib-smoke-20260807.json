@@ -1,0 +1,47 @@
+{
+  "run": "smoke-20260807",
+  "created_at": "2026-08-07T23:48:59.232364+00:00",
+  "source_artifact": "/Users/caiotheodoro/Documents/personal/reconforge/docs/validation/model-eval-smoke-20260807.json",
+  "n": 88,
+  "ece": {
+    "ece": 0.0,
+    "n_bins": 10,
+    "curve": [
+      {
+        "bin": 0,
+        "conf_min": 0.0,
+        "conf_max": 0.1,
+        "conf_mean": 0.0,
+        "accuracy": 0.0,
+        "count": 88
+      }
+    ]
+  },
+  "threshold_search": {
+    "best_threshold": 0.0,
+    "best_total_cost": 88.0,
+    "best_normalized_cost": 1.0,
+    "best_n_escalations": 88,
+    "best_n_missed_high": 0,
+    "baseline_total_cost": 88.0,
+    "baseline_n_escalations": 88,
+    "baseline_n_missed_high": 0,
+    "cost_esc": 1.0,
+    "cost_missed_high": 5.0,
+    "grid_step": 0.05
+  },
+  "baseline_cost": {
+    "total_cost": 88.0,
+    "normalized_cost": 1.0,
+    "n_escalations": 88,
+    "n_missed_high": 0,
+    "n_high": 32,
+    "cost_esc": 1.0,
+    "cost_missed_high": 5.0
+  },
+  "cost_model": {
+    "cost_esc": 1.0,
+    "cost_missed_high": 5.0,
+    "assumption": "a missed HIGH exception (principal at risk) costs 5.0x; an ESCALATE-to-review costs 1.0x"
+  }
+}

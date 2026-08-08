@@ -49,8 +49,8 @@ services:
       - "7687:7687"
     environment:
       - NEO4J_AUTH=${NEO4J_AUTH:-neo4j/reconforge_local}
-      - NEO4J_server_memory_heap_max__size=1G
-      - NEO4J_server_memory_pagecache_size=256M
+      - NEO4J_server_memory_heap_max__size=512M
+      - NEO4J_server_memory_pagecache_size=128M
     volumes:
       - neodata:/data
     mem_limit: 1g

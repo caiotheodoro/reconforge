@@ -1,0 +1,2528 @@
+{
+  "run": "smoke-20260807",
+  "base_model": "mlx-community/Qwen3-1.7B-4bit",
+  "adapter_path": "/Users/caiotheodoro/Documents/personal/reconforge/model/adapters/lora-smoke",
+  "created_at": "2026-08-07T23:48:59.064915+00:00",
+  "n": 88,
+  "metrics": {
+    "accuracy": 0.0,
+    "correct": 0,
+    "n": 88,
+    "parse_rate": 1.0,
+    "parsed": 88,
+    "severity_weighted_recall": {
+      "severity_weighted_recall": 0.6959,
+      "n_exceptions": 64,
+      "per_type": {
+        "AMOUNT_MISMATCH": {
+          "n": 7,
+          "caught": 7,
+          "recall": 1.0
+        },
+        "BENEFICIARY_MISMATCH": {
+          "n": 8,
+          "caught": 8,
+          "recall": 1.0
+        },
+        "COUNTERPARTY_MISMATCH": {
+          "n": 10,
+          "caught": 10,
+          "recall": 1.0
+        },
+        "DUPLICATE": {
+          "n": 8,
+          "caught": 0,
+          "recall": 0.0
+        },
+        "FIELD_CORRUPTION": {
+          "n": 6,
+          "caught": 0,
+          "recall": 0.0
+        },
+        "FX_CONVERSION_ERROR": {
+          "n": 7,
+          "caught": 7,
+          "recall": 1.0
+        },
+        "MISSING_MESSAGE": {
+          "n": 8,
+          "caught": 0,
+          "recall": 0.0
+        },
+        "PARTIAL_MATCH": {
+          "n": 4,
+          "caught": 0,
+          "recall": 0.0
+        },
+        "VALUE_DATE_MISMATCH": {
+          "n": 6,
+          "caught": 0,
+          "recall": 0.0
+        }
+      }
+    },
+    "ece": 0.0,
+    "mean_tokens_per_verdict": 38.0,
+    "generation_seconds": 63.2,
+    "generation_tokens_per_sec": 52.9
+  },
+  "severity_weighted_recall_detail": {
+    "severity_weighted_recall": 0.6959,
+    "n_exceptions": 64,
+    "per_type": {
+      "AMOUNT_MISMATCH": {
+        "n": 7,
+        "caught": 7,
+        "recall": 1.0
+      },
+      "BENEFICIARY_MISMATCH": {
+        "n": 8,
+        "caught": 8,
+        "recall": 1.0
+      },
+      "COUNTERPARTY_MISMATCH": {
+        "n": 10,
+        "caught": 10,
+        "recall": 1.0
+      },
+      "DUPLICATE": {
+        "n": 8,
+        "caught": 0,
+        "recall": 0.0
+      },
+      "FIELD_CORRUPTION": {
+        "n": 6,
+        "caught": 0,
+        "recall": 0.0
+      },
+      "FX_CONVERSION_ERROR": {
+        "n": 7,
+        "caught": 7,
+        "recall": 1.0
+      },
+      "MISSING_MESSAGE": {
+        "n": 8,
+        "caught": 0,
+        "recall": 0.0
+      },
+      "PARTIAL_MATCH": {
+        "n": 4,
+        "caught": 0,
+        "recall": 0.0
+      },
+      "VALUE_DATE_MISMATCH": {
+        "n": 6,
+        "caught": 0,
+        "recall": 0.0
+      }
+    }
+  },
+  "confusion_matrix": {
+    "AMOUNT_MISMATCH": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 7,
+      "PARSE_FAIL": 0
+    },
+    "FX_CONVERSION_ERROR": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 7,
+      "PARSE_FAIL": 0
+    },
+    "BENEFICIARY_MISMATCH": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 8,
+      "PARSE_FAIL": 0
+    },
+    "COUNTERPARTY_MISMATCH": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 10,
+      "PARSE_FAIL": 0
+    },
+    "VALUE_DATE_MISMATCH": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 6,
+      "PARSE_FAIL": 0
+    },
+    "MISSING_MESSAGE": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 8,
+      "PARSE_FAIL": 0
+    },
+    "PARTIAL_MATCH": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 4,
+      "PARSE_FAIL": 0
+    },
+    "DUPLICATE": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 8,
+      "PARSE_FAIL": 0
+    },
+    "FIELD_CORRUPTION": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 6,
+      "PARSE_FAIL": 0
+    },
+    "MATCH": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 24,
+      "PARSE_FAIL": 0
+    },
+    "ESCALATE": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 0,
+      "PARSE_FAIL": 0
+    },
+    "PARSE_FAIL": {
+      "AMOUNT_MISMATCH": 0,
+      "FX_CONVERSION_ERROR": 0,
+      "BENEFICIARY_MISMATCH": 0,
+      "COUNTERPARTY_MISMATCH": 0,
+      "VALUE_DATE_MISMATCH": 0,
+      "MISSING_MESSAGE": 0,
+      "PARTIAL_MATCH": 0,
+      "DUPLICATE": 0,
+      "FIELD_CORRUPTION": 0,
+      "MATCH": 0,
+      "ESCALATE": 0,
+      "PARSE_FAIL": 0
+    }
+  },
+  "confusion_summary": {
+    "by_class": [
+      {
+        "class": "AMOUNT_MISMATCH",
+        "n": 7,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            7
+          ]
+        ]
+      },
+      {
+        "class": "FX_CONVERSION_ERROR",
+        "n": 7,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            7
+          ]
+        ]
+      },
+      {
+        "class": "BENEFICIARY_MISMATCH",
+        "n": 8,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            8
+          ]
+        ]
+      },
+      {
+        "class": "COUNTERPARTY_MISMATCH",
+        "n": 10,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            10
+          ]
+        ]
+      },
+      {
+        "class": "VALUE_DATE_MISMATCH",
+        "n": 6,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            6
+          ]
+        ]
+      },
+      {
+        "class": "MISSING_MESSAGE",
+        "n": 8,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            8
+          ]
+        ]
+      },
+      {
+        "class": "PARTIAL_MATCH",
+        "n": 4,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            4
+          ]
+        ]
+      },
+      {
+        "class": "DUPLICATE",
+        "n": 8,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            8
+          ]
+        ]
+      },
+      {
+        "class": "FIELD_CORRUPTION",
+        "n": 6,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            6
+          ]
+        ]
+      },
+      {
+        "class": "MATCH",
+        "n": 24,
+        "correct": 0,
+        "recall": 0.0,
+        "top_confusions": [
+          [
+            "ESCALATE",
+            24
+          ]
+        ]
+      }
+    ]
+  },
+  "per_prediction": [
+    {
+      "task_id": "recon-000005",
+      "difficulty": 0.8926,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000009",
+      "difficulty": 0.6853,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000012",
+      "difficulty": 0.3322,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "PARTIAL_MATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "some fields agree, others differ",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000013",
+      "difficulty": 0.4769,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000020",
+      "difficulty": 0.3452,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "AMOUNT_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "amounts differ beyond tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000027",
+      "difficulty": 0.782,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "AMOUNT_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "amounts differ beyond tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000039",
+      "difficulty": 0.9036,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000041",
+      "difficulty": 0.901,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FIELD_CORRUPTION",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "field value is corrupt or unparsable",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000042",
+      "difficulty": 0.5035,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000052",
+      "difficulty": 0.8341,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000068",
+      "difficulty": 0.4884,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000072",
+      "difficulty": 0.7929,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000080",
+      "difficulty": 0.4636,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000083",
+      "difficulty": 0.8739,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000084",
+      "difficulty": 0.8873,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "VALUE_DATE_MISMATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "value date differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000090",
+      "difficulty": 0.384,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000095",
+      "difficulty": 0.7965,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FX_CONVERSION_ERROR",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "implied FX rate off the stated rate",
+        "resolution": "rebook"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000098",
+      "difficulty": 0.5178,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000107",
+      "difficulty": 0.7832,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000108",
+      "difficulty": 0.9363,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FX_CONVERSION_ERROR",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "implied FX rate off the stated rate",
+        "resolution": "rebook"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000111",
+      "difficulty": 0.6772,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000114",
+      "difficulty": 0.5133,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000118",
+      "difficulty": 0.2461,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000121",
+      "difficulty": 0.9475,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000122",
+      "difficulty": 0.7094,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "VALUE_DATE_MISMATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "value date differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000125",
+      "difficulty": 0.6239,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000129",
+      "difficulty": 0.5778,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000130",
+      "difficulty": 0.6034,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000131",
+      "difficulty": 0.7716,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000135",
+      "difficulty": 0.4614,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000138",
+      "difficulty": 0.9218,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000140",
+      "difficulty": 0.3064,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "VALUE_DATE_MISMATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "value date differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000147",
+      "difficulty": 0.5466,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FIELD_CORRUPTION",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "field value is corrupt or unparsable",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000154",
+      "difficulty": 0.7034,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FIELD_CORRUPTION",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "field value is corrupt or unparsable",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000156",
+      "difficulty": 0.6219,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "AMOUNT_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "amounts differ beyond tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000158",
+      "difficulty": 0.454,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000165",
+      "difficulty": 0.8186,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "AMOUNT_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "amounts differ beyond tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000172",
+      "difficulty": 0.4504,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000173",
+      "difficulty": 0.9323,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "VALUE_DATE_MISMATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "value date differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000181",
+      "difficulty": 0.2728,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000185",
+      "difficulty": 0.3086,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000190",
+      "difficulty": 0.3168,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000191",
+      "difficulty": 0.2856,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000194",
+      "difficulty": 0.3394,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000196",
+      "difficulty": 0.6372,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000199",
+      "difficulty": 0.8124,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000200",
+      "difficulty": 0.2192,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000203",
+      "difficulty": 0.5756,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000217",
+      "difficulty": 0.5098,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000222",
+      "difficulty": 0.2305,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "PARTIAL_MATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "some fields agree, others differ",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000223",
+      "difficulty": 0.5007,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000227",
+      "difficulty": 0.2029,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "VALUE_DATE_MISMATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "value date differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000231",
+      "difficulty": 0.5374,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FX_CONVERSION_ERROR",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "implied FX rate off the stated rate",
+        "resolution": "rebook"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000237",
+      "difficulty": 0.6162,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000241",
+      "difficulty": 0.8854,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FX_CONVERSION_ERROR",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "implied FX rate off the stated rate",
+        "resolution": "rebook"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000243",
+      "difficulty": 0.8727,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000253",
+      "difficulty": 0.8296,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000254",
+      "difficulty": 0.2829,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "AMOUNT_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "amounts differ beyond tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000257",
+      "difficulty": 0.6898,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "VALUE_DATE_MISMATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "value date differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000261",
+      "difficulty": 0.3227,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FX_CONVERSION_ERROR",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "implied FX rate off the stated rate",
+        "resolution": "rebook"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000265",
+      "difficulty": 0.4228,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "AMOUNT_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "amounts differ beyond tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000277",
+      "difficulty": 0.5654,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "AMOUNT_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "amounts differ beyond tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000282",
+      "difficulty": 0.4722,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "PARTIAL_MATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "some fields agree, others differ",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000292",
+      "difficulty": 0.4997,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000294",
+      "difficulty": 0.8494,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FIELD_CORRUPTION",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "field value is corrupt or unparsable",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000295",
+      "difficulty": 0.6887,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000298",
+      "difficulty": 0.7836,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000299",
+      "difficulty": 0.7924,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "PARTIAL_MATCH",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "some fields agree, others differ",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000304",
+      "difficulty": 0.2346,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000309",
+      "difficulty": 0.3985,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000312",
+      "difficulty": 0.7202,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000315",
+      "difficulty": 0.6982,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000332",
+      "difficulty": 0.5423,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000333",
+      "difficulty": 0.3648,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000338",
+      "difficulty": 0.7395,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "MISSING_MESSAGE",
+        "severity": "MEDIUM",
+        "confidence": 1.0,
+        "reason": "statement side missing for this pair",
+        "resolution": "escalate"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000341",
+      "difficulty": 0.3504,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000351",
+      "difficulty": 0.6637,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FX_CONVERSION_ERROR",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "implied FX rate off the stated rate",
+        "resolution": "rebook"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000352",
+      "difficulty": 0.2242,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000355",
+      "difficulty": 0.3012,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000357",
+      "difficulty": 0.3775,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000365",
+      "difficulty": 0.7187,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "DUPLICATE",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "same ref booked twice on the ledger",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000367",
+      "difficulty": 0.235,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000373",
+      "difficulty": 0.696,
+      "expected": {
+        "verdict": "MATCH",
+        "exception_type": null,
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "all fields agree within tolerance",
+        "resolution": "auto-adjust"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000385",
+      "difficulty": 0.2535,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FIELD_CORRUPTION",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "field value is corrupt or unparsable",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000387",
+      "difficulty": 0.3509,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "COUNTERPARTY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "counterparty differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000396",
+      "difficulty": 0.4863,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FX_CONVERSION_ERROR",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "implied FX rate off the stated rate",
+        "resolution": "rebook"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000399",
+      "difficulty": 0.2793,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "BENEFICIARY_MISMATCH",
+        "severity": "HIGH",
+        "confidence": 1.0,
+        "reason": "beneficiary differs between sides",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": true,
+      "confidence": 0.0,
+      "n_tokens": 38
+    },
+    {
+      "task_id": "recon-000400",
+      "difficulty": 0.6961,
+      "expected": {
+        "verdict": "EXCEPTION",
+        "exception_type": "FIELD_CORRUPTION",
+        "severity": "LOW",
+        "confidence": 1.0,
+        "reason": "field value is corrupt or unparsable",
+        "resolution": "flag-review"
+      },
+      "predicted": {
+        "verdict": "ESCALATE",
+        "exception_type": null,
+        "severity": "MEDIUM",
+        "confidence": 0.0,
+        "reason": "missing counterpart side on the statement",
+        "resolution": "flag-review"
+      },
+      "correct": false,
+      "caught": false,
+      "confidence": 0.0,
+      "n_tokens": 38
+    }
+  ]
+}

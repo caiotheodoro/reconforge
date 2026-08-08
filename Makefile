@@ -1,6 +1,15 @@
-.PHONY: validate forge-test knowledge-test model-test system-test study bench compose-up compose-down
+.PHONY: validate sync forge-test knowledge-test model-test system-test study compose-up compose-down
 
 PY = uv run python
+
+# macOS workaround: editable installs drop .pth files that CPython skips when
+# the venv dir carries the hidden flag (iCloud/Spotlight). Non-editable
+# installs avoid .pth entirely -> hermetic and repeatable.
+sync:
+	cd forge && uv sync --no-editable
+	cd knowledge && uv sync --no-editable
+	cd model && uv sync --no-editable
+	cd system && uv sync --no-editable
 
 validate: forge-test knowledge-test model-test system-test
 
