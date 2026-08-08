@@ -2,14 +2,12 @@
 
 PY = uv run python
 
-# macOS workaround: editable installs drop .pth files that CPython skips when
-# the venv dir carries the hidden flag (iCloud/Spotlight). Non-editable
-# installs avoid .pth entirely -> hermetic and repeatable.
+# macOS workaround: uv hides new venvs in Finder (UF_HIDDEN), and CPython
+# 3.11+ skips .pth files under hidden dirs, silently breaking editable
+# installs. Tests use pytest `pythonpath = ["src"]` (no .pth involved);
+# the chflags is for CLI runs and cross-workstream imports.
 sync:
-	cd forge && uv sync --no-editable
-	cd knowledge && uv sync --no-editable
-	cd model && uv sync --no-editable
-	cd system && uv sync --no-editable
+	for d in forge knowledge model system; do cd $$d && uv sync --no-editable && chflags -R nohidden .venv && cd ..; done
 
 validate: forge-test knowledge-test model-test system-test
 

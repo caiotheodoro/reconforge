@@ -36,4 +36,5 @@ packages = ["src/reconforge_model"]
 package = false
 
 [tool.pytest.ini_options]
+pythonpath = ["src"]
 testpaths = ["tests"]

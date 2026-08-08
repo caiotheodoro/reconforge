@@ -42,6 +42,7 @@ def score_verdicts(
         return model_verdicts[tasks.index(task)]
 
     n = len(tasks)
+    n_parse_misses = 0
     correct_verdict = 0
     weight_sum = 0.0
     caught_weight = 0.0
@@ -55,8 +56,10 @@ def score_verdicts(
     for task in tasks:
         exp = task.expected
         mv = lookup(task)
-        m_verdict = str(mv.get("verdict", "MATCH"))
-        m_type = mv.get("exception_type")
+        if mv is None:  # parse failure / no verdict emitted — count as a miss
+            n_parse_misses += 1
+        m_verdict = "MATCH" if mv is None else str(mv.get("verdict", "MATCH"))
+        m_type = None if mv is None else mv.get("exception_type")
         exp_type = exp.get("exception_type")
         exp_verdict = exp.get("verdict", _MATCH)
 
@@ -93,6 +96,7 @@ def score_verdicts(
 
     return {
         "n_tasks": n,
+        "n_parse_misses": n_parse_misses,
         "verdict_accuracy": round(correct_verdict / max(n, 1), 4),
         "n_exception_tasks": n_exception,
         "exception_type_accuracy": round(n_exception_type_correct / max(n_exception, 1), 4),

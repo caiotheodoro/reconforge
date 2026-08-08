@@ -414,3 +414,22 @@ measured evidence.
 - Note: the canonical knowledge/data/extracted.json is kept as the
   deterministic+gold graph (91 entities / 88 relations) because it is the
   graph validated in the Neo4j smoke test and against the probe targets.
+
+## 2026-08-08 — M8 — DeepSeek provider behavior + concurrent eval
+- Decision: max_tokens=1024 for deepseek-v4-flash (reasoning tokens eat small budgets,
+  causing empty responses); 16-worker concurrent eval with JSONL checkpoint (resumable).
+- Rationale: measured 33/60 empty responses at max_tokens=256, 1/60 at 1024 (empty→retry
+  loop); serial 800-task run exceeded 45min, concurrent 16 → ~2min with zero losses.
+- Evidence: bench-deepseek-full.json (accuracy 0.8762, R_w 0.8719, 0 empty).
+
+## 2026-08-08 — M9 — score_verdicts robustness
+- Decision: forge score_verdicts treats None predictions as parse misses (n_parse_misses),
+  not crashes; verdict_accuracy/recall unaffected semantically (a miss is a miss).
+- Rationale: real frontier models emit unparseable/empty outputs; the scorer must count
+  them honestly, not blow up.
+
+## 2026-08-08 — I1 — macOS venv hermeticity
+- Decision: pytest `pythonpath = ["src"]` in all four workstreams + `make sync` does
+  `uv sync --no-editable` + `chflags -R nohidden .venv`.
+- Rationale: uv marks new venvs UF_HIDDEN by design; CPython 3.11+ skips .pth files
+  under hidden dirs → editable installs silently break on every fresh venv (observed 4x).
