@@ -58,3 +58,27 @@ uv run python -m reconforge_model.benchmark_eval --adapter-path adapters/lora-fu
 
 Artifacts: `docs/validation/bench-deepseek-full.json`,
 `docs/validation/bench-eval-full-700.json`, `bench-eval-full-740.json`.
+
+## B2 study — training-mix rebalancing (negative result)
+
+Attempted fix for the LOW-severity hole: rebalanced the training exception mix
+(DUPLICATE 8→22%, FIELD_CORRUPTION 8→15%, cutting AMOUNT/PARTIAL/VALUE_DATE)
+and retrained (590 steps). **It made things worse**:
+
+| Class | run1 (default mix) | B2 (rebalanced) |
+|---|---|---|
+| HIGH recall | **1.0** | 0.89 |
+| MEDIUM recall | **0.84** | 0.40 |
+| AMOUNT_MISMATCH correct | **73** | 56 |
+| PARTIAL_MATCH correct | **26** | 1 |
+| VALUE_DATE_MISMATCH correct | **37** | 8 |
+| DUPLICATE correct | 0 | 1 |
+| FIELD_CORRUPTION correct | 13 | **16** |
+| **R_w** | **0.9128** | 0.7230 |
+
+Reading: distribution matching beats rebalancing. Cutting a class's training
+weight destroys its recall on the benchmark; upsampling a subtle-signal class
+(DUPLICATE) buys ~nothing — the miss is representational (the model learned
+"all fields agree → MATCH"), not a data-count problem. Champion remains the
+default-mix run1 adapter. DUPLICATE is caught in production by the verifier
+pre-check, not the model.

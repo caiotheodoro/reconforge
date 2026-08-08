@@ -481,3 +481,19 @@ measured evidence.
   bitnami/kafka (unavailable: docker.io 404 on bitnami tags).
 - Rationale: same protocol/port (9092), no client changes; config now at
   system/kafka/server.properties.
+
+## 2026-08-08 — B2 (completed) — Training-mix rebalancing is a NEGATIVE result
+- Decision: champion = run1 adapter (default mix, iter 740, R_w 0.9128). B2
+  (rebalanced mix, iter 590) rejected.
+- Evidence: B2 vs run1 on identical 800-task benchmark — HIGH 1.0->0.89,
+  MEDIUM 0.84->0.40 (PARTIAL_MATCH 26->1, VALUE_DATE 37->8), AMOUNT 73->56,
+  DUPLICATE 0->1, FIELD_CORRUPTION 13->16. R_w 0.7230 vs 0.9128.
+- Mechanism: cutting the training weight of classes the benchmark tests
+  heavily destroyed recall on exactly those classes; upsampled rare classes
+  gained ~nothing (DUPLICATE is a signal-representation problem, not a count
+  problem — 124 examples were enough; the model learned "all fields agree ->
+  MATCH").
+- Conclusion: training distribution must MATCH deployment distribution;
+  class rebalancing trades real recall for phantom recall. DUPLICATE
+  detection is best handled by the rule verifier pre-check in the gate layer,
+  not by training more examples.
