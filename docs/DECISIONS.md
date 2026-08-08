@@ -447,3 +447,12 @@ measured evidence.
 - Evidence: accuracy 0.8762, severity-weighted R 0.8719, escalation precision
   1.0, parse 99.6%. Fine-tuned @700 steps (old run): 0.781 / 0.729. New
   iter-740 adapter under evaluation.
+
+## 2026-08-08 — M12 — Full head-to-head: fine-tuned 1.7B BEATS DeepSeek on R_w
+- Decision: iter-740 adapter is the benchmark candidate (self-consistency x3).
+- Evidence (800-task held-out bench, seed 777): accuracy 0.8050 (DS 0.8762),
+  severity-weighted recall 0.9128 (DS 0.8719), HIGH recall 1.0000, parse
+  1.0000, ECE 0.1175, 0 escalations. Base ablation: R_w 0.6002.
+- Reading: the LoRA trades low-weight-class accuracy for the money axis.
+  Remaining hole = LOW classes (DUPLICATE 0/31, FIELD_CORRUPTION 13/37);
+  fixable by B2 data composition + E3 escalation policy.
