@@ -456,3 +456,12 @@ measured evidence.
 - Reading: the LoRA trades low-weight-class accuracy for the money axis.
   Remaining hole = LOW classes (DUPLICATE 0/31, FIELD_CORRUPTION 13/37);
   fixable by B2 data composition + E3 escalation policy.
+
+## 2026-08-08 — C1 — Judge calibration study (golden-100, seed 333)
+- Decision: golden set = 100 fresh tasks (seed 333, unused elsewhere), labels =
+  verifier-as-oracle, judges = DeepSeek-v4-flash (temp 0.1) and the fine-tuned
+  worker (greedy). Cohen's kappa is the recalibration target.
+- Evidence: DeepSeek kappa 0.7407 / agreement 0.82; local fine-tuned judge
+  0.7361 / 0.81. Both below the 0.85 Airbnb EDD bar -> judge refinement is an
+  open workstream (judge-specific fine-tune or rubric changes); weekly
+  recalibration schedule has a live target.
