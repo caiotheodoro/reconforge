@@ -105,11 +105,11 @@ class Pair(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     task_id: str = Field(min_length=1)
-    seed: int
-    difficulty: float = Field(ge=0.0, le=1.0)
+    seed: int | None = None
+    difficulty: float | None = Field(default=None, ge=0.0, le=2.0)
     ledger: LedgerSide
-    statement: StatementSide
-    expected: Expected
+    statement: StatementSide | None = None
+    expected: Expected | None = None
 
 
 class Verdict(BaseModel):
@@ -124,6 +124,7 @@ class Verdict(BaseModel):
     confidence: float = Field(ge=0.0, le=1.0)
     reason: str = Field(min_length=1, max_length=200)
     resolution: Literal["auto-adjust", "escalate", "reject", "rebook", "flag-review"]
+    review_state: Literal["resolved", "timed-out", "pending", "rejected"] | None = None
 
 
 class LedgerEntry(BaseModel):

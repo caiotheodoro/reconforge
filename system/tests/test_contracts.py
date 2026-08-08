@@ -21,7 +21,7 @@ def test_valid_pair_passes(sample_pair_dict):
     [
         lambda d: d.update({"ledger": {**d["ledger"], "message_type": "MT999"}}),
         lambda d: d.update({"statement": {**d["statement"], "amount": None}}),
-        lambda d: d.update({"difficulty": 1.5}),
+        lambda d: d.update({"difficulty": 2.5}),
         lambda d: d.update({"expected": {**d["expected"], "severity": "CRITICAL"}}),
         lambda d: d.pop("ledger"),
     ],

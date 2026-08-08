@@ -465,3 +465,19 @@ measured evidence.
   0.7361 / 0.81. Both below the 0.85 Airbnb EDD bar -> judge refinement is an
   open workstream (judge-specific fine-tune or rubric changes); weekly
   recalibration schedule has a live target.
+
+## 2026-08-08 — I2 — Temporal Cloud live integration (first end-to-end)
+- Decision: DecisionWorkflow (durable HITL) ran against reconforge.drilv with
+  real Postgres + Kafka: workflow start -> ledger /reviews 201 -> review
+  signal -> record_final_verdict -> ledger /entries 201 (source=human) ->
+  Kafka publish. Verified audit entry via GET /entries/{task_id}.
+- Fixes en route: Verdict contract gained review_state; Pair contract made
+  seed/difficulty/expected optional (production pairs carry no oracle label);
+  compose kafka switched to apache/kafka:3.9.0 (bitnami pulls fail from this
+  registry) with KRaft server.properties at system/kafka/.
+
+## 2026-08-08 — I3 — Kafka broker switch
+- Decision: apache/kafka:3.9.0 (KRaft, node.id=0, combined roles) replacing
+  bitnami/kafka (unavailable: docker.io 404 on bitnami tags).
+- Rationale: same protocol/port (9092), no client changes; config now at
+  system/kafka/server.properties.
