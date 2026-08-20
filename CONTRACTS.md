@@ -125,7 +125,7 @@ Gold-triples file format: `docs/corpus/gold-triples.json` =
 
 | Service | Image | Port | Memory cap |
 |---|---|---|---|
-| kafka | bitnami/kafka:latest (KRaft, single node) | 9092 | 1g |
+| kafka | apache/kafka:3.9.0 (KRaft, single node) | 9092 | 1g |
 | postgres | postgres:16 | 5432 | 512m |
 | neo4j | neo4j:5-community | 7474, 7687 | 1g |
 | redis | redis:7 | 6379 | 128m |

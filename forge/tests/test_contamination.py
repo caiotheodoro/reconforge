@@ -82,3 +82,31 @@ def test_evaluate_monitor_seed_sensitivity():
     a = evaluate_monitor(train, eval_clean, seed=7)
     b = evaluate_monitor(train, eval_clean, seed=8)
     assert a != b
+
+def test_near_duplicate_report_identical_tasks_score_1():
+    from reconforge_forge.contamination import near_duplicate_report
+
+    train = generate_tasks(20, seed=1)
+    eval_leaked = [Task.from_dict(train[0].to_dict())]
+    r = near_duplicate_report(train, eval_leaked, threshold=0.8, seed=11)
+    assert r["near_duplicate_count"] == 1
+    assert r["nearest_neighbour_similarity_histogram"]["[1.0,1.0]"] == 1
+
+
+def test_near_duplicate_report_clean_sets_low_similarity():
+    from reconforge_forge.contamination import near_duplicate_report
+
+    train = generate_tasks(50, seed=1)
+    eval_clean = generate_tasks(50, seed=99)
+    r = near_duplicate_report(train, eval_clean, threshold=0.8, seed=11)
+    assert r["near_duplicate_count"] < len(eval_clean)
+
+
+def test_near_duplicate_report_deterministic():
+    from reconforge_forge.contamination import near_duplicate_report
+
+    train = generate_tasks(30, seed=1)
+    eval_clean = generate_tasks(30, seed=2)
+    a = near_duplicate_report(train, eval_clean, seed=11)
+    b = near_duplicate_report(train, eval_clean, seed=11)
+    assert a == b

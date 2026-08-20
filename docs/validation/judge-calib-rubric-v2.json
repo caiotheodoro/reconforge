@@ -1,0 +1,33 @@
+{
+  "run": "rubric-v2",
+  "prompt": "judge",
+  "seed": 333,
+  "n": 100,
+  "created_at": "2026-08-08T16:00:03.413152+00:00",
+  "deepseek": {
+    "kappa": 0.9037,
+    "agreement": 0.93,
+    "confusion": {
+      "FIELD_CORRUPTION->MATCH": 2,
+      "MATCH->UNPARSEABLE": 2,
+      "FIELD_CORRUPTION->UNPARSEABLE": 1,
+      "FIELD_CORRUPTION->VALUE_DATE_MISMATCH": 1,
+      "FX_CONVERSION_ERROR->UNPARSEABLE": 1
+    },
+    "artifact": "/Users/caiotheodoro/Documents/personal/reconforge/docs/validation/golden-100-rubric-v2.jsonl"
+  },
+  "local": {
+    "kappa": 0.3672,
+    "agreement": 0.42,
+    "confusion": {
+      "MATCH->VALUE_DATE_MISMATCH": 27,
+      "MATCH->PARTIAL_MATCH": 15,
+      "MATCH->AMOUNT_MISMATCH": 5,
+      "FIELD_CORRUPTION->VALUE_DATE_MISMATCH": 5,
+      "COUNTERPARTY_MISMATCH->PARTIAL_MATCH": 4,
+      "VALUE_DATE_MISMATCH->MATCH": 1,
+      "DUPLICATE->VALUE_DATE_MISMATCH": 1
+    },
+    "artifact": "/Users/caiotheodoro/Documents/personal/reconforge/docs/validation/golden-100-local-judge-rubric-v2.jsonl"
+  }
+}

@@ -42,7 +42,8 @@ docs/       corpus, benchmark report, decision log, study results
 - **Calibration**: self-consistency confidence ECE 0.118; HIGH-severity recall
   1.0.
 - **Cadence (Temporal Cloud, live)**: nightly contamination probe, weekly
-  judge recalibration (kappa 0.74 current, target 0.85), per-release
+  judge recalibration (DeepSeek judge kappa 0.90, bar cleared; local judge
+  0.37, open — see Honest limits), per-release
   benchmark matrix, drift-triggered retrain workflow. Durable HITL proven
   end-to-end: workflow → ledger → human signal → final verdict, audited.
 - **Studies**: S1-S6-era sweeps + B2 negative result (training-mix rebalancing
@@ -54,7 +55,9 @@ docs/       corpus, benchmark report, decision log, study results
 - Synthetic data only (the methodology is the subject, not live data).
 - DUPLICATE recall ≈ 0 — a representation problem, fixed in production by the
   rule verifier pre-check, not the model (measured in B2).
-- Judge kappa 0.74 below the 0.85 bar — open workstream.
+- Local fine-tuned judge kappa 0.37 (regressed from 0.74 by the rubric fix
+  that fixed the DeepSeek judge to 0.90) — open workstream, needs a
+  judge-specific fine-tune, not more prompting.
 - Base-model + eval numbers are self-measured on a self-built benchmark;
   that's the point (the methodology is published with the numbers).
 

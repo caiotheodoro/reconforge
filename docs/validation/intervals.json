@@ -1,0 +1,211 @@
+{
+  "champion_vs_deepseek": {
+    "accuracy_diff": {
+      "diff_ci95": [
+        -0.0963,
+        -0.0462
+      ],
+      "diff_point": -0.0712,
+      "p_approx": 0.0,
+      "significant_at_0.05": true
+    },
+    "severity_weighted_recall_diff": {
+      "diff_ci95": [
+        0.0076,
+        0.0518
+      ],
+      "diff_point": 0.029,
+      "p_approx": 0.0092,
+      "significant_at_0.05": true
+    }
+  },
+  "resamples": 10000,
+  "runs": {
+    "base_qwen3_1_7b": {
+      "accuracy": {
+        "ci95": [
+          0.645,
+          0.71
+        ],
+        "point": 0.6775
+      },
+      "n": 800,
+      "severity_band_recall": {
+        "HIGH": {
+          "ci95": [
+            0.8251,
+            0.9213
+          ],
+          "point": 0.875
+        },
+        "LOW": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "point": 0.0
+        },
+        "MEDIUM": {
+          "ci95": [
+            0.0083,
+            0.0756
+          ],
+          "point": 0.03875968992248062
+        }
+      },
+      "severity_weighted_recall": {
+        "ci95": [
+          0.5475,
+          0.65
+        ],
+        "point": 0.6002
+      }
+    },
+    "deepseek_v4_flash": {
+      "accuracy": {
+        "ci95": [
+          0.8525,
+          0.8988
+        ],
+        "point": 0.8762
+      },
+      "n": 800,
+      "severity_band_recall": {
+        "HIGH": {
+          "ci95": [
+            0.9828,
+            1.0
+          ],
+          "point": 0.9945652173913043
+        },
+        "LOW": {
+          "ci95": [
+            0.0667,
+            0.2373
+          ],
+          "point": 0.14705882352941177
+        },
+        "MEDIUM": {
+          "ci95": [
+            0.6074,
+            0.768
+          ],
+          "point": 0.689922480620155
+        }
+      },
+      "severity_weighted_recall": {
+        "ci95": [
+          0.8431,
+          0.8993
+        ],
+        "point": 0.8719
+      }
+    },
+    "reconforge_recon": {
+      "accuracy": {
+        "ci95": [
+          0.7775,
+          0.8325
+        ],
+        "point": 0.805
+      },
+      "n": 800,
+      "per_exception_type_recall": {
+        "AMOUNT_MISMATCH": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "point": 1.0
+        },
+        "BENEFICIARY_MISMATCH": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "point": 1.0
+        },
+        "COUNTERPARTY_MISMATCH": {
+          "ci95": [
+            0.7442,
+            0.9697
+          ],
+          "point": 0.8648648648648649
+        },
+        "DUPLICATE": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "point": 0.0
+        },
+        "FIELD_CORRUPTION": {
+          "ci95": [
+            0.1333,
+            0.4211
+          ],
+          "point": 0.2702702702702703
+        },
+        "FX_CONVERSION_ERROR": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "point": 1.0
+        },
+        "MISSING_MESSAGE": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "point": 1.0
+        },
+        "PARTIAL_MATCH": {
+          "ci95": [
+            0.5172,
+            0.8462
+          ],
+          "point": 0.6875
+        },
+        "VALUE_DATE_MISMATCH": {
+          "ci95": [
+            0.5641,
+            0.8136
+          ],
+          "point": 0.6923076923076923
+        }
+      },
+      "severity_band_recall": {
+        "HIGH": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "point": 1.0
+        },
+        "LOW": {
+          "ci95": [
+            0.0678,
+            0.2373
+          ],
+          "point": 0.14705882352941177
+        },
+        "MEDIUM": {
+          "ci95": [
+            0.7265,
+            0.8661
+          ],
+          "point": 0.7984496124031008
+        }
+      },
+      "severity_weighted_recall": {
+        "ci95": [
+          0.8756,
+          0.9239
+        ],
+        "point": 0.9007
+      }
+    }
+  },
+  "seed": 11
+}

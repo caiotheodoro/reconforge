@@ -1,0 +1,40 @@
+{
+  "reconforge_recon": {
+    "temperature": 0.6,
+    "top_p": 1.0,
+    "max_new_tokens": 256,
+    "samples_per_task": 5,
+    "aggregation": "self-consistency majority vote",
+    "prompt_version": "v1",
+    "thinking_mode": "off",
+    "eval_date": "2026-08-08",
+    "model_revision": "adapters/champion @ this repo",
+    "base_model_revision": "mlx-community/Qwen3-1.7B-4bit",
+    "source": "reconforge/model/src/reconforge_model/benchmark_eval.py; docs/validation/bench-eval-champion-x5.log"
+  },
+  "deepseek_v4_flash": {
+    "temperature": 0.0,
+    "top_p": null,
+    "max_tokens": 1024,
+    "samples_per_task": 1,
+    "aggregation": "n/a (single sample)",
+    "prompt_version": "v1",
+    "thinking_mode": "n/a",
+    "eval_date": "2026-08-08",
+    "model_revision": "API snapshot at 2026-08-08 (provider does not expose a pinned revision id)",
+    "source": "reconforge/model/src/reconforge_model/compare_deepseek.py; docs/validation/bench-deepseek-full.json created_at"
+  },
+  "base_qwen3_1_7b": {
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "max_new_tokens": 256,
+    "samples_per_task": 1,
+    "aggregation": "n/a (single sample, greedy)",
+    "prompt_version": "v1",
+    "thinking_mode": "off",
+    "eval_date": "2026-08-08",
+    "model_revision": "mlx-community/Qwen3-1.7B-4bit (no adapter)",
+    "source": "reconforge/model/src/reconforge_model/eval.py; docs/validation/bench-eval-base-ablation.log"
+  },
+  "note": "reconforge_recon's Quick Start card snippet uses a single greedy sample (temp=0.0) for a minimal usage example -- it does NOT match this eval config (self-consistency x5 @ temp=0.6). This is stated explicitly in the card; the earlier spec draft's claim that Quick Start 'matches the eval config' was wrong and is corrected here."
+}

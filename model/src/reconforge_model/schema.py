@@ -73,6 +73,36 @@ use "verdict": "ESCALATE" with "resolution": "flag-review".
 - A missing counterpart side on the statement is MISSING_MESSAGE, not a MATCH.
 - Reply with ONLY the JSON object. No markdown fences, no commentary, no thinking."""
 
+# Judge-only prompt: adds explicit matching rules for the four exception
+# types SYSTEM_PROMPT only names but never defines (VALUE_DATE_MISMATCH,
+# PARTIAL_MATCH, FIELD_CORRUPTION, DUPLICATE). C1 golden-100 study showed
+# both judges default these to MATCH/scattered without a stated rule (kappa
+# ~0.74). Rules below are not new — sourced from CONTRACTS.md verifier
+# tolerance semantics and decisions F1/F4, just surfaced in prompt text.
+#
+# Deliberately NOT used for training data (dataset_builder.py) or worker
+# eval (eval.py, compare_deepseek.py) — those keep importing SYSTEM_PROMPT
+# unchanged so the champion adapter's trained prompt-response contract and
+# existing benchmark numbers stay reproducible.
+JUDGE_SYSTEM_PROMPT = SYSTEM_PROMPT[:-1] + """
+
+Additional rules for classes the base instructions only name:
+- VALUE_DATE_MISMATCH: the value_date must fall on a business day (Mon-Fri, \
+no holiday calendar) AND must not exceed booked_at + 2 calendar days. Either \
+violation is VALUE_DATE_MISMATCH, not MATCH.
+- PARTIAL_MATCH: beneficiary/counterparty strings are near-equal — a \
+token-subset relationship, a one-token drift, or a raw-prefix truncation \
+(e.g. a shortened BIC) — while every other field matches. A fully different \
+name with no token overlap is BENEFICIARY_MISMATCH/COUNTERPARTY_MISMATCH, \
+not PARTIAL_MATCH.
+- FIELD_CORRUPTION: a field value is garbled, truncated, or otherwise \
+malformed in a way not explained by any other exception type, while the \
+remaining fields still line up. Prefer a more specific exception type when \
+one applies.
+- DUPLICATE: the statement's ref, once trimmed of whitespace, equals the \
+ledger's ref exactly (same instruction referenced twice), even if every \
+other field also matches. Do not default this case to MATCH."""
+
 USER_TEMPLATE = """Reconcile the following ledger entry against the bank statement.
 
 LEDGER ENTRY:

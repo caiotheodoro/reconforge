@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Dataset builder, MLX-LoRA fine-tuning, and evaluation for the ReconForge reconciliation worker model."
 requires-python = ">=3.11"
 dependencies = [
+    "datasets>=5.0.1",
+    "huggingface-hub>=1.27.0",
     "mlx-lm>=0.22",
     "numpy",
     "openai",

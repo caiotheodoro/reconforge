@@ -497,3 +497,44 @@ measured evidence.
   class rebalancing trades real recall for phantom recall. DUPLICATE
   detection is best handled by the rule verifier pre-check in the gate layer,
   not by training more examples.
+
+## 2026-08-08 — C2 — Judge rubric fix closes the 0.85 bar for DeepSeek, breaks the local judge
+- Decision: added `JUDGE_SYSTEM_PROMPT` (model/src/reconforge_model/schema.py)
+  — additive to, not a replacement of, the worker's `SYSTEM_PROMPT` — with
+  explicit matching rules for the four classes C1 only named but never
+  defined: VALUE_DATE_MISMATCH (business-day + late-booking threshold),
+  PARTIAL_MATCH (F4 near-equal-name definition), FIELD_CORRUPTION, DUPLICATE
+  (F1 trimmed-ref equality). Reran the golden-100 study (seed 333, same as
+  C1) via the new `model/src/reconforge_model/judge_calib.py` against both
+  raters with the new prompt.
+- Evidence: DeepSeek judge kappa 0.7407 -> **0.9037** (agreement 0.82 ->
+  0.93), clears the 0.85 bar. Local fine-tuned worker-as-judge kappa 0.7361
+  -> **0.3672** (agreement 0.81 -> 0.42) — regression, not an improvement.
+  Confusion table shows the local judge now hallucinates VALUE_DATE_MISMATCH
+  (27/100) and PARTIAL_MATCH (15/100) on true MATCH pairs — it over-fires
+  rather than under-fires with the extended prompt.
+  Artifacts: docs/validation/judge-calib-rubric-v2.json,
+  golden-100-rubric-v2.jsonl, golden-100-local-judge-rubric-v2.jsonl.
+- Mechanism: the local judge IS the fine-tuned worker, trained exclusively
+  on `SYSTEM_PROMPT`'s exact text (dataset_builder.py bakes it into every
+  training record). Extra rubric text is off-distribution for a 1.7B model
+  fine-tuned on one fixed prompt; DeepSeek, never prompt-tuned, follows the
+  added instructions correctly. The fix that helps a frontier judge actively
+  hurts a small fine-tuned one — prompt engineering does not transfer
+  across judge architectures here.
+- Decision: DeepSeek + `JUDGE_SYSTEM_PROMPT` is the production judge for the
+  weekly recalibration schedule (clears 0.85). The local judge keeps
+  `SYSTEM_PROMPT` unchanged (kappa stays 0.7361, still below bar) — using it
+  as a judge remains an open item, not fixed by this study; a judge-specific
+  fine-tune (training the local model ON the rubric-extended prompt, not
+  just prompting it) is the correct next step if a local judge is needed.
+- Follow-up fix (same commit): `forge/src/reconforge_forge/seams.py
+  ::judge_kappa()` auto-selects the newest `golden-*.jsonl` by mtime for the
+  weekly workflow. The local-judge artifact's filename also matched that
+  glob and, being written after the DeepSeek one, was newest on disk — the
+  schedule would have silently recalibrated against the 0.37-kappa run.
+  Glob now excludes `*local-judge*` filenames so the schedule always picks a
+  DeepSeek-judge artifact. Verified: 55 forge tests still green.
+- Alternatives rejected: judge-specific fine-tune first (HANDOFF's other
+  candidate) — deferred since the cheap rubric fix already closes the bar
+  for the judge that's actually in production use (DeepSeek).
