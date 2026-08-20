@@ -1,0 +1,63 @@
+{
+  "exact_overlap": {
+    "fired": false,
+    "overlap": 0.0
+  },
+  "near_duplicate_audit": {
+    "method": "minhash",
+    "n_eval": 800,
+    "n_train": 3198,
+    "near_duplicate_count": 29,
+    "near_duplicate_rate": 0.0362,
+    "near_duplicate_task_ids": [
+      "recon-000003",
+      "recon-000065",
+      "recon-000067",
+      "recon-000070",
+      "recon-000106",
+      "recon-000222",
+      "recon-000240",
+      "recon-000244",
+      "recon-000261",
+      "recon-000301",
+      "recon-000365",
+      "recon-000390",
+      "recon-000440",
+      "recon-000452",
+      "recon-000464",
+      "recon-000465",
+      "recon-000493",
+      "recon-000502",
+      "recon-000508",
+      "recon-000531",
+      "recon-000540",
+      "recon-000550",
+      "recon-000553",
+      "recon-000576",
+      "recon-000581",
+      "recon-000640",
+      "recon-000685",
+      "recon-000707",
+      "recon-000728"
+    ],
+    "nearest_neighbour_similarity_histogram": {
+      "[0.0,0.1)": 0,
+      "[0.1,0.2)": 0,
+      "[0.2,0.3)": 0,
+      "[0.3,0.4)": 0,
+      "[0.4,0.5)": 0,
+      "[0.5,0.6)": 0,
+      "[0.6,0.7)": 112,
+      "[0.7,0.8)": 659,
+      "[0.8,0.9)": 29,
+      "[0.9,1.0)": 0,
+      "[1.0,1.0]": 0
+    },
+    "note": "Bounds contamination within this dataset's train/eval boundary only. Says nothing about third-party API model pretraining exposure to similar data.",
+    "num_perm": 128,
+    "seed": 11,
+    "shingle_size": 5,
+    "study": "reconforge-near-duplicate-audit",
+    "threshold": 0.8
+  }
+}
