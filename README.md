@@ -19,6 +19,16 @@ A 1.7B model fine-tuned on a laptop catches every high-severity exception on
 the benchmark and wins severity-weighted recall over a frontier model — at
 zero API cost and zero reasoning-token overhead.
 
+| | Hub |
+|---|---|
+| Model | [`caiotheodoro/reconforge-recon-lora`](https://huggingface.co/caiotheodoro/reconforge-recon-lora) |
+| Dataset | [`caiotheodoro/recon-eval`](https://huggingface.co/datasets/caiotheodoro/recon-eval) |
+| Collection | [`ReconForge`](https://huggingface.co/collections/caiotheodoro/reconforge-6a89e9d6539e5b51403dd9ca) |
+
+The table above is the x3 iter-740 run (`docs/BENCHMARK.md`, R_w **0.913**).
+The model card reports the champion x5 run (R_w **0.901**, ECE 0.0875).
+Both are the same adapter.
+
 ## The system
 
 ```

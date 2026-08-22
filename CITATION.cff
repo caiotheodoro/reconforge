@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: If you use ReconForge, cite this repository and the seed-777 numbers.
+title: "ReconForge: Severity-Weighted Evaluation for Financial Reconciliation Agents"
+authors:
+  - family-names: Theodoro
+    given-names: Caio
+    email: caio@adopt.ai
+date-released: "2026-08-08"
+license: Apache-2.0
+repository-code: https://github.com/caiotheodoro/reconforge
+url: https://huggingface.co/collections/caiotheodoro/reconforge-6a89e9d6539e5b51403dd9ca
+keywords:
+  - reconciliation
+  - finance
+  - lora
+  - mlx
+  - verifier-as-oracle
+abstract: >
+  A 1.7B Qwen3 MLX-LoRA adapter for ledger-vs-statement reconciliation.
+  On ReconEval v0.1.0 (n=800, seed 777) the champion x5 run scores
+  accuracy 0.805, severity-weighted recall 0.901, HIGH recall 1.000,
+  parse 1.0. Gold is produced by the forge oracle, not an LLM judge.

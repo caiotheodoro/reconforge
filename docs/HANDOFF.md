@@ -198,6 +198,8 @@ docker compose up -d           # kafka, postgres, neo4j, redis
 cd system && uv run reconforge-ledger & uv run reconforge-cadence worker &
 ```
 
-Links: repo https://github.com/caiotheodoro/reconforge · model
-https://huggingface.co/caiotheodoro/reconforge-recon-lora · blog draft
+Links: repo https://github.com/caiotheodoro/reconforge · collection
+https://huggingface.co/collections/caiotheodoro/reconforge-6a89e9d6539e5b51403dd9ca · model
+https://huggingface.co/caiotheodoro/reconforge-recon-lora · dataset
+https://huggingface.co/datasets/caiotheodoro/recon-eval · blog draft
 `docs/blog-reconforge.md` (no-ai-slop style, ready for the Notion pipeline).

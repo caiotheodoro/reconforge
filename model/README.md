@@ -19,6 +19,7 @@ metrics:
   - recall
 datasets:
   - caiotheodoro/recon-eval
+# Collection: https://huggingface.co/collections/caiotheodoro/reconforge-6a89e9d6539e5b51403dd9ca
 model-index:
   - name: reconforge-recon-lora
     results:
@@ -56,6 +57,13 @@ error class that actually costs money — at zero API cost, offline, on Apple
 Silicon. Both the accuracy loss and the R_w gain are statistically significant
 (95% bootstrap CI over 10,000 resamples, paired on the same 800-task set — see
 Results). Trained in ~100 minutes on an M5.
+
+Gold tasks and this adapter live in the
+[ReconForge collection](https://huggingface.co/collections/caiotheodoro/reconforge-6a89e9d6539e5b51403dd9ca)
+together with [`caiotheodoro/recon-eval`](https://huggingface.co/datasets/caiotheodoro/recon-eval).
+
+Example gold tasks (not live data): `examples/match.json`,
+`examples/amount_mismatch.json`.
 
 ## Quick Start
 

@@ -1,0 +1,33 @@
+{
+  "task_id": "recon-000002",
+  "seed": 777,
+  "difficulty": 1.077,
+  "ledger": {
+    "message_type": "INTERNAL",
+    "ref": "OUR-INS-000002",
+    "amount": "454100.97",
+    "ccy": "USD",
+    "value_date": "2026-01-01",
+    "counterparty": "DEUTDEFFXXX",
+    "beneficiary": "ACME CORPORATION",
+    "fx_rate": null,
+    "booked_at": "2025-12-31T16:08:52Z"
+  },
+  "statement": {
+    "message_type": "MT940",
+    "ref": "CP-INS-000002",
+    "amount": "454100.97",
+    "ccy": "USD",
+    "value_date": "2026-01-01",
+    "counterparty": "DEUTDEFFXXX",
+    "beneficiary": "ACME CORPORATION",
+    "fx_rate": null
+  },
+  "expected": {
+    "verdict": "MATCH",
+    "exception_type": null,
+    "severity": "LOW",
+    "explanation": "all normalized fields agree within tolerance",
+    "resolution": "auto-adjust"
+  }
+}

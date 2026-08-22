@@ -1,0 +1,33 @@
+{
+  "task_id": "recon-000011",
+  "seed": 777,
+  "difficulty": 0.4774,
+  "ledger": {
+    "message_type": "INTERNAL",
+    "ref": "OUR-REF-000011",
+    "amount": "37908.84",
+    "ccy": "USD",
+    "value_date": "2025-12-01",
+    "counterparty": "DEUTDEFFXXX",
+    "beneficiary": "NORDWIND LOGISTICS GMBH",
+    "fx_rate": null,
+    "booked_at": "2025-11-29T18:58:59Z"
+  },
+  "statement": {
+    "message_type": "MT202",
+    "ref": "CP-INS-000011",
+    "amount": "39601.35",
+    "ccy": "USD",
+    "value_date": "2025-12-01",
+    "counterparty": "DEUTDEFFXXX",
+    "beneficiary": "NORDWIND LOGISTICS GMBH",
+    "fx_rate": null
+  },
+  "expected": {
+    "verdict": "EXCEPTION",
+    "exception_type": "AMOUNT_MISMATCH",
+    "severity": "HIGH",
+    "explanation": "amounts differ beyond rounding tolerance",
+    "resolution": "escalate"
+  }
+}
