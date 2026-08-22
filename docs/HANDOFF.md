@@ -1,7 +1,8 @@
 # Handoff: ReconForge
 
 **Everything built, measured, and left open.** Read this first; the code and
-artifacts in `docs/validation/` confirm every number below.
+artifacts in `docs/validation/` confirm every number below. Training order:
+`docs/TRAINING.md`.
 
 ---
 

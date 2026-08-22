@@ -79,4 +79,5 @@ make study                   # pilot benchmark (400 tasks, seed 7)
 docker compose up -d         # kafka, postgres, neo4j, redis
 ```
 
-See `docs/BENCHMARK.md`, `docs/DECISIONS.md`, and `model/README.md` (HF card).
+See `docs/BENCHMARK.md`, `docs/DECISIONS.md`, `docs/TRAINING.md` (training order),
+and `model/README.md` (HF card).
