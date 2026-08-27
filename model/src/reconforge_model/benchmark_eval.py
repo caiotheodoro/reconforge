@@ -94,6 +94,10 @@ def main(argv: list[str] | None = None) -> int:
     scored = score_verdicts(tasks, predictions)
     acc = metrics.accuracy(task_dicts, predictions)
     pr = metrics.parse_rate(predictions)
+    # R_w skips clean (MATCH) tasks entirely, so it can't see false positives
+    # (issue #8) -- flag precision/recall/F1 and operational cost see them.
+    prf = metrics.precision_recall_f1(task_dicts, predictions)
+    cost = metrics.severity_weighted_cost(task_dicts, predictions)
     confidences = [p["self_consistency_confidence"] for p in per_task]
     correctness = [1 if p["predicted"] and metrics.is_correct(t.expected, p["predicted"]) else 0 for t, p in zip(tasks, per_task)]
     cal = metrics.ece(confidences, correctness, n_bins=10)
@@ -113,6 +117,8 @@ def main(argv: list[str] | None = None) -> int:
             "per_type_recall": scored["severity_recall_by_severity"],
             "escalation_precision": scored["escalation_precision"],
             "n_escalations": scored["n_escalations"],
+            "precision_recall_f1": prf,
+            "severity_weighted_cost": cost,
             "ece_self_consistency": cal["ece"],
             "parse_fail_samples": n_parse_fail,
             "mean_tokens_per_verdict_sample": round(total_tokens / max(len(tasks) * opts.samples, 1), 2),
@@ -131,6 +137,8 @@ def main(argv: list[str] | None = None) -> int:
     print(f"accuracy            : {acc['accuracy']:.4f}")
     print(f"severity-weighted R : {scored['severity_weighted_recall']:.4f}")
     print(f"escalation precision: {scored['escalation_precision']:.4f} ({scored['n_escalations']} escalations)")
+    print(f"flag precision/F1   : {prf['precision']:.4f} / {prf['f1']:.4f} (fp={prf['fp']})")
+    print(f"normalized cost     : {cost['normalized_cost']:.4f}")
     print(f"parse rate          : {pr['parse_rate']:.4f}")
     print(f"ECE (self-cons.)    : {cal['ece']:.4f}")
     print(f"wall                : {artifact['metrics']['wall_seconds']}s")

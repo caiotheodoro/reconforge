@@ -237,13 +237,15 @@ def severity_weighted_cost(tasks: list[dict[str, Any]], preds: list[dict[str, An
         exp = task["expected"]
         if pred is None:
             n_esc += 1  # parse failure is always sent to review
-            continue
-        if pred["verdict"] == "ESCALATE":
+        elif pred["verdict"] == "ESCALATE":
             n_esc += 1
         exp_type = exp.get("exception_type")
         if exp_type is not None and SEVERITY_WEIGHT.get(exp_type, 0) >= 0.9:
             n_high += 1
             if not is_caught(exp, pred):
+                # A parse failure (pred is None) on a HIGH-severity task is a
+                # miss too -- is_caught(exp, None) is False, so this must not
+                # be skipped just because there's no verdict to inspect.
                 n_missed_high += 1
     cost = cost_esc * n_esc + cost_missed_high * n_missed_high
     n = max(len(tasks), 1)

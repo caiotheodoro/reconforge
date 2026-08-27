@@ -70,9 +70,9 @@ only, so it cannot see false positives on clean pairs. On the flag-level F1
 (precision + recall over all 800 tasks), **DeepSeek wins**: it makes zero false
 positives on the 419 clean pairs (precision 1.000, F1 0.904 [0.880, 0.926]),
 while this model over-flags 67 clean pairs (precision 0.824, F1 0.824
-[0.794, 0.852]). This model's edge is HIGH-severity recall and operational cost
+[0.793, 0.853]). This model's edge is HIGH-severity recall and operational cost
 (0 escalations, 0 missed HIGH → severity-weighted cost 0.000 vs DeepSeek's
-0.006); DeepSeek's edge is clean-pair discipline. Report both — see Results.
+0.013); DeepSeek's edge is clean-pair discipline. Report both — see Results.
 
 ## Quick Start
 
@@ -175,9 +175,9 @@ precision / F1 / severity-weighted cost).
 
 | Model | Params | Accuracy [95% CI] | R_w [95% CI] | Flag precision [95% CI] | Flag F1 [95% CI] | HIGH Recall [95% CI] | Norm. cost [95% CI] | Parse | Cost |
 |---|---|---|---|---|---|---|---|---|---|
-| **ReconForge Recon** | 1.7B | 0.805 [0.778, 0.833] | **0.901** [0.876, 0.924] | 0.824 [0.785, 0.862] | 0.824 [0.794, 0.852] | **1.000** [1.000, 1.000] | **0.000** [0.000, 0.000] | 1.000 | $0 |
-| DeepSeek v4-flash | — | 0.876 [0.853, 0.899] | 0.872 [0.843, 0.899] | **1.000** [1.000, 1.000] | **0.904** [0.880, 0.926] | 0.995 [0.983, 1.000] | 0.006 [0.001, 0.013] | 0.996 | API (per-token; not independently verified here) |
-| Base Qwen3-1.7B | 1.7B | 0.678 [0.645, 0.710] | 0.600 [0.548, 0.650] | 0.852 [0.809, 0.893] | 0.717 [0.677, 0.755] | 0.875 [0.825, 0.921] | 0.145 [0.089, 0.206] | 0.999 | $0 |
+| **ReconForge Recon** | 1.7B | 0.805 [0.778, 0.833] | **0.901** [0.876, 0.924] | 0.824 [0.784, 0.862] | 0.824 [0.793, 0.853] | **1.000** [1.000, 1.000] | **0.000** [0.000, 0.000] | 1.000 | $0 |
+| DeepSeek v4-flash | — | 0.876 [0.853, 0.899] | 0.872 [0.843, 0.899] | **1.000** [1.000, 1.000] | **0.904** [0.880, 0.926] | 0.995 [0.983, 1.000] | 0.013 [0.001, 0.031] | 0.996 | API (per-token; not independently verified here) |
+| Base Qwen3-1.7B | 1.7B | 0.678 [0.645, 0.710] | 0.600 [0.548, 0.650] | 0.852 [0.809, 0.894] | 0.717 [0.677, 0.755] | 0.875 [0.825, 0.921] | 0.145 [0.089, 0.206] | 0.999 | $0 |
 
 Flag precision / F1 is the false-positive-aware partner to R_w (issue #8): a
 "flag" is any predicted verdict ≠ MATCH, scored over all 800 tasks. R_w alone
@@ -186,7 +186,7 @@ is gameable — a degenerate always-ESCALATE model scores R_w 0.696 at accuracy
 clean pairs and wins on F1 (0.904 vs 0.824); this model does not.** The
 severity-weighted cost column (cost_esc = 1.0 per review, cost_missed_high =
 5.0 per missed HIGH — `metrics.severity_weighted_cost` defaults) is where this
-model leads: 0.000 (never escalates, never misses a HIGH) vs DeepSeek's 0.006.
+model leads: 0.000 (never escalates, never misses a HIGH) vs DeepSeek's 0.013.
 
 **Champion vs. DeepSeek v4-flash, paired bootstrap (same 800 tasks, 10,000 resamples):**
 

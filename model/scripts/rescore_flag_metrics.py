@@ -59,16 +59,12 @@ def load_run(name: str) -> dict:
     return {"tasks": tasks, "preds": preds}
 
 
-def precision_metric(tasks, preds) -> float:
-    return precision_recall_f1(tasks, preds)["precision"]
-
-
-def recall_metric(tasks, preds) -> float:
-    return precision_recall_f1(tasks, preds)["recall"]
-
-
-def f1_metric(tasks, preds) -> float:
-    return precision_recall_f1(tasks, preds)["f1"]
+def prf_metric(tasks, preds) -> dict[str, float]:
+    """precision/recall/f1 from one precision_recall_f1 call, so a single
+    bootstrap pass yields all three CIs from the same resample instead of
+    three separate resamples each re-deriving the full confusion count."""
+    prf = precision_recall_f1(tasks, preds)
+    return {k: prf[k] for k in ("precision", "recall", "f1")}
 
 
 def norm_cost_metric(tasks, preds) -> float:
@@ -98,15 +94,22 @@ def main() -> None:
             "counts": {k: prf[k] for k in ("tp", "fp", "fn", "n_exception", "n_clean")},
             "severity_weighted_cost": cost,
         }
-        for label, fn in (
-            ("precision", precision_metric),
-            ("recall", recall_metric),
-            ("f1", f1_metric),
-            ("normalized_cost", norm_cost_metric),
-        ):
-            rng = random.Random(f"{SEED}:{name}:{label}")
-            boot = bootstrap_metric(tasks, preds, fn, rng)
-            entry[label] = {"point": fn(tasks, preds), "ci95": list(percentile_ci(boot))}
+
+        # One bootstrap pass for precision/recall/f1 (same resample -> all
+        # three CIs, and one precision_recall_f1 call per resample instead of
+        # three), mirroring intervals.py's severity_band_recall_metric.
+        prf_rng = random.Random(f"{SEED}:{name}:prf")
+        boot_prf = bootstrap_metric(tasks, preds, prf_metric, prf_rng)
+        for label in ("precision", "recall", "f1"):
+            ci = percentile_ci([b[label] for b in boot_prf])
+            entry[label] = {"point": prf[label], "ci95": list(ci)}
+
+        cost_rng = random.Random(f"{SEED}:{name}:normalized_cost")
+        boot_cost = bootstrap_metric(tasks, preds, norm_cost_metric, cost_rng)
+        entry["normalized_cost"] = {
+            "point": cost["normalized_cost"],
+            "ci95": list(percentile_ci(boot_cost)),
+        }
         result["runs"][name] = entry
 
     out_path = VALIDATION_DIR / "flag-metrics.json"

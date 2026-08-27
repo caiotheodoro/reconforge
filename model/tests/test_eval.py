@@ -187,3 +187,22 @@ def test_verdict_from_expected_roundtrip_used_by_dataset():
     assert vd["confidence"] == 1.0
     assert vd["verdict"] == "EXCEPTION"
     assert vd["exception_type"] == "AMOUNT_MISMATCH"
+
+def test_severity_weighted_cost_counts_parse_failure_on_high_as_missed():
+    # A parse failure (pred is None) is always sent to review (cost_esc), but
+    # if the underlying task was HIGH-severity, it's also an uncaught miss
+    # (is_caught(exp, None) is False) and must count toward n_high/n_missed_high
+    # too -- not be skipped just because there's no verdict to inspect.
+    tasks = [_task(et="AMOUNT_MISMATCH", verdict="EXCEPTION", severity="HIGH", tid="a")]
+    result = metrics.severity_weighted_cost(tasks, [None], cost_esc=1.0, cost_missed_high=5.0)
+    assert result["n_high"] == 1
+    assert result["n_missed_high"] == 1
+    assert result["n_escalations"] == 1
+    assert result["total_cost"] == 1.0 + 5.0
+
+def test_severity_weighted_cost_parse_failure_on_low_severity_only_costs_escalation():
+    tasks = [_task(et="DUPLICATE", verdict="EXCEPTION", severity="LOW", tid="a")]
+    result = metrics.severity_weighted_cost(tasks, [None], cost_esc=1.0, cost_missed_high=5.0)
+    assert result["n_high"] == 0
+    assert result["n_missed_high"] == 0
+    assert result["total_cost"] == 1.0
