@@ -132,6 +132,55 @@ def test_caught_definition_matches_contracts():
     assert res["severity_weighted_recall"] == 0.0
 
 
+def test_precision_recall_f1_counts_false_positives_on_clean_tasks():
+    tasks = [
+        _task(et="AMOUNT_MISMATCH", verdict="EXCEPTION", severity="HIGH", tid="a"),
+        _task(et="DUPLICATE", verdict="EXCEPTION", severity="LOW", tid="b"),
+        _task(et=None, verdict="MATCH", tid="c"),
+        _task(et=None, verdict="MATCH", tid="d"),
+    ]
+    preds = [
+        _pred("EXCEPTION", "AMOUNT_MISMATCH"),  # TP
+        _pred("MATCH", None),  # FN (missed exception)
+        _pred("ESCALATE", None),  # FP (flagged a clean pair)
+        _pred("MATCH", None),  # true negative
+    ]
+    res = metrics.precision_recall_f1(tasks, preds)
+    assert (res["tp"], res["fp"], res["fn"]) == (1, 1, 1)
+    assert res["precision"] == 0.5
+    assert res["recall"] == 0.5
+    assert res["f1"] == 0.5
+    assert res["n_clean"] == 2
+
+
+def test_precision_recall_f1_escalate_everything_is_precision_penalized():
+    # Degenerate always-flag model: perfect recall, precision = exceptions/all.
+    tasks = [
+        _task(et="AMOUNT_MISMATCH", verdict="EXCEPTION", severity="HIGH", tid="a"),
+        _task(et=None, verdict="MATCH", tid="b"),
+        _task(et=None, verdict="MATCH", tid="c"),
+        _task(et=None, verdict="MATCH", tid="d"),
+    ]
+    preds = [_pred("ESCALATE", None) for _ in tasks]
+    res = metrics.precision_recall_f1(tasks, preds)
+    assert res["recall"] == 1.0
+    assert res["precision"] == 0.25
+    assert res["fp"] == 3
+
+
+def test_precision_recall_f1_parse_failure_is_a_flag():
+    tasks = [_task(et=None, verdict="MATCH", tid="a"), _task(et="DUPLICATE", verdict="EXCEPTION", tid="b")]
+    res = metrics.precision_recall_f1(tasks, [None, None])
+    assert res["fp"] == 1  # None pred on a clean task counts against precision
+    assert res["tp"] == 1
+
+
+def test_precision_recall_f1_expected_escalate_is_ignored():
+    tasks = [_task(et=None, verdict="ESCALATE", tid="a")]
+    res = metrics.precision_recall_f1(tasks, [_pred("EXCEPTION", "DUPLICATE")])
+    assert (res["tp"], res["fp"], res["fn"], res["n_clean"], res["n_exception"]) == (0, 0, 0, 0, 0)
+
+
 def test_verdict_from_expected_roundtrip_used_by_dataset():
     task = _task(et="AMOUNT_MISMATCH", verdict="EXCEPTION", severity="HIGH")
     vd = verdict_from_expected(task["expected"])

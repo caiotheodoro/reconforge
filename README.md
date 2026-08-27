@@ -9,15 +9,23 @@ running on Kafka + Temporal Cloud + a Postgres audit ledger.
 
 ## The headline (800-task held-out benchmark, seed 777, zero contamination)
 
-| Model | Accuracy | Severity-w. recall | HIGH-severity recall | Parse |
-|---|---|---|---|---|
-| **ReconForge Recon (1.7B LoRA, ours)** | 0.805 | **0.913** | **1.000** | 1.000 |
-| DeepSeek v4-flash (frontier, zero-shot) | 0.876 | 0.872 | — | 0.996 |
-| Base Qwen3-1.7B (zero-shot) | — | 0.600 | — | 0.999 |
+| Model | Accuracy | Severity-w. recall | Flag precision | Flag F1 | HIGH-severity recall | Parse |
+|---|---|---|---|---|---|---|
+| **ReconForge Recon (1.7B LoRA, ours)** | 0.805 | **0.913** | 0.813 [0.773, 0.850] | 0.827 [0.798, 0.855] | **1.000** | 1.000 |
+| DeepSeek v4-flash (frontier, zero-shot) | 0.876 | 0.872 | **1.000** [1.000, 1.000] | **0.904** [0.880, 0.926] | — | 0.996 |
+| Base Qwen3-1.7B (zero-shot) | — | 0.600 | 0.852 [0.809, 0.893] | 0.717 [0.677, 0.755] | — | 0.999 |
 
 A 1.7B model fine-tuned on a laptop catches every high-severity exception on
 the benchmark and wins severity-weighted recall over a frontier model — at
 zero API cost and zero reasoning-token overhead.
+
+Flag precision/F1 (95% bootstrap CI, 10k resamples) is the false-positive-aware
+partner to R_w — R_w only scores the exception subset, so it can't see a model
+that over-flags clean pairs. DeepSeek makes **zero false positives** on the 419
+clean pairs and wins on F1 (0.904 vs our 0.827); the fine-tuned model trades
+some clean-pair precision for its HIGH-severity recall. R_w alone is gameable:
+a degenerate always-ESCALATE model scores R_w 0.696 at accuracy 0.0 (see
+`docs/BENCHMARK.md`). Regenerate with `uv run python model/scripts/rescore_flag_metrics.py`.
 
 ## The system
 
@@ -64,7 +72,7 @@ docs/       corpus, benchmark report, decision log, study results
 ## Run
 
 ```sh
-make sync && make validate   # all suites green (162 tests)
+make sync && make validate   # all suites green (169 passed, 1 skipped)
 make study                   # pilot benchmark (400 tasks, seed 7)
 docker compose up -d         # kafka, postgres, neo4j, redis
 ```

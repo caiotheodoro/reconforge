@@ -79,6 +79,58 @@ def severity_weighted_recall(tasks: Iterable[dict[str, Any]], preds: list[dict[s
     }
 
 
+def precision_recall_f1(tasks: Iterable[dict[str, Any]], preds: list[dict[str, Any] | None]) -> dict[str, Any]:
+    """Flag-level precision / recall / F1 — the false-positive-aware partner to
+    severity_weighted_recall (issue #8).
+
+    R_w only scores the exception subset, so a model that flags every clean pair
+    pays zero R_w cost. This metric puts the 419 clean (MATCH) tasks back on the
+    scoreboard.
+
+    "Flagged" = predicted verdict != MATCH (ESCALATE and EXCEPTION both count; a
+    parse failure / None prediction is also a flag, since it is always routed to
+    human review — see severity_weighted_cost).
+
+      TP: expected is an exception (exception_type is not None) AND model flagged it
+      FP: expected is a clean MATCH               AND model flagged it
+      FN: expected is an exception                AND model returned MATCH
+
+    Tasks whose expected verdict is ESCALATE (no exception_type, not MATCH) are
+    outside this contract and counted in none of TP/FP/FN.
+    """
+    tasks = list(tasks)
+    assert len(tasks) == len(preds)
+    tp = fp = fn = 0
+    n_exception = n_clean = 0
+    for task, pred in zip(tasks, preds):
+        exp = task["expected"]
+        exp_type = exp.get("exception_type")
+        flagged = pred is None or pred["verdict"] != "MATCH"
+        if exp_type is not None:
+            n_exception += 1
+            if flagged:
+                tp += 1
+            else:
+                fn += 1
+        elif exp["verdict"] == "MATCH":
+            n_clean += 1
+            if flagged:
+                fp += 1
+    precision = tp / (tp + fp) if (tp + fp) else 0.0
+    recall = tp / (tp + fn) if (tp + fn) else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
+    return {
+        "precision": round(precision, 4),
+        "recall": round(recall, 4),
+        "f1": round(f1, 4),
+        "tp": tp,
+        "fp": fp,
+        "fn": fn,
+        "n_exception": n_exception,
+        "n_clean": n_clean,
+    }
+
+
 CONFUSION_LABELS = tuple(SEVERITY_WEIGHT.keys()) + ("MATCH", "ESCALATE", "PARSE_FAIL")
 
 

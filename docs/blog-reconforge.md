@@ -36,15 +36,17 @@ Training ran 740 iterations, about 100 minutes on the M5, peak memory 3.35GB. Th
 
 Results on the 800-task benchmark:
 
-| Model | Accuracy | Severity-w. recall | HIGH recall | Parse rate |
-|---|---|---|---|---|
-| ReconForge Recon (1.7B LoRA) | 0.805 | **0.913** | **1.000** | 1.000 |
-| DeepSeek v4-flash | 0.876 | 0.872 | — | 0.996 |
-| Base Qwen3-1.7B (zero-shot) | — | 0.600 | — | 0.999 |
+| Model | Accuracy | Severity-w. recall | Flag F1 [95% CI] | HIGH recall | Parse rate |
+|---|---|---|---|---|---|
+| ReconForge Recon (1.7B LoRA) | 0.805 | **0.913** | 0.827 [0.798, 0.855] | **1.000** | 1.000 |
+| DeepSeek v4-flash | 0.876 | 0.872 | **0.904** [0.880, 0.926] | — | 0.996 |
+| Base Qwen3-1.7B (zero-shot) | — | 0.600 | 0.717 [0.677, 0.755] | — | 0.999 |
 
 The fine-tune bought 31 points of severity-weighted recall over the base model. The LoRA is doing real work, not the prompt.
 
-Why the small model wins the money metric: it never misses a high-severity exception, and those four classes carry about two-thirds of the benchmark's total severity weight: AMOUNT_MISMATCH (73/73), FX_CONVERSION_ERROR (32/32), BENEFICIARY_MISMATCH (42/42), COUNTERPARTY_MISMATCH (31/37) are all caught or near-perfect. DeepSeek distributes its errors more evenly across severities, which produces a better raw-accuracy number and a worse severity-weighted one. It also emits unparseable output on 0.4% of tasks and spends reasoning tokens before every answer, even in a domain where the answer is a fixed six-key JSON object. The small model, fine-tuned on exact JSON targets, is parse-disciplined by construction: 100% of 800 tasks parsed.
+Severity-weighted recall is scored over the exception subset only. That leaves a hole: a model that flags every clean pair pays nothing on R_w. A degenerate model that returns ESCALATE on every task scores R_w 0.696 at accuracy 0.0, beating the real base-model baseline of 0.600. So the table also carries flag F1, which is precision and recall over all 800 tasks, clean pairs included. On flag F1 DeepSeek wins: it makes zero false positives on the 419 clean pairs, F1 0.904 against the fine-tuned model's 0.827. The fine-tuned model buys its high-severity recall partly by over-flagging clean pairs, 74 of them. Which number you optimize is a policy call; the point is that the leaderboard has to show both.
+
+Why the small model wins the money metric: it never misses a high-severity exception, and those four classes carry about two-thirds of the benchmark's total severity weight: AMOUNT_MISMATCH (73/73), FX_CONVERSION_ERROR (32/32), BENEFICIARY_MISMATCH (42/42), COUNTERPARTY_MISMATCH (31/37) are all caught or near-perfect. It also never escalates and never misses a high-severity case, so its operational cost (one point per pair sent to review, five per missed high-severity exception) is zero, against DeepSeek's 0.006. DeepSeek distributes its errors more evenly across severities, which produces a better raw-accuracy number and a worse severity-weighted one. It also emits unparseable output on 0.4% of tasks and spends reasoning tokens before every answer, even in a domain where the answer is a fixed six-key JSON object. The small model, fine-tuned on exact JSON targets, is parse-disciplined by construction: 100% of 800 tasks parsed.
 
 ## The system around it
 
