@@ -446,10 +446,13 @@ measured evidence.
   benchmark with the identical system prompt + scoring.
 - Evidence: accuracy 0.8762, severity-weighted R 0.8719, escalation precision
   1.0, parse 99.6%. Fine-tuned @700 steps (old run): 0.781 / 0.729. New
-  iter-740 adapter under evaluation.
+  run's adapter (training ran to iter 740; last persisted save iter 700 —
+  see docs/TRAINING.md) under evaluation.
 
 ## 2026-08-08 — M12 — Full head-to-head: fine-tuned 1.7B BEATS DeepSeek on R_w
-- Decision: iter-740 adapter is the benchmark candidate (self-consistency x3).
+- Decision: run1 adapter (iter-700, last persisted save of the run that
+  trained to iter 740 — see docs/TRAINING.md) is the benchmark candidate
+  (self-consistency x3).
 - Evidence (800-task held-out bench, seed 777): accuracy 0.8050 (DS 0.8762),
   severity-weighted recall 0.9128 (DS 0.8719), HIGH recall 1.0000, parse
   1.0000, ECE 0.1175, 0 escalations. Base ablation: R_w 0.6002.
@@ -483,8 +486,9 @@ measured evidence.
   system/kafka/server.properties.
 
 ## 2026-08-08 — B2 (completed) — Training-mix rebalancing is a NEGATIVE result
-- Decision: champion = run1 adapter (default mix, iter 740, R_w 0.9128). B2
-  (rebalanced mix, iter 590) rejected.
+- Decision: champion = run1 adapter (default mix, iter-700 — last persisted
+  save of the run that trained to iter 740, see docs/TRAINING.md — R_w
+  0.9128). B2 (rebalanced mix, iter 590) rejected.
 - Evidence: B2 vs run1 on identical 800-task benchmark — HIGH 1.0->0.89,
   MEDIUM 0.84->0.40 (PARTIAL_MATCH 26->1, VALUE_DATE 37->8), AMOUNT 73->56,
   DUPLICATE 0->1, FIELD_CORRUPTION 13->16. R_w 0.7230 vs 0.9128.
