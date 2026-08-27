@@ -17,6 +17,8 @@ pipeline_tag: text-generation
 metrics:
   - accuracy
   - recall
+  - precision
+  - f1
 datasets:
   - caiotheodoro/recon-eval
 model-index:
@@ -36,6 +38,12 @@ model-index:
           - name: Severity-Weighted Recall
             type: recall
             value: 0.9007
+          - name: Flag Precision
+            type: precision
+            value: 0.8241
+          - name: Flag F1
+            type: f1
+            value: 0.8241
           - name: HIGH-Severity Recall
             type: recall
             value: 1.000
@@ -56,6 +64,15 @@ error class that actually costs money — at zero API cost, offline, on Apple
 Silicon. Both the accuracy loss and the R_w gain are statistically significant
 (95% bootstrap CI over 10,000 resamples, paired on the same 800-task set — see
 Results). Trained in ~100 minutes on an M5.
+
+**The trade-off has a second side.** R_w is scored over the exception subset
+only, so it cannot see false positives on clean pairs. On the flag-level F1
+(precision + recall over all 800 tasks), **DeepSeek wins**: it makes zero false
+positives on the 419 clean pairs (precision 1.000, F1 0.904 [0.880, 0.926]),
+while this model over-flags 67 clean pairs (precision 0.824, F1 0.824
+[0.793, 0.853]). This model's edge is HIGH-severity recall and operational cost
+(0 escalations, 0 missed HIGH → severity-weighted cost 0.000 vs DeepSeek's
+0.013); DeepSeek's edge is clean-pair discipline. Report both — see Results.
 
 ## Quick Start
 
@@ -152,13 +169,24 @@ contamination 0/800 (near-duplicate rate 3.6% at Jaccard ≥ 0.8 — see
 [recon-eval](https://huggingface.co/datasets/caiotheodoro/recon-eval)).
 
 All CIs are 95% bootstrap intervals, 10,000 resamples, seed 11, over the same
-800-task set per model (`reconforge/model/scripts/intervals.py`).
+800-task set per model (`reconforge/model/scripts/intervals.py` for accuracy /
+R_w / HIGH recall; `reconforge/model/scripts/rescore_flag_metrics.py` for flag
+precision / F1 / severity-weighted cost).
 
-| Model | Params | Accuracy [95% CI] | R_w [95% CI] | HIGH Recall [95% CI] | Parse | Cost |
-|---|---|---|---|---|---|---|
-| **ReconForge Recon** | 1.7B | 0.805 [0.778, 0.833] | **0.901** [0.876, 0.924] | **1.000** [1.000, 1.000] | 1.000 | $0 |
-| DeepSeek v4-flash | — | 0.876 [0.853, 0.899] | 0.872 [0.843, 0.899] | 0.995 [0.983, 1.000] | 0.996 | API (per-token; not independently verified here) |
-| Base Qwen3-1.7B | 1.7B | 0.678 [0.645, 0.710] | 0.600 [0.548, 0.650] | 0.875 [0.825, 0.921] | 0.999 | $0 |
+| Model | Params | Accuracy [95% CI] | R_w [95% CI] | Flag precision [95% CI] | Flag F1 [95% CI] | HIGH Recall [95% CI] | Norm. cost [95% CI] | Parse | Cost |
+|---|---|---|---|---|---|---|---|---|---|
+| **ReconForge Recon** | 1.7B | 0.805 [0.778, 0.833] | **0.901** [0.876, 0.924] | 0.824 [0.784, 0.862] | 0.824 [0.793, 0.853] | **1.000** [1.000, 1.000] | **0.000** [0.000, 0.000] | 1.000 | $0 |
+| DeepSeek v4-flash | — | 0.876 [0.853, 0.899] | 0.872 [0.843, 0.899] | **1.000** [1.000, 1.000] | **0.904** [0.880, 0.926] | 0.995 [0.983, 1.000] | 0.013 [0.001, 0.031] | 0.996 | API (per-token; not independently verified here) |
+| Base Qwen3-1.7B | 1.7B | 0.678 [0.645, 0.710] | 0.600 [0.548, 0.650] | 0.852 [0.809, 0.894] | 0.717 [0.677, 0.755] | 0.875 [0.825, 0.921] | 0.145 [0.089, 0.206] | 0.999 | $0 |
+
+Flag precision / F1 is the false-positive-aware partner to R_w (issue #8): a
+"flag" is any predicted verdict ≠ MATCH, scored over all 800 tasks. R_w alone
+is gameable — a degenerate always-ESCALATE model scores R_w 0.696 at accuracy
+0.0 (`docs/BENCHMARK.md`). **DeepSeek makes zero false positives on the 419
+clean pairs and wins on F1 (0.904 vs 0.824); this model does not.** The
+severity-weighted cost column (cost_esc = 1.0 per review, cost_missed_high =
+5.0 per missed HIGH — `metrics.severity_weighted_cost` defaults) is where this
+model leads: 0.000 (never escalates, never misses a HIGH) vs DeepSeek's 0.013.
 
 **Champion vs. DeepSeek v4-flash, paired bootstrap (same 800 tasks, 10,000 resamples):**
 
@@ -265,6 +293,9 @@ does not cover.
 |---|---|---|---|---|---|
 | champion (740 iters) | 3,198 | x5 | 0.000 (0/31) | 0.901 | 0.805 |
 | b2 (590 iters) | 3,201 | x3 | 0.032 (1/31) | 0.723 | 0.769 |
+
+(Flag precision / F1 for the b2 run was not re-scored — outside issue #8's
+scope. The champion ×5 run's flag F1 is 0.824 [0.794, 0.852]; see Results.)
 
 Both runs used almost identical training-pair counts (3,198 vs 3,201) — so
 this pair of runs does **not** cleanly isolate a data-scale effect: b2 also

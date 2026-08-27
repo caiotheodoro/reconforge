@@ -111,6 +111,10 @@ def main(argv: list[str] | None = None) -> int:
     swr = metrics.severity_weighted_recall(tasks, predictions)
     cm = metrics.confusion_matrix(tasks, predictions)
     pr = metrics.parse_rate(predictions)
+    # R_w skips clean (MATCH) tasks entirely, so it can't see false positives
+    # (issue #8) -- flag precision/recall/F1 and operational cost see them.
+    prf = metrics.precision_recall_f1(tasks, predictions)
+    cost = metrics.severity_weighted_cost(tasks, predictions)
     confidences = [o["confidence"] if o["confidence"] is not None else 0.0 for o in outputs]
     correctness = [1 if o["correct"] else 0 for o in outputs]
     cal = metrics.ece(confidences, correctness, n_bins=10)
@@ -120,6 +124,8 @@ def main(argv: list[str] | None = None) -> int:
         **acc,
         **pr,
         "severity_weighted_recall": swr,
+        "precision_recall_f1": prf,
+        "severity_weighted_cost": cost,
         "ece": cal["ece"],
         "mean_tokens_per_verdict": mean_tokens,
         "generation_seconds": round(gen_seconds, 1),
@@ -149,6 +155,8 @@ def main(argv: list[str] | None = None) -> int:
     print(f"adapter: {opts.adapter_path}")
     print(f"accuracy            : {metrics_out['accuracy']:.4f}")
     print(f"severity-weighted R : {swr['severity_weighted_recall']:.4f}")
+    print(f"flag precision/F1   : {prf['precision']:.4f} / {prf['f1']:.4f} (fp={prf['fp']})")
+    print(f"normalized cost     : {cost['normalized_cost']:.4f}")
     print(f"parse rate          : {metrics_out['parse_rate']:.4f}")
     print(f"ECE (10 bins)       : {metrics_out['ece']:.4f}")
     print(f"mean tokens/verdict : {mean_tokens}")

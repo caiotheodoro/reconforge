@@ -1,0 +1,250 @@
+{
+  "cost_model": {
+    "cost_esc": 1.0,
+    "cost_missed_high": 5.0
+  },
+  "resamples": 10000,
+  "runs": {
+    "base_qwen3_1_7b": {
+      "counts": {
+        "fn": 145,
+        "fp": 41,
+        "n_clean": 419,
+        "n_exception": 381,
+        "tp": 236
+      },
+      "f1": {
+        "ci95": [
+          0.6765,
+          0.7552
+        ],
+        "point": 0.7173
+      },
+      "n": 800,
+      "normalized_cost": {
+        "ci95": [
+          0.0887,
+          0.2062
+        ],
+        "point": 0.145
+      },
+      "precision": {
+        "ci95": [
+          0.8092,
+          0.8939
+        ],
+        "point": 0.852
+      },
+      "recall": {
+        "ci95": [
+          0.5694,
+          0.6675
+        ],
+        "point": 0.6194
+      },
+      "severity_weighted_cost": {
+        "cost_esc": 1.0,
+        "cost_missed_high": 5.0,
+        "n_escalations": 1,
+        "n_high": 184,
+        "n_missed_high": 23,
+        "normalized_cost": 0.145,
+        "total_cost": 116.0
+      },
+      "source": "bench-eval-base-ablation.json"
+    },
+    "deepseek_v4_flash": {
+      "counts": {
+        "fn": 67,
+        "fp": 0,
+        "n_clean": 419,
+        "n_exception": 381,
+        "tp": 314
+      },
+      "f1": {
+        "ci95": [
+          0.8799,
+          0.9258
+        ],
+        "point": 0.9036
+      },
+      "n": 800,
+      "normalized_cost": {
+        "ci95": [
+          0.0013,
+          0.0312
+        ],
+        "point": 0.0125
+      },
+      "precision": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "point": 1.0
+      },
+      "recall": {
+        "ci95": [
+          0.7855,
+          0.8619
+        ],
+        "point": 0.8241
+      },
+      "severity_weighted_cost": {
+        "cost_esc": 1.0,
+        "cost_missed_high": 5.0,
+        "n_escalations": 5,
+        "n_high": 184,
+        "n_missed_high": 1,
+        "normalized_cost": 0.0125,
+        "total_cost": 10.0
+      },
+      "source": "bench-deepseek-full.json"
+    },
+    "escalate_everything_smoke": {
+      "counts": {
+        "fn": 0,
+        "fp": 24,
+        "n_clean": 24,
+        "n_exception": 64,
+        "tp": 64
+      },
+      "f1": {
+        "ci95": [
+          0.7778,
+          0.9
+        ],
+        "point": 0.8421
+      },
+      "n": 88,
+      "normalized_cost": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "point": 1.0
+      },
+      "precision": {
+        "ci95": [
+          0.6364,
+          0.8182
+        ],
+        "point": 0.7273
+      },
+      "recall": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "point": 1.0
+      },
+      "severity_weighted_cost": {
+        "cost_esc": 1.0,
+        "cost_missed_high": 5.0,
+        "n_escalations": 88,
+        "n_high": 32,
+        "n_missed_high": 0,
+        "normalized_cost": 1.0,
+        "total_cost": 88.0
+      },
+      "source": "model-eval-smoke-20260807.json"
+    },
+    "reconforge_recon_iter740": {
+      "counts": {
+        "fn": 60,
+        "fp": 74,
+        "n_clean": 419,
+        "n_exception": 381,
+        "tp": 321
+      },
+      "f1": {
+        "ci95": [
+          0.797,
+          0.8557
+        ],
+        "point": 0.8273
+      },
+      "n": 800,
+      "normalized_cost": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "point": 0.0
+      },
+      "precision": {
+        "ci95": [
+          0.7729,
+          0.8504
+        ],
+        "point": 0.8127
+      },
+      "recall": {
+        "ci95": [
+          0.8047,
+          0.8792
+        ],
+        "point": 0.8425
+      },
+      "severity_weighted_cost": {
+        "cost_esc": 1.0,
+        "cost_missed_high": 5.0,
+        "n_escalations": 0,
+        "n_high": 184,
+        "n_missed_high": 0,
+        "normalized_cost": 0.0,
+        "total_cost": 0.0
+      },
+      "source": "bench-eval-full-740.json"
+    },
+    "reconforge_recon_x5": {
+      "counts": {
+        "fn": 67,
+        "fp": 67,
+        "n_clean": 419,
+        "n_exception": 381,
+        "tp": 314
+      },
+      "f1": {
+        "ci95": [
+          0.793,
+          0.8525
+        ],
+        "point": 0.8241
+      },
+      "n": 800,
+      "normalized_cost": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "point": 0.0
+      },
+      "precision": {
+        "ci95": [
+          0.7844,
+          0.8615
+        ],
+        "point": 0.8241
+      },
+      "recall": {
+        "ci95": [
+          0.7845,
+          0.8611
+        ],
+        "point": 0.8241
+      },
+      "severity_weighted_cost": {
+        "cost_esc": 1.0,
+        "cost_missed_high": 5.0,
+        "n_escalations": 0,
+        "n_high": 184,
+        "n_missed_high": 0,
+        "normalized_cost": 0.0,
+        "total_cost": 0.0
+      },
+      "source": "bench-eval-champion-x5.json"
+    }
+  },
+  "seed": 11
+}
