@@ -1,7 +1,9 @@
 # ReconForge Benchmark — Head-to-Head
 
-**Benchmark**: 800 held-out tasks, seed 777 (never used for training, seed 101
-was; cross-set signature overlap verified = 0). Task distribution: ~45%
+**Benchmark**: 800 held-out tasks, generation seed 777 (never used for
+training; the training pool is generation seed 101 — verified empirically,
+see `docs/TRAINING.md`; cross-set signature overlap verified = 0, re-confirmed
+under seed 101). Task distribution: ~45%
 exceptions across 9 classes with severity weights (A3), adversarial
 near-misses included. Scored with forge's `score_verdicts` — severity-weighted
 recall, per-class recall, escalation precision (precision of predictions
@@ -38,10 +40,17 @@ with `uv run python model/scripts/rescore_flag_metrics.py` →
 | Model | Accuracy | Severity-w. recall | Flag precision [95% CI] | Flag F1 [95% CI] | Norm. cost [95% CI] | HIGH recall | Parse rate | Notes |
 |---|---|---|---|---|---|---|---|---|
 | Base Qwen3-1.7B-4bit (zero-shot) | — | 0.6002 | 0.852 [0.809, 0.894] | 0.717 [0.677, 0.755] | 0.145 [0.089, 0.206] | — | 0.9988 | ablation: what the fine-tune bought |
-| Fine-tuned Qwen3-1.7B (iter 700, abort) | 0.7812 | 0.7291 | — | — | — | — | 1.0000 | self-consistency ×3 |
+| Fine-tuned Qwen3-1.7B (iter 700, separate aborted run) | 0.7812 | 0.7291 | — | — | — | — | 1.0000 | self-consistency ×3 |
 | DeepSeek `deepseek-v4-flash` | **0.8762** | 0.8719 | **1.000** [1.000, 1.000] | **0.904** [0.880, 0.926] | **0.013** [0.001, 0.031] | — | 0.9962 | frontier baseline, zero-shot; 0 false positives |
-| **Fine-tuned Qwen3-1.7B (iter 740)** | 0.8050 | **0.9128** | 0.813 [0.773, 0.850] | 0.827 [0.797, 0.856] | **0.000** [0.000, 0.000] | **1.0000** | **1.0000** | self-consistency ×3, loss plateau 0.088; 74 false positives |
+| **Fine-tuned Qwen3-1.7B (champion / iter 700)** | 0.8050 | **0.9128** | 0.813 [0.773, 0.850] | 0.827 [0.797, 0.856] | **0.000** [0.000, 0.000] | **1.0000** | **1.0000** | self-consistency ×3, loss plateau 0.088; 74 false positives |
 | Fine-tuned Qwen3-1.7B (champion ×5) | 0.8050 | 0.9007 | 0.824 [0.784, 0.862] | 0.824 [0.793, 0.853] | 0.000 [0.000, 0.000] | 1.0000 | 1.0000 | self-consistency ×5; 67 false positives |
+
+> The champion adapter is the **iter-700** checkpoint (last persisted save;
+> the final run's loop ran to step 740 but the MLX-LoRA saver writes every 50
+> steps). SHA-256
+> `4754fe569b703f075725f0415a9ae70664fda6d7d66a865e956be2ff69bacdfa`. The eval
+> run and its artifacts are still named `full-740` after the run's step count.
+> The `iter 700, separate aborted run` row is a different, earlier run.
 
 **Headline: the local fine-tuned 1.7B beats the frontier model on the metric
 that matters.** Severity-weighted recall 0.913 vs 0.872 for DeepSeek, with
@@ -53,7 +62,7 @@ FX_CONVERSION_ERROR 32/32, BENEFICIARY_MISMATCH 42/42, COUNTERPARTY_MISMATCH
 on the 419 clean pairs (precision 1.000) and wins F1 0.904 vs the fine-tuned
 model's 0.827 — the champion ×5 model does **not** win on F1 (0.824). The
 fine-tuned model buys its HIGH-severity recall partly by over-flagging clean
-pairs (74 FP at iter 740, 67 at ×5). Both numbers are real; which one you
+pairs (74 FP for the champion at ×3, 67 at ×5). Both numbers are real; which one you
 optimize is a policy choice, and the point of issue #8 is that the leaderboard
 must show both. The severity-weighted cost column tells the operational story:
 the fine-tuned model's cost is 0.000 (it never escalates, never misses a HIGH),

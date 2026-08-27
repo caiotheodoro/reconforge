@@ -88,10 +88,20 @@ Airbnb eval-engineering articles, ported to a vertical domain:
 
 | Model | Accuracy | Severity-w. recall | HIGH recall | Escalation prec. | Parse rate |
 |---|---|---|---|---|---|
-| **ReconForge Recon (1.7B LoRA, iter 740)** | 0.8050 | **0.9128** | **1.0000** | 0.0 (0 esc) | 1.0000 |
+| **ReconForge Recon (1.7B LoRA, champion / iter 700)** | 0.8050 | **0.9128** | **1.0000** | 0.0 (0 esc) | 1.0000 |
 | DeepSeek v4-flash (frontier, zero-shot) | 0.8762 | 0.8719 | — | 1.0000 (2 esc) | 0.9962 |
 | Base Qwen3-1.7B (zero-shot) | — | 0.6002 | — | 0.0 (0 esc) | 0.9988 |
 | Fine-tuned iter 700 (aborted run) | 0.7812 | 0.7291 | — | — | 1.0000 |
+
+> **Checkpoint identity.** The champion adapter is the **iter-700** checkpoint
+> (last persisted save; the final run's training loop ran to step 740, but the
+> MLX-LoRA saver writes every 50 steps, so steps 710–740 were logged as loss
+> progress and never written to disk). It is byte-identical to
+> `model/adapters/lora-full/0000700_final.safetensors`. SHA-256:
+> `4754fe569b703f075725f0415a9ae70664fda6d7d66a865e956be2ff69bacdfa`. The
+> "aborted run" row above is a separate, earlier run that also stopped at iter
+> 700. Earlier docs labeled this row "iter 740" — that was the run's step
+> count, not the saved-weights identity.
 
 Self-consistency ×5 (champion): R_w 0.9007, ECE 0.0875. ×3 used for the
 headline (0.9128). Both artifacts published.
@@ -123,10 +133,19 @@ headline (0.9128). Both artifacts published.
 - Base: `mlx-community/Qwen3-1.7B-4bit` (Apache-2.0), non-thinking mode
   (`enable_thinking=False`).
 - LoRA rank 16, alpha 32, dropout 0.05, batch 2, grad checkpoint, lr 1e-5,
-  seed 7, 740 iterations (~100 min on M5, peak 3.35 GB).
-- Data: 3,198 train / 802 val from seed 101 (default exception mix); 800-task
-  benchmark from seed 777; zero signature overlap verified.
-- Adapter: `model/adapters/champion/` (== `0000700_final` of run 1). Published
+  training-run seed 7. The loop ran to step 740; the champion is the last
+  persisted checkpoint, **iter 700** (adapter saves every 50 steps).
+  ~100 min on M5, peak 3.35 GB.
+- Three distinct seeds: **generation seed 101** (produced the task pool —
+  verified empirically, see `docs/TRAINING.md`), **split seed 7**
+  (`build_datasets` train/val stratified split), **training-run seed 7**
+  (MLX-LoRA run). The benchmark uses generation seed 777.
+- Data: 3,198 train / 802 val from generation seed 101 (default exception
+  mix); 800-task benchmark from generation seed 777; zero signature overlap
+  verified (re-confirmed under seed 101: exact overlap 0.0).
+- Adapter: `model/adapters/champion/` (== `0000700_final` of run 1,
+  SHA-256 `4754fe569b703f075725f0415a9ae70664fda6d7d66a865e956be2ff69bacdfa`).
+  Published
   to HF as `caiotheodoro/reconforge-recon-lora` (public, apache-2.0,
   hub-load verified).
 

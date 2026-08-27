@@ -263,8 +263,9 @@ signal.
 | Batch size | 2 |
 | Max sequence length | 2048 |
 | Grad checkpointing | Enabled |
-| Seed | 7 |
-| Iterations | 740 (early stopped at plateau) |
+| Training-run seed | 7 (MLX-LoRA run; distinct from generation seed 101 and split seed 7 — see note) |
+| Iterations | ran to step 740 (early stop at plateau); champion = last persisted checkpoint **iter 700** (adapter saves every 50 steps) |
+| Champion adapter SHA-256 | `4754fe569b703f075725f0415a9ae70664fda6d7d66a865e956be2ff69bacdfa` (== `adapters/lora-full/0000700_final.safetensors`) |
 | Train loss | 2.4 → 0.088 |
 
 **Compute infrastructure:** Apple M5, 16 GB unified memory. Wall time ~100
@@ -280,10 +281,15 @@ power on a laptop-class chip — negligible relative to any cloud training run,
 but not formally estimated (`co2_eq_emissions` was not computed and is not
 asserted here).
 
-**Training data:** 3,198 synthetic reconciliation pairs (train, seed 7) + 802
-(val). Stratified split by (difficulty decile, exception type). Contamination
-guard: SHA-256 field-level pair signatures, zero exact overlap between train
-and eval — see [recon-eval](https://huggingface.co/datasets/caiotheodoro/recon-eval)
+**Training data:** 3,198 synthetic reconciliation pairs (train) + 802 (val),
+from **generation seed 101** (empirically verified — regenerating the pool at
+seed 101 reproduces `data/train.jsonl` and `data/val.jsonl` byte-for-byte;
+seeds 7 and 777 do not). Stratified split by (difficulty decile, exception
+type) under **split seed 7**. Three seeds are in play and were previously
+conflated: generation seed 101, split seed 7, training-run seed 7 — see
+`../docs/TRAINING.md`. Contamination guard: SHA-256 field-level pair
+signatures, zero exact overlap between train and eval (re-confirmed under
+generation seed 101: overlap 0.0) — see [recon-eval](https://huggingface.co/datasets/caiotheodoro/recon-eval)
 for the full audit including the near-duplicate rate this exact-hash check
 does not cover.
 
@@ -291,7 +297,7 @@ does not cover.
 
 | Run | Train pairs | Self-consistency | DUPLICATE recall | R_w | Accuracy |
 |---|---|---|---|---|---|
-| champion (740 iters) | 3,198 | x5 | 0.000 (0/31) | 0.901 | 0.805 |
+| champion (iter 700) | 3,198 | x5 | 0.000 (0/31) | 0.901 | 0.805 |
 | b2 (590 iters) | 3,201 | x3 | 0.032 (1/31) | 0.723 | 0.769 |
 
 (Flag precision / F1 for the b2 run was not re-scored — outside issue #8's
@@ -299,7 +305,7 @@ scope. The champion ×5 run's flag F1 is 0.824 [0.794, 0.852]; see Results.)
 
 Both runs used almost identical training-pair counts (3,198 vs 3,201) — so
 this pair of runs does **not** cleanly isolate a data-scale effect: b2 also
-differs in checkpoint (590 vs 740 iterations) and eval self-consistency (x3
+differs in checkpoint (590 vs 700 persisted iterations) and eval self-consistency (x3
 vs x5), both of which move R_w and accuracy on their own. What the data does
 support: at comparable data volume, DUPLICATE recall stayed at or near zero
 across both checkpoints (0/31 and 1/31), while every other metric moved
