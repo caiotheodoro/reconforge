@@ -5,7 +5,8 @@
   "seed": 999,
   "n_tasks": 800,
   "n_unique_signatures": 800,
-  "frozen_at_commit": "fix/headline-number-and-selection-disclosure",
+  "frozen_at_commit": "0cf03a71e5f98582691b34d9071d80016ebd300e",
+  "frozen_at_commit_note": "main tip this pool was generated from (git rev-parse -- not a branch name, which does not survive branch deletion after merge). This file itself lands in a later commit on top of it; any future score against seed 999 must postdate that commit.",
   "task_signatures": [
     "000b2ef48ff8c44bf58ba981889a64f111b530f316b92c2210298a5d33e3f78c",
     "00b7810a2540c44934a5212dd757721488d67db150cbcb76a8201fc5b24c02e1",
