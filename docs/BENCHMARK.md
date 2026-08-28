@@ -35,15 +35,26 @@ degenerate escalate-everything demonstration. The partner metrics reported here:
 with `uv run python model/scripts/rescore_flag_metrics.py` →
 `docs/validation/flag-metrics.json`.
 
+> **Selection caveat.** The seed-777 benchmark is held out from *training* (the
+> training pool is generation seed 101, verified), but **not from selection**.
+> Every checkpoint / mix / sampling decision — run-1 vs the B2 rebalanced mix,
+> ×3 vs ×5 self-consistency — was made by comparing on this same 800-task set
+> that the headline metrics are reported on. The headline is therefore a
+> dev-set number, not a held-out-from-selection one. A newly designated seed
+> (999) is frozen as the test set: its task signatures are committed in
+> `docs/validation/frozen-test-seed-999-signatures.json` and nothing has been
+> scored against it. Discipline going forward: `docs/TRAINING.md` → Selection
+> policy.
+
 ## Results
 
 | Model | Accuracy | Severity-w. recall | Flag precision [95% CI] | Flag F1 [95% CI] | Norm. cost [95% CI] | HIGH recall | Parse rate | Notes |
 |---|---|---|---|---|---|---|---|---|
 | Base Qwen3-1.7B-4bit (zero-shot) | — | 0.6002 | 0.852 [0.809, 0.894] | 0.717 [0.677, 0.755] | 0.145 [0.089, 0.206] | — | 0.9988 | ablation: what the fine-tune bought |
-| Fine-tuned Qwen3-1.7B (iter 700, separate aborted run) | 0.7812 | 0.7291 | — | — | — | — | 1.0000 | self-consistency ×3 |
+| Fine-tuned Qwen3-1.7B (iter 700, separate aborted run) | 0.7812 | 0.7291 | — | — | — | — | 1.0000 | self-consistency ×3; unreproducible — weights overwritten by the champion run, retained for narrative only |
 | DeepSeek `deepseek-v4-flash` | **0.8762** | 0.8719 | **1.000** [1.000, 1.000] | **0.904** [0.880, 0.926] | **0.013** [0.001, 0.031] | — | 0.9962 | frontier baseline, zero-shot; 0 false positives |
-| **Fine-tuned Qwen3-1.7B (champion / iter 700)** | 0.8050 | **0.9128** | 0.813 [0.773, 0.850] | 0.827 [0.797, 0.856] | **0.000** [0.000, 0.000] | **1.0000** | **1.0000** | self-consistency ×3, loss plateau 0.088; 74 false positives |
-| Fine-tuned Qwen3-1.7B (champion ×5) | 0.8050 | 0.9007 | 0.824 [0.784, 0.862] | 0.824 [0.793, 0.853] | 0.000 [0.000, 0.000] | 1.0000 | 1.0000 | self-consistency ×5; 67 false positives |
+| **Fine-tuned Qwen3-1.7B (champion / iter 700, ×5) — headline** | 0.8050 | **0.9007** [0.876, 0.924] | **0.824** [0.784, 0.862] | **0.824** [0.793, 0.853] | **0.000** [0.000, 0.000] | **1.0000** | **1.0000** | self-consistency ×5, loss plateau 0.088; 67 false positives |
+| Fine-tuned Qwen3-1.7B (champion / iter 700, ×3) | 0.8050 | 0.9128 | 0.813 [0.773, 0.850] | 0.827 [0.797, 0.856] | 0.000 [0.000, 0.000] | 1.0000 | 1.0000 | secondary / sampling-sensitivity row (no CI computed for R_w); self-consistency ×3; 74 false positives |
 
 > The champion adapter is the **iter-700** checkpoint (last persisted save;
 > the final run's loop ran to step 740 but the MLX-LoRA saver writes every 50
@@ -53,16 +64,17 @@ with `uv run python model/scripts/rescore_flag_metrics.py` →
 > The `iter 700, separate aborted run` row is a different, earlier run.
 
 **Headline: the local fine-tuned 1.7B beats the frontier model on the metric
-that matters.** Severity-weighted recall 0.913 vs 0.872 for DeepSeek, with
+that matters.** Severity-weighted recall 0.9007 [0.876, 0.924] (×5
+self-consistency, the headline run) vs 0.872 for DeepSeek, with
 perfect HIGH-severity recall (all 4 HIGH classes: AMOUNT_MISMATCH 73/73,
 FX_CONVERSION_ERROR 32/32, BENEFICIARY_MISMATCH 42/42, COUNTERPARTY_MISMATCH
 31/37), 100% parse discipline, zero API cost, zero reasoning tokens.
 
 **Counter-headline: DeepSeek wins on flag F1.** It makes **zero false positives**
-on the 419 clean pairs (precision 1.000) and wins F1 0.904 vs the fine-tuned
-model's 0.827 — the champion ×5 model does **not** win on F1 (0.824). The
-fine-tuned model buys its HIGH-severity recall partly by over-flagging clean
-pairs (74 FP for the champion at ×3, 67 at ×5). Both numbers are real; which one you
+on the 419 clean pairs (precision 1.000) and wins F1 0.904 vs the champion's
+0.824 (×5 headline; the ×3 row is 0.827) — the fine-tuned model does **not**
+win on F1. It buys its HIGH-severity recall partly by over-flagging clean
+pairs (67 FP for the champion at ×5, 74 at ×3). Both numbers are real; which one you
 optimize is a policy choice, and the point of issue #8 is that the leaderboard
 must show both. The severity-weighted cost column tells the operational story:
 the fine-tuned model's cost is 0.000 (it never escalates, never misses a HIGH),
@@ -108,7 +120,7 @@ alone.**
 - **Zero escalations** is a known cost: the model never says "unsure". The
   E1/E3 threshold work (severity-gated escalation policy) is the fix, and
   would buy both recall robustness and HITL efficiency.
-- The fine-tune bought +31 points of R_w over the base model (+13 already at
+- The fine-tune bought +30 points of R_w over the base model (+13 already at
   iter 700) — the LoRA is doing real work, not the prompt.
 
 ## Reproduction
@@ -134,7 +146,7 @@ Attempted fix for the LOW-severity hole: rebalanced the training exception mix
 (DUPLICATE 8→22%, FIELD_CORRUPTION 8→15%, cutting AMOUNT/PARTIAL/VALUE_DATE)
 and retrained (590 steps). **It made things worse**:
 
-| Class | run1 (default mix) | B2 (rebalanced) |
+| Class | run1 (default mix, ×3) | B2 (rebalanced, ×3) |
 |---|---|---|
 | HIGH recall | **1.0** | 0.89 |
 | MEDIUM recall | **0.84** | 0.40 |
@@ -144,6 +156,11 @@ and retrained (590 steps). **It made things worse**:
 | DUPLICATE correct | 0 | 1 |
 | FIELD_CORRUPTION correct | 13 | **16** |
 | **R_w** | **0.9128** | 0.7230 |
+
+Both columns are ×3 self-consistency (the B2 study predates the ×5 headline
+run); run1's ×5 R_w is 0.9007 [0.876, 0.924]. The run1-vs-B2 comparison holds
+at either sampling count — B2 is worse on every class the benchmark weights
+heavily.
 
 Flag precision/F1 for the B2 rebalanced run was not re-scored (outside issue
 #8's scope, which covered the 4 headline exports + the smoke fixture); add

@@ -9,9 +9,20 @@ running on Kafka + Temporal Cloud + a Postgres audit ledger.
 
 ## The headline (800-task held-out benchmark, seed 777, zero contamination)
 
+> R_w / flag F1 are the **×5 self-consistency** champion run, with 95% bootstrap
+> CIs (`docs/validation/intervals.json`, `flag-metrics.json`). The ×3 run
+> (R_w 0.913, no CI) is retained in `docs/BENCHMARK.md` as a secondary
+> sampling-sensitivity row, not the headline.
+>
+> **Selection caveat:** seed 777 is held out from *training* (the pool is seed
+> 101), but not from *selection* — run-1 vs B2 and ×3 vs ×5 were both chosen on
+> this set, so the headline is a dev-set number. Seed 999 is now frozen as the
+> untouched test set (`docs/validation/frozen-test-seed-999-signatures.json`);
+> see `docs/TRAINING.md` → Selection policy.
+
 | Model | Accuracy | Severity-w. recall | Flag precision | Flag F1 | HIGH-severity recall | Parse |
 |---|---|---|---|---|---|---|
-| **ReconForge Recon (1.7B LoRA, ours)** | 0.805 | **0.913** | 0.813 [0.773, 0.850] | 0.827 [0.798, 0.855] | **1.000** | 1.000 |
+| **ReconForge Recon (1.7B LoRA, ours)** | 0.805 | **0.901** [0.876, 0.924] | 0.824 [0.784, 0.862] | 0.824 [0.793, 0.853] | **1.000** | 1.000 |
 | DeepSeek v4-flash (frontier, zero-shot) | 0.876 | 0.872 | **1.000** [1.000, 1.000] | **0.904** [0.880, 0.926] | — | 0.996 |
 | Base Qwen3-1.7B (zero-shot) | — | 0.600 | 0.852 [0.809, 0.893] | 0.717 [0.677, 0.755] | — | 0.999 |
 
@@ -22,7 +33,7 @@ zero API cost and zero reasoning-token overhead.
 Flag precision/F1 (95% bootstrap CI, 10k resamples) is the false-positive-aware
 partner to R_w — R_w only scores the exception subset, so it can't see a model
 that over-flags clean pairs. DeepSeek makes **zero false positives** on the 419
-clean pairs and wins on F1 (0.904 vs our 0.827); the fine-tuned model trades
+clean pairs and wins on F1 (0.904 vs our 0.824); the fine-tuned model trades
 some clean-pair precision for its HIGH-severity recall. R_w alone is gameable:
 a degenerate always-ESCALATE model scores R_w 0.696 at accuracy 0.0 (see
 `docs/BENCHMARK.md`). Regenerate with `uv run python model/scripts/rescore_flag_metrics.py`.
