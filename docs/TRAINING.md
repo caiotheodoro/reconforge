@@ -61,4 +61,32 @@ The benchmark run and its artifacts (`bench-eval-full-740.json`, run name
 `full-740`) keep the `740` name after the run's step count; the evaluated
 **weights** are iter 700. A separate, earlier aborted run also stopped at iter
 700 and scored lower (R_w 0.729) — that is a different run, tracked
-separately in `docs/BENCHMARK.md` and `docs/DECISIONS.md`.
+separately in `docs/BENCHMARK.md` and `docs/DECISIONS.md`. Its weights were
+overwritten by the champion run and cannot be re-scored.
+
+## Selection policy
+
+**Disclosure: the published headline is a dev-set number.** Every
+checkpoint/mix/sampling decision to date — run-1 vs the B2 rebalanced mix,
+×3 vs ×5 self-consistency — was made by comparing candidates on the same
+seed-777 800-task benchmark that the headline metrics (`docs/BENCHMARK.md`,
+`model/README.md`) are then reported on. Seed 777 is held out from *training*
+(the training pool is generation seed 101, verified above) but was **not** held
+out from *selection*. There is no held-out-from-selection test number yet.
+
+**Discipline going forward:**
+
+- **Dev set** — candidates compete on generation seed 777 (or, once issue #20
+  lands the multi-seed matrix, the `[7, 13, 42]` schedule already wired in
+  `system/src/reconforge_system/schedule_registry.py`). All checkpoint, mix,
+  hyperparameter, and sampling-count choices are made here. Report freely.
+- **Test set** — generation seed **999** is the frozen test set. Its 800 task
+  signatures are committed in
+  `docs/validation/frozen-test-seed-999-signatures.json`
+  (`generate_tasks(n_tasks=800, seed=999)` → `contamination.task_signature`),
+  recorded before anything was scored against it. It is scored **at most once
+  per published claim** and is **never** used to choose between candidates. Any
+  future score against seed 999 must cite the signature file to prove the pool
+  predates the run.
+- If seed 999 is ever used for selection, it is burned — designate a new unused
+  seed, commit its signatures, and note the rotation here.

@@ -168,6 +168,16 @@ print(f"{verdict['verdict']} / {verdict['exception_type']} / {verdict['severity'
 contamination 0/800 (near-duplicate rate 3.6% at Jaccard ≥ 0.8 — see
 [recon-eval](https://huggingface.co/datasets/caiotheodoro/recon-eval)).
 
+**Selection caveat — the headline is a dev-set number, not held-out.** Every
+checkpoint and configuration choice behind these results — run-1 vs the B2
+rebalanced-mix run, ×3 vs ×5 self-consistency sampling — was made by comparing
+on this same seed-777 800-task set that the headline metrics are then reported
+on. It was never held out from selection. A newly designated seed (999) is
+frozen as the test set: its task signatures are committed in
+`docs/validation/frozen-test-seed-999-signatures.json` and nothing has been
+scored against it. Selection discipline going forward is in
+`docs/TRAINING.md` → Selection policy.
+
 All CIs are 95% bootstrap intervals, 10,000 resamples, seed 11, over the same
 800-task set per model (`reconforge/model/scripts/intervals.py` for accuracy /
 R_w / HIGH recall; `reconforge/model/scripts/rescore_flag_metrics.py` for flag
@@ -339,10 +349,14 @@ a rule pre-check and in front of a human review queue.
   unconditionally.** This is a deployment requirement, not a caveat.
 - **Live financial data.** Trained on synthetic pairs only. Performance on
   real ledgers is unmeasured.
-- **Autonomous judging.** As an LLM judge against the oracle on a 100-task
-  golden set, it reaches Cohen's kappa 0.74 (computed directly from
-  `docs/validation/golden-100.jsonl`), below a 0.85 threshold for
-  unsupervised use.
+- **Autonomous judging.** The production recalibration judge is DeepSeek +
+  `JUDGE_SYSTEM_PROMPT` (the rubric-extended prompt), which reaches Cohen's
+  kappa 0.904 against the oracle on the 100-task golden set — it clears the
+  0.85 threshold. **This model is not that judge.** Asked to self-judge under
+  the same rubric prompt it was never trained on, its kappa is 0.367
+  (a regression from 0.736 on the bare prompt — extended rubric text is
+  off-distribution for a 1.7B fine-tuned on one fixed prompt; see
+  `docs/DECISIONS.md` C2). Do not use this model for unsupervised judging.
 - **Any non-reconciliation domain.** Single-domain by construction; does not
   transfer to payment repair or settlement.
 
@@ -355,9 +369,12 @@ a rule pre-check and in front of a human review queue.
 2. **DUPLICATE recall ~0.** See Ablation above — not fixable by the
    data-volume change tested so far.
 3. **Zero escalations observed** in this eval run — see Out-of-scope use.
-4. **Judge calibration gap.** Kappa 0.74 vs oracle. ECE 0.0875 self-consistency
-   — treat any single-sample deployment as uncalibrated relative to this
-   number, which was measured under 5-sample self-consistency.
+4. **Judge calibration gap.** The production judge (DeepSeek +
+   `JUDGE_SYSTEM_PROMPT`) is at kappa 0.904 vs oracle and clears the 0.85 bar;
+   this model self-judging under the same rubric is at kappa 0.367 (below bar,
+   a regression — see Autonomous judging above and `docs/DECISIONS.md` C2). ECE
+   0.0875 self-consistency — treat any single-sample deployment as uncalibrated
+   relative to this number, which was measured under 5-sample self-consistency.
 5. **Single-domain.** No transfer evidence to payment repair or settlement.
 6. **Generator bias.** The eval set inherits every bias of the generator,
    including its exception-type mix and difficulty distribution. A model
