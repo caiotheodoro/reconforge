@@ -915,3 +915,37 @@ measured evidence.
   frontier model on the frozen seed-999 pool, the claim holding at the mean minus one standard
   deviation. If the Zenodo draft is deleted or never published, this entry stands as the record
   of what the repository contained on 2026-11-23.
+
+## 2026-11-23 — P2 — The paper is deposited on Zenodo; the deposit is not the registration clock
+- Deposit. `paper/reconforge.pdf` (12 pages, built from commit `5598896`) is Zenodo record 24455455,
+  DOI 10.5281/zenodo.24455455; the DOI for all versions is 10.5281/zenodo.24455454. The record was
+  created on 2026-11-23 at 05:29 UTC (Zenodo's own timestamp) and published the same day by the
+  owner. The publication date on the record is 2026-11-23, the day of this release, which is also the
+  paper's first public appearance. The file's md5 is `7b21298cd0d57329cac990884e1dfdc6`.
+- On the record: preprint, CC BY 4.0 set in Zenodo's metadata only (the PDF carries no licence line;
+  the repository stays Apache-2.0), author with ORCID and no affiliation, the abstract plus "Not peer
+  reviewed", 26 reference strings from `paper/refs.bib`, the repository as a supplement and the 26 cited
+  arXiv papers as cited works (`.zenodo.json` holds the same metadata). `CITATION.cff` and the README
+  name the DOI.
+- The file cannot change; metadata can. A later entry corrects any statement on the record found
+  wrong, and a corrected paper goes up as a new version under the same concept DOI.
+- Not the registration. The deposit dates the paper, made after every run here. It dates nothing about
+  when `PRE-REGISTRATION.md` was fixed. The only external clocks are GitHub's commit dates: the
+  seed-999 signatures on 2026-08-27 (`56185d0`) and this release.
+- Open items, recorded as they stand and not repaired by editing history:
+  - Generating code. The scripts and `model/src`/`forge/src` changes behind the round-2 artifacts
+    (`train_seed_study.sh`, `score_seed_study.py`, `multiseed_matrix.py`, `matched_comparison.py` and
+    others), their tests, and the evidence logs `runconfig.json` names are not committed; they remain in
+    the owner's iCloud copy. Table 2 of the paper (the three new training-seed runs) is summary scores
+    only; the per-task exports of those runs were not kept.
+  - Registration tags. `prereg-v1` and `prereg-v1-amend1` exist only in the iCloud copy's git, are
+    unsigned, name a work email as tagger, and were not pushed or signed here. Whether to publish them
+    is the owner's decision; until then the registration date is the author's word.
+  - Work email in history. Commits `be301ea`, `0cf03a7`, `56185d0`, `38984b2`, `dd642b7` and `5613be1`
+    carry a work address as author. History was not rewritten.
+  - Hugging Face. The live model card for `caiotheodoro/reconforge-recon-lora` may still carry the
+    retracted headline; only its source (`model/README.md`) was corrected here.
+- Reversal: this entry changes no frozen text. If the record is found wrong in a statement, metadata
+  is corrected and this log gets a new entry. If the paper is withdrawn, the record is marked so on
+  Zenodo and a later entry here says why; the retraction of the claim itself stands either way and is
+  reversed only by the test named in P1.

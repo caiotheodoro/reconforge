@@ -64,9 +64,9 @@ def test_readme_does_not_lead_with_the_retracted_claim():
 
 def test_decision_log_records_the_release():
     log = (ROOT / "docs" / "DECISIONS.md").read_text()
-    entry = log.split("## 2026-11-23", 1)
+    entry = log.split("## 2026-11-23 — P1", 1)
     assert len(entry) == 2, "no dated entry for the paper release"
-    body = entry[1]
+    body = entry[1].split("\n## ", 1)[0]
     assert "Reversal" in body
     assert "not the registration clock" in body.lower() or "not the registration" in body.lower()
 
@@ -77,3 +77,12 @@ def test_frozen_text_is_untouched():
 
     digest = hashlib.sha256((ROOT / "PRE-REGISTRATION.md").read_bytes()).hexdigest()
     assert digest == "00aa755f35cc320fc09133196f1c7373b12466601eb08e3b3dc9210b0e76cb37", "PRE-REGISTRATION.md changed; frozen text is never edited"
+
+
+def test_deposit_is_recorded_in_the_citation_and_the_log():
+    cff = (ROOT / "CITATION.cff").read_text()
+    assert "doi: 10.5281/zenodo.24455455" in cff
+    assert "10.5281/zenodo.24455455" in README
+    log = (ROOT / "docs" / "DECISIONS.md").read_text()
+    p2 = log.split("## 2026-11-23 — P2", 1)[1]
+    assert "Reversal" in p2 and "registration clock" in p2 and "05:29" in p2
