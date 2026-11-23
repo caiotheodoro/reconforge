@@ -9,7 +9,7 @@
 > against 0.8719 at three samples (2026-08-08), restated on 2026-08-27 as 0.9007
 > at five samples, a margin of 0.0288 on the 800-task seed-777 pool. That claim
 > is withdrawn. The paper is [`paper/reconforge.pdf`](paper/reconforge.pdf)
-> (source `paper/reconforge.tex`), deposited on [Zenodo](https://doi.org/10.5281/zenodo.24455455); it is not peer reviewed.
+> (source `paper/reconforge.tex`), deposited on [Zenodo](https://doi.org/10.5281/zenodo.24483799); it is not peer reviewed.
 >
 > A pre-registered rule (`PRE-REGISTRATION.md` section 11, dated 2026-08-29,
 > before the runs) said that if the standard deviation across training seeds
@@ -143,7 +143,7 @@ See `docs/BENCHMARK.md`, `docs/DECISIONS.md`, `docs/THREATS-TO-VALIDITY.md`, and
 ## Data and license
 
 - Code is `Apache-2.0` (`LICENSE`). The paper (`paper/reconforge.tex`, `.pdf`; [Zenodo
-  record](https://doi.org/10.5281/zenodo.24455455), decision D-P2) is
+  record](https://doi.org/10.5281/zenodo.24483799), decision D-P2) is
   `CC BY 4.0`; `CITATION.cff` and `.zenodo.json` carry its metadata (decision
   D-P1 in `docs/DECISIONS.md`).
 - All data is synthetic, from the seeded generator in `forge/`. No customer,

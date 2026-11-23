@@ -87,8 +87,8 @@ def test_frozen_text_is_untouched():
 
 def test_deposit_is_recorded_in_the_citation_and_the_log():
     cff = (ROOT / "CITATION.cff").read_text()
-    assert "doi: 10.5281/zenodo.24455455" in cff
-    assert "10.5281/zenodo.24455455" in README
+    assert "doi: 10.5281/zenodo.24483799" in cff
+    assert "10.5281/zenodo.24483799" in README
     log = (ROOT / "docs" / "DECISIONS.md").read_text()
     p2 = log.split("## 2026-11-23 — P2", 1)[1]
     assert "Reversal" in p2 and "registration clock" in p2 and "05:29" in p2

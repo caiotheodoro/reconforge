@@ -1004,3 +1004,20 @@ measured evidence.
   goes up as a new version under concept DOI `10.5281/zenodo.24455454`.
 
 
+
+## 2026-11-23 — P5 — Paper v2.0 deposited on Zenodo (record 24483799, DOI 10.5281/zenodo.24483799)
+- Deposit. New version of record 24455455 (concept DOI `10.5281/zenodo.24455454`), created 2026-11-23 21:37 UTC
+  (Zenodo's timestamp) and published the same day. Record `24483799`, DOI `10.5281/zenodo.24483799`,
+  version label `paper-v2.0`, publication date on the record `2026-08-07` (set from `.zenodo.json` per the
+  owner's date rule, see P4).
+- File. `paper/reconforge.pdf` at commit `22ba7af`, md5 `586ac7f1d9419f31534f8228fa816cc6`. The Zenodo file
+  checksum matches. Files cannot change after publication; the metadata can.
+- Metadata on the record: creators Theodoro, Caio and Basso Sberse, João Vitor (both Avenza Labs, ORCIDs in
+  `.zenodo.json`), keywords and related works as in `.zenodo.json`, CC BY 4.0, English. The additional
+  description (Note with the work-start and v1 deposit dates) did not persist through the Zenodo form and is
+  not on the record; the same text is in `.zenodo.json` `notes`.
+- The deposit is not the registration clock. Dates in the paper and the repo timeline rest on the commit
+  history and the pre-registration, not on the Zenodo timestamp (see P2).
+- Reversal. Corrections go up as a new version under the concept DOI `10.5281/zenodo.24455454`. Record
+  `24455455` (`paper-v1.0`, tag `5598896`) and record `24483799` (`paper-v2.0`, tag on `22ba7af`) stay as
+  deposited. README and `CITATION.cff` point to `24483799` as the current version.
