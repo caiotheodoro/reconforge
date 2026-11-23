@@ -1,0 +1,148 @@
+{
+  "_comment": "Validation loss vs R_w across the champion run's checkpoints. Spearman is tie-corrected (average ranks); the naive d^2 formula is invalid here because the losses are heavily tied and it returns -0.578 with a tie-break-dependent result.",
+  "n_checkpoints": 14,
+  "headline_margin": 0.0288,
+  "spearman_rho_tie_corrected": -0.6081,
+  "pearson_r": -0.4299,
+  "tied_loss_groups": {
+    "0.093": [
+      350,
+      400
+    ],
+    "0.092": [
+      450,
+      500
+    ],
+    "0.091": [
+      550,
+      600,
+      650,
+      700
+    ]
+  },
+  "spread_all": {
+    "iters": [
+      50,
+      100,
+      150,
+      200,
+      250,
+      300,
+      350,
+      400,
+      450,
+      500,
+      550,
+      600,
+      650,
+      700
+    ],
+    "n": 14,
+    "min": 0.7022,
+    "max": 0.9612,
+    "spread": 0.259,
+    "x_headline_margin": 8.99
+  },
+  "spread_at_lowest_loss": {
+    "iters": [
+      550,
+      600,
+      650,
+      700
+    ],
+    "n": 4,
+    "min": 0.8947,
+    "max": 0.9612,
+    "spread": 0.0665,
+    "x_headline_margin": 2.31
+  },
+  "spread_loss_leq_0.093": {
+    "iters": [
+      350,
+      400,
+      450,
+      500,
+      550,
+      600,
+      650,
+      700
+    ],
+    "n": 8,
+    "min": 0.8476,
+    "max": 0.9612,
+    "spread": 0.1136,
+    "x_headline_margin": 3.94
+  },
+  "per_checkpoint": [
+    {
+      "iter": 50,
+      "val_loss": 0.385,
+      "severity_weighted_recall": 0.7922
+    },
+    {
+      "iter": 100,
+      "val_loss": 0.146,
+      "severity_weighted_recall": 0.8753
+    },
+    {
+      "iter": 150,
+      "val_loss": 0.117,
+      "severity_weighted_recall": 0.892
+    },
+    {
+      "iter": 200,
+      "val_loss": 0.111,
+      "severity_weighted_recall": 0.7022
+    },
+    {
+      "iter": 250,
+      "val_loss": 0.105,
+      "severity_weighted_recall": 0.8629
+    },
+    {
+      "iter": 300,
+      "val_loss": 0.098,
+      "severity_weighted_recall": 0.9474
+    },
+    {
+      "iter": 350,
+      "val_loss": 0.093,
+      "severity_weighted_recall": 0.9127
+    },
+    {
+      "iter": 400,
+      "val_loss": 0.093,
+      "severity_weighted_recall": 0.8476
+    },
+    {
+      "iter": 450,
+      "val_loss": 0.092,
+      "severity_weighted_recall": 0.8698
+    },
+    {
+      "iter": 500,
+      "val_loss": 0.092,
+      "severity_weighted_recall": 0.9266
+    },
+    {
+      "iter": 550,
+      "val_loss": 0.091,
+      "severity_weighted_recall": 0.9086
+    },
+    {
+      "iter": 600,
+      "val_loss": 0.091,
+      "severity_weighted_recall": 0.9294
+    },
+    {
+      "iter": 650,
+      "val_loss": 0.091,
+      "severity_weighted_recall": 0.8947
+    },
+    {
+      "iter": 700,
+      "val_loss": 0.091,
+      "severity_weighted_recall": 0.9612
+    }
+  ]
+}

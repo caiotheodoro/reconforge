@@ -90,3 +90,36 @@ out from *selection*. There is no held-out-from-selection test number yet.
   predates the run.
 - If seed 999 is ever used for selection, it is burned — designate a new unused
   seed, commit its signatures, and note the rotation here.
+
+## Validation loss carries no selection signal (issue #12)
+
+The documented stopping rule is "stop when the loss plateaus" (decision M10).
+That rule decides *when* to stop. It was then also relied on to argue the
+resulting checkpoint was good, and it cannot support that.
+
+| Run | Final iter | Final val loss | Val plateau from | R_w (×3) |
+|---|---|---|---|---|
+| run 1 (default mix, champion) | 700 | 0.091 | ~450 | **0.9128** |
+| B2 (rebalanced mix, rejected) | 550 | **0.090** | ~400 | 0.7230 |
+
+A validation-loss gap of **0.001** accompanies a severity-weighted-recall gap of
+**0.190**. The direction is the wrong way round: B2 has the *lower* validation
+loss and is nineteen points worse on the benchmark. **Selecting on validation
+loss would have shipped B2.**
+
+This is not surprising in hindsight — validation loss is token-level
+cross-entropy over a fixed prompt/response format, while R_w is a
+severity-weighted, class-asymmetric decision metric scored over the exception
+subset only. Nothing forces them to rank two checkpoints the same way. It is
+worth stating plainly because the repo's own write-up implied the loss curve
+produced the good model.
+
+Consequences, both already scheduled:
+
+- Checkpoint selection must be done by scoring candidates on the dev ladder, not
+  by reading a loss curve. All fourteen 50-step checkpoints from the champion run
+  are on disk and none were ever scored; that harness is Round 2 work.
+- The loss curve remains the right *stopping* signal (it is what says further
+  steps buy nothing), and it remains committed evidence — the curves are
+  extracted into `docs/validation/loss-curves.json` from the now-tracked
+  `model/data/train-full.log` and `train-b2.log`.

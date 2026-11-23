@@ -1,0 +1,445 @@
+{
+  "_comment": "Threshold search on self-consistency agreement rather than the model's self-reported confidence, which is constant 1.0 for the champion and therefore cannot drive any threshold.",
+  "cost_model": {
+    "cost_esc": 1.0,
+    "cost_missed_high": 5.0
+  },
+  "runs": {
+    "champion_x5": {
+      "self_reported_confidence_values": [
+        1.0
+      ],
+      "self_reported_is_degenerate": true,
+      "baseline": {
+        "normalized_cost": 0.0,
+        "n_escalations": 0,
+        "n_missed_high": 0
+      },
+      "best": {
+        "threshold": 0.0,
+        "normalized_cost": 0.0,
+        "n_escalations": 0,
+        "n_missed_high": 0,
+        "severity_weighted_recall": 0.9007,
+        "accuracy": 0.805,
+        "flag_f1": 0.8241
+      },
+      "separation": {
+        "mean_confidence_when_correct": 0.8969,
+        "mean_confidence_when_wrong": 0.8103,
+        "n_correct": 644,
+        "n_wrong": 156,
+        "gap": 0.0866
+      },
+      "curve": [
+        {
+          "threshold": 0.0,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.05,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.1,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.15,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.2,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.25,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.3,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.35,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.4,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9007,
+          "accuracy": 0.805,
+          "flag_f1": 0.8241
+        },
+        {
+          "threshold": 0.45,
+          "normalized_cost": 0.015,
+          "n_escalations": 12,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8988,
+          "accuracy": 0.7987,
+          "flag_f1": 0.8198
+        },
+        {
+          "threshold": 0.5,
+          "normalized_cost": 0.015,
+          "n_escalations": 12,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8988,
+          "accuracy": 0.7987,
+          "flag_f1": 0.8198
+        },
+        {
+          "threshold": 0.55,
+          "normalized_cost": 0.015,
+          "n_escalations": 12,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8988,
+          "accuracy": 0.7987,
+          "flag_f1": 0.8198
+        },
+        {
+          "threshold": 0.6,
+          "normalized_cost": 0.015,
+          "n_escalations": 12,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8988,
+          "accuracy": 0.7987,
+          "flag_f1": 0.8198
+        },
+        {
+          "threshold": 0.65,
+          "normalized_cost": 0.15,
+          "n_escalations": 120,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8765,
+          "accuracy": 0.7175,
+          "flag_f1": 0.7928
+        },
+        {
+          "threshold": 0.7,
+          "normalized_cost": 0.15,
+          "n_escalations": 120,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8765,
+          "accuracy": 0.7175,
+          "flag_f1": 0.7928
+        },
+        {
+          "threshold": 0.75,
+          "normalized_cost": 0.15,
+          "n_escalations": 120,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8765,
+          "accuracy": 0.7175,
+          "flag_f1": 0.7928
+        },
+        {
+          "threshold": 0.8,
+          "normalized_cost": 0.15,
+          "n_escalations": 120,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8765,
+          "accuracy": 0.7175,
+          "flag_f1": 0.7928
+        },
+        {
+          "threshold": 0.85,
+          "normalized_cost": 0.435,
+          "n_escalations": 348,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8314,
+          "accuracy": 0.4838,
+          "flag_f1": 0.7165
+        },
+        {
+          "threshold": 0.9,
+          "normalized_cost": 0.435,
+          "n_escalations": 348,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8314,
+          "accuracy": 0.4838,
+          "flag_f1": 0.7165
+        },
+        {
+          "threshold": 0.95,
+          "normalized_cost": 0.435,
+          "n_escalations": 348,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8314,
+          "accuracy": 0.4838,
+          "flag_f1": 0.7165
+        },
+        {
+          "threshold": 1.0,
+          "normalized_cost": 0.435,
+          "n_escalations": 348,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8314,
+          "accuracy": 0.4838,
+          "flag_f1": 0.7165
+        }
+      ]
+    },
+    "champion_x3": {
+      "self_reported_confidence_values": [
+        1.0
+      ],
+      "self_reported_is_degenerate": true,
+      "baseline": {
+        "normalized_cost": 0.0,
+        "n_escalations": 0,
+        "n_missed_high": 0
+      },
+      "best": {
+        "threshold": 0.0,
+        "normalized_cost": 0.0,
+        "n_escalations": 0,
+        "n_missed_high": 0,
+        "severity_weighted_recall": 0.9128,
+        "accuracy": 0.805,
+        "flag_f1": 0.8273
+      },
+      "separation": {
+        "mean_confidence_when_correct": 0.9136,
+        "mean_confidence_when_wrong": 0.8312,
+        "n_correct": 644,
+        "n_wrong": 156,
+        "gap": 0.0824
+      },
+      "curve": [
+        {
+          "threshold": 0.0,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9128,
+          "accuracy": 0.805,
+          "flag_f1": 0.8273
+        },
+        {
+          "threshold": 0.05,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9128,
+          "accuracy": 0.805,
+          "flag_f1": 0.8273
+        },
+        {
+          "threshold": 0.1,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9128,
+          "accuracy": 0.805,
+          "flag_f1": 0.8273
+        },
+        {
+          "threshold": 0.15,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9128,
+          "accuracy": 0.805,
+          "flag_f1": 0.8273
+        },
+        {
+          "threshold": 0.2,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9128,
+          "accuracy": 0.805,
+          "flag_f1": 0.8273
+        },
+        {
+          "threshold": 0.25,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9128,
+          "accuracy": 0.805,
+          "flag_f1": 0.8273
+        },
+        {
+          "threshold": 0.3,
+          "normalized_cost": 0.0,
+          "n_escalations": 0,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9128,
+          "accuracy": 0.805,
+          "flag_f1": 0.8273
+        },
+        {
+          "threshold": 0.35,
+          "normalized_cost": 0.0175,
+          "n_escalations": 14,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9087,
+          "accuracy": 0.7963,
+          "flag_f1": 0.822
+        },
+        {
+          "threshold": 0.4,
+          "normalized_cost": 0.0175,
+          "n_escalations": 14,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9087,
+          "accuracy": 0.7963,
+          "flag_f1": 0.822
+        },
+        {
+          "threshold": 0.45,
+          "normalized_cost": 0.0175,
+          "n_escalations": 14,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9087,
+          "accuracy": 0.7963,
+          "flag_f1": 0.822
+        },
+        {
+          "threshold": 0.5,
+          "normalized_cost": 0.0175,
+          "n_escalations": 14,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9087,
+          "accuracy": 0.7963,
+          "flag_f1": 0.822
+        },
+        {
+          "threshold": 0.55,
+          "normalized_cost": 0.0175,
+          "n_escalations": 14,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9087,
+          "accuracy": 0.7963,
+          "flag_f1": 0.822
+        },
+        {
+          "threshold": 0.6,
+          "normalized_cost": 0.0175,
+          "n_escalations": 14,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9087,
+          "accuracy": 0.7963,
+          "flag_f1": 0.822
+        },
+        {
+          "threshold": 0.65,
+          "normalized_cost": 0.0175,
+          "n_escalations": 14,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.9087,
+          "accuracy": 0.7963,
+          "flag_f1": 0.822
+        },
+        {
+          "threshold": 0.7,
+          "normalized_cost": 0.29,
+          "n_escalations": 232,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8674,
+          "accuracy": 0.605,
+          "flag_f1": 0.7431
+        },
+        {
+          "threshold": 0.75,
+          "normalized_cost": 0.29,
+          "n_escalations": 232,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8674,
+          "accuracy": 0.605,
+          "flag_f1": 0.7431
+        },
+        {
+          "threshold": 0.8,
+          "normalized_cost": 0.29,
+          "n_escalations": 232,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8674,
+          "accuracy": 0.605,
+          "flag_f1": 0.7431
+        },
+        {
+          "threshold": 0.85,
+          "normalized_cost": 0.29,
+          "n_escalations": 232,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8674,
+          "accuracy": 0.605,
+          "flag_f1": 0.7431
+        },
+        {
+          "threshold": 0.9,
+          "normalized_cost": 0.29,
+          "n_escalations": 232,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8674,
+          "accuracy": 0.605,
+          "flag_f1": 0.7431
+        },
+        {
+          "threshold": 0.95,
+          "normalized_cost": 0.29,
+          "n_escalations": 232,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8674,
+          "accuracy": 0.605,
+          "flag_f1": 0.7431
+        },
+        {
+          "threshold": 1.0,
+          "normalized_cost": 0.29,
+          "n_escalations": 232,
+          "n_missed_high": 0,
+          "severity_weighted_recall": 0.8674,
+          "accuracy": 0.605,
+          "flag_f1": 0.7431
+        }
+      ]
+    }
+  }
+}

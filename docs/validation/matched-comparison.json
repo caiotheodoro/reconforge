@@ -1,0 +1,104 @@
+{
+  "_comment": "Decomposition of the published margin. The headline compared a 5-vote fine-tune against a 1-shot frontier model on a prompt that named four classes without defining them. These conditions separate the definition effect from the decode-budget effect and report the matched margin.",
+  "resamples": 10000,
+  "seed": 11,
+  "conditions": {
+    "A_deepseek_base_x1": {
+      "n": 800,
+      "accuracy": 0.8762,
+      "severity_weighted_recall": 0.8719,
+      "flag_precision": 1.0,
+      "flag_f1": 0.9036,
+      "normalized_cost": 0.0125,
+      "parse_rate": 0.9962
+    },
+    "C_deepseek_rubric_x5": {
+      "n": 800,
+      "accuracy": 0.9487,
+      "severity_weighted_recall": 0.9689,
+      "flag_precision": 1.0,
+      "flag_f1": 0.9604,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0
+    },
+    "D_champion_rubric_x5": {
+      "n": 800,
+      "accuracy": 0.4338,
+      "severity_weighted_recall": 0.9401,
+      "flag_precision": 0.5083,
+      "flag_f1": 0.6649,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0
+    },
+    "E_champion_base_x5": {
+      "n": 800,
+      "accuracy": 0.805,
+      "severity_weighted_recall": 0.9007,
+      "flag_precision": 0.8241,
+      "flag_f1": 0.8241,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0
+    },
+    "E_prime_champion_base_x5_corrected_vote": {
+      "n": 800,
+      "accuracy": 0.805,
+      "severity_weighted_recall": 0.8988,
+      "flag_precision": 0.8263,
+      "flag_f1": 0.8252,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0
+    }
+  },
+  "aggregation_note": "E as published used whole-dict voting, which PRE-REGISTRATION \u00a74.4 forbids. E_prime is the same run re-aggregated with the corrected rule. The published margin is +0.0288 under the old rule and +0.0269 under the prereg's own rule; the apparent symmetry with the -0.0288 matched margin was an artefact of comparing two different estimators.",
+  "scope": "EXPLORATORY, not confirmatory. PRE-REGISTRATION \u00a74.5 requires held-out abbreviation pairs and \u00a73 names the frozen test pool as the endpoint. This runs on seed-777 (v1), whose PARTIAL_MATCH overlap fraction is 1.0 -- a violation that FAVOURS the champion, so a compliant pool would push D-C further negative rather than back toward positive.",
+  "unmeasured": {
+    "B_deepseek_rubric_x1": "not collected: the provider account was exhausted mid-experiment (HTTP 402 Insufficient Balance). The combined definition+budget effect is reported; the split between them is unmeasured, not estimated."
+  },
+  "effects": {
+    "combined_definition_plus_budget_C_minus_A": {
+      "point": 0.097,
+      "ci95": [
+        0.0724,
+        0.125
+      ],
+      "p_approx": 0.0,
+      "excludes_zero": true
+    },
+    "matched_margin_D_minus_C": {
+      "point": -0.0288,
+      "ci95": [
+        -0.0432,
+        -0.016
+      ],
+      "p_approx": 0.0,
+      "excludes_zero": true
+    },
+    "published_margin_as_reported_E_minus_A": {
+      "point": 0.0288,
+      "ci95": [
+        0.0074,
+        0.0513
+      ],
+      "p_approx": 0.0074,
+      "excludes_zero": true
+    },
+    "published_margin_corrected_vote_Eprime_minus_A": {
+      "point": 0.0269,
+      "ci95": [
+        0.0064,
+        0.0493
+      ],
+      "p_approx": 0.011,
+      "excludes_zero": true
+    },
+    "rubric_cost_to_champion_D_minus_Eprime": {
+      "point": 0.0413,
+      "ci95": [
+        0.0228,
+        0.0624
+      ],
+      "p_approx": 0.0,
+      "excludes_zero": true
+    }
+  }
+}

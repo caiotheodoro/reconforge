@@ -131,7 +131,10 @@ measured evidence.
   is what makes verifier/expected agreement (the A4 gate) a property rather
   than an accident. The generator injects exactly one exception per task and
   shares the priority, so the gate holds by construction.
-- Evidence: 100% oracle agreement on 400-task pilot (docs/validation/pilot-7.json).
+- Evidence: 100% oracle agreement on the committed pilot, 300 tasks
+  (`docs/validation/pilot-7-n300.json`). Earlier text said 400, which was the
+  `make study` task count rather than the committed artifact's; the artifact
+  name now carries the count and `make study` regenerates exactly this file.
 - Alternatives rejected: multi-field reporting (breaks the single-verdict
   schema); probabilistic classification (non-deterministic).
 
@@ -542,3 +545,373 @@ measured evidence.
 - Alternatives rejected: judge-specific fine-tune first (HANDOFF's other
   candidate) — deferred since the cheap rubric fix already closes the bar
   for the judge that's actually in production use (DeepSeek).
+
+## 2026-08-29 — F8 — FIELD_CORRUPTION / VALUE_DATE_MISMATCH collision: documented, not silently rescored
+- Decision: the `malformed_date` corruption variant writes a garbled string into
+  `statement.value_date`, which makes the item simultaneously "a field is
+  corrupt" and "the value date is wrong". The verifier resolves it by the F1
+  priority order (FIELD_CORRUPTION outranks VALUE_DATE_MISMATCH) but the prompt
+  never states that order, so `VALUE_DATE_MISMATCH` is a defensible reading of an
+  ambiguous item rather than a model error. Both scorings are now published;
+  strict remains the headline rule.
+- Evidence: `docs/validation/taxonomy-collision.json`. 12 of the 37 benchmark
+  FIELD_CORRUPTION items are `malformed_date`. Confusions into
+  VALUE_DATE_MISMATCH: champion ×5 12, champion ×3 11, DeepSeek 7, base 10.
+  Under collision-tolerant scoring FIELD_CORRUPTION recall roughly doubles
+  (champion ×5 0.2703 → 0.5946) but R_w moves only 0.9007 → 0.9098, because the
+  class carries weight 0.2. DeepSeek moves 0.8719 → 0.8772, so the margin widens
+  slightly (+0.0288 → +0.0326) rather than closing.
+- Consequence for B2: the B2 study read FIELD_CORRUPTION recall as an
+  improvement target. Part of that class's apparent difficulty is label
+  ambiguity, not model weakness, so "upsampling FIELD_CORRUPTION barely helped"
+  is partly explained by the ceiling being lower than the strict score implies.
+- Not fixed in the generator yet, deliberately: changing task generation changes
+  what seed 777 produces, which would break the reproducibility of every
+  published export and invalidate the committed seed-999 frozen-test signatures.
+  The fix belongs in a versioned generator (v2) alongside the PARTIAL_MATCH
+  held-out variants, with a newly frozen test seed — see the Round 1 review.
+- Alternatives rejected: silently rescoring under the tolerant rule (hides a
+  construct-validity defect behind a better number); stating the priority order
+  in the prompt (turns a taxonomy problem into a prompt-engineering one, and
+  would invalidate the trained adapter's prompt contract).
+
+## 2026-08-29 — F9 — PARTIAL_MATCH has total train/eval surface overlap (construct-validity defect)
+- Decision: record the defect and gate the headline on resolving it. Do not
+  reinterpret the existing PARTIAL_MATCH result as evidence of capability until
+  the champion has been scored on abbreviation pairs it never trained on.
+- Evidence: `docs/validation/partial-match-overlap.json`. The generator builds
+  every PARTIAL_MATCH item from a fixed 10-entry variant table
+  (`BENEFICIARY_VARIANTS`, `COUNTERPARTY_VARIANTS`). The seed-777 benchmark's 32
+  PARTIAL_MATCH tasks use **9 distinct surface pairs, and all 9 also appear in
+  the seed-101 training pool** — overlap fraction 1.0, zero unseen pairs.
+- Why it matters: per issue #18, PARTIAL_MATCH contributes ~97% of the
+  champion's R_w margin over DeepSeek (champion catches 26/32, DeepSeek 5/32).
+  With complete surface overlap, "the fine-tune learned to recognise abbreviated
+  counterparty names" and "the fine-tune memorised ten strings" predict the same
+  benchmark score. The current data cannot separate them, so the margin does not
+  yet support the capability claim the write-up makes.
+- Note this is a *different* confound from the prompt-definition one in #18. The
+  shared prompt never defines PARTIAL_MATCH, which independently disadvantages
+  DeepSeek. Both must be closed before the class's contribution is interpretable:
+  the rubric prompt fixes the definition confound, held-out variant pairs fix the
+  memorization confound.
+- Resolution requires generating PARTIAL_MATCH items from pairs disjoint from
+  training, which changes task generation — see the versioned-generator decision.
+- Alternatives rejected: dropping PARTIAL_MATCH from the headline metric (it is a
+  legitimate operational class, and removing the class that decides the result
+  after seeing the result is exactly the move pre-registration exists to prevent).
+
+## 2026-08-29 — E3 — Escalation policy is unanswerable on a pool where HIGH recall is already 1.0
+- Decision: close the E3 escalation-threshold study as **not answerable on the
+  seed-777 benchmark**, rather than reporting a threshold. Reopen it only on a
+  pool or model where HIGH-severity exceptions are actually missed.
+- Evidence: `docs/validation/escalation-calibration.json`.
+  1. The existing calibration path is vacuous. `find_best_threshold` keys off
+     `predicted.confidence`, which the champion emits as exactly 1.0 on all 800
+     tasks — no threshold in (0, 1] changes a single verdict. It had only ever
+     been run against the 88-task smoke fixture, where the stub reported 0.0
+     everywhere: degenerate from the other end.
+  2. Self-consistency agreement *is* a real error signal: mean 0.897 on correct
+     predictions vs 0.810 on wrong ones (gap 0.087, n=644/156). Weak, but real,
+     and only meaningful at all after the decision-level vote fix.
+  3. It still buys nothing here, and the reason is structural. The operational
+     cost is `1.0·escalations + 5.0·missed_HIGH`. The champion has 0 escalations
+     and 0 missed HIGH, so cost is already 0.000; every escalation adds at least
+     1.0 and prevents nothing, because there is no missed HIGH left to prevent.
+     The optimal threshold is 0.0 by construction, not by tuning.
+- Reading: "the model never says unsure" is described elsewhere as a cost of pure
+  SFT. On this pool, under this cost model, it is optimal behaviour. The
+  escalation question only becomes live where HIGH recall is below 1.0 — a harder
+  pool, the base model, or the champion once matched conditions and held-out
+  variants reduce its HIGH recall. Any future escalation policy must be justified
+  against a run that actually misses HIGH exceptions.
+- Alternatives rejected: tuning a threshold anyway and reporting the number
+  (it would be a tuned-on-nothing artifact of a degenerate optimum); changing the
+  cost model until escalation looks worthwhile (that is fitting the metric to the
+  desired conclusion).
+
+## 2026-08-29 — R4-scope — What a GRPO round can and cannot reach on this distribution
+- Decision: proceed with the RL round, but scope it to the false-positive problem
+  rather than to R_w, and drop DUPLICATE from the RL objective entirely.
+- Evidence: `docs/validation/solve-rate.json`, measured from the champion's
+  stored ×5 draws — no new inference. Solve rate per task over 5 samples,
+  "solved" by the same `is_correct` rule the benchmark scores with.
+- **The trainable band is real**: 306/800 tasks (38.2%) sit in the 10–80% band.
+  49.8% are always-solved and 12.0% never-solved; both contribute variance rather
+  than advantage to GRPO. A band this size justifies the compute.
+- **71% of that signal is MATCH tasks** (216 of 306 in-band items are clean
+  pairs). So an RL round on the severity-weighted-cost reward would spend most of
+  its gradient learning not to over-flag clean pairs. That is precisely the
+  champion's measured weakness — 67 false positives, flag precision 0.824 against
+  DeepSeek's 1.000 — and it is a *guard* metric under PRE-REGISTRATION §5, not
+  the primary endpoint. The honest framing of Round 4 is therefore "RL to fix the
+  false-positive gap", not "RL to raise R_w".
+- **Three classes are unreachable by RL on this distribution**, for two different
+  reasons:
+  - `DUPLICATE` — 31/31 always fail, 0 in band. Every rollout is wrong, so there
+    is no advantage to compute and GRPO cannot move it. This is a third
+    independent confirmation of the B2 finding (data-count doesn't fix it) and
+    the F9 reading (it is representational): the model never learned reference
+    equality as a signal distinct from field agreement. The fix stays
+    architectural — the verifier pre-check in the gate.
+  - `FX_CONVERSION_ERROR` (32/32) and `MISSING_MESSAGE` (45/45) — always solved,
+    saturated, nothing left to learn.
+- Consequence for the reward: severity-weighted cost remains the right objective
+  (it is the only one that prices false escalations), but the expected gain is on
+  flag precision/F1 and normalized cost, with R_w roughly flat. Round 4 should be
+  judged on that basis, and a flat R_w should not be read as failure.
+- Alternatives rejected: filtering the RL set to exception tasks only (throws away
+  71% of the available signal and the specific weakness worth fixing); including
+  DUPLICATE to "give it a chance" (zero advantage signal, pure wasted compute).
+
+## 2026-08-29 — R4-stack — GRPO must be implemented on MLX, not imported
+- Finding: `mlx_lm` 0.31.3 has **no RL surface at all**. `mlx_lm.tuner.trainer`
+  exposes `default_loss`, `train`, `evaluate` and nothing else; the source
+  mentions none of `grpo`, `ppo`, `reward`, `advantage`, `policy_gradient`, or
+  `kl`. The published stack is supervised-only.
+- Decision: implement a GRPO loop against MLX rather than moving the RL round to
+  a CUDA box with TRL/verl.
+- Rationale, and it is a methodological one rather than a cost one: the champion
+  is a LoRA over `mlx-community/Qwen3-1.7B-4bit`. Training the RL variant on
+  CUDA would mean a different base quantization and a different runtime, so any
+  RL-vs-SFT comparison would confound the algorithm with the stack — exactly the
+  class of unmatched comparison this whole effort exists to remove
+  (PRE-REGISTRATION §4). Keeping RL on the same base and the same sampler is
+  what makes "GRPO beat SFT" a statement about GRPO.
+- What has to be written: rollout sampling from the current policy, group-relative
+  advantage `A_i = (r_i − mean r) / std r`, token log-probs under the policy,
+  a policy-gradient loss with a KL penalty to the SFT reference, and a LoRA
+  update. `mlx_lm.tuner.trainer.train` cannot be reused as-is because its batch
+  iterator has no place to generate rollouts; the loop is custom.
+- Already in place from the environment gate: the reward (`rl_reward.rl_cost`,
+  three error modes, no free optimum, CI-gated) and the trainable task set
+  (306 in-band tasks from `solve-rate.json`).
+- Cost estimate on the M5: 8 rollouts × ~0.85 s per task, 8 tasks per step ≈ 56 s
+  per step, so ~100 steps is roughly 1.5 h — the same order as the SFT runs.
+- Alternatives rejected: TRL/verl on a rented GPU (breaks base-model
+  comparability, and the AWS budget is better spent on seed replication than on
+  re-establishing a baseline that already exists); skipping GRPO for
+  rejection-sampled SFT alone (that is Round 3.3 and answers a different
+  question — it cannot show whether on-policy optimisation beats imitation).
+
+## 2026-08-29 — R4-scale — GRPO is implemented and gated, but this hardware cannot run it at a defensible scale
+- Decision: do **not** run a token-scale GRPO round on the M5 and report it.
+  Escalate the scale question instead.
+- Measured, not estimated (`model/scripts/train_grpo.py` smoke runs):
+  - one step = 8 rollouts + one gradient step = **182 s**
+  - generation is **3%** of that (0.7 s per rollout); the gradient pass is **97%**
+  - amortised **22.8 s per rollout**
+- The gradient pass is dominated by the prompt, not the completion. `SYSTEM_PROMPT`
+  plus a rendered task is **673 tokens** against ~35 completion tokens, and the
+  forward/backward has to cover the whole sequence even though the prompt
+  positions are masked out of the loss. Shortening it would change the prompt
+  contract the champion was trained under, so it is not available.
+- What that buys on this machine: 320 rollouts ≈ 2 h, 1 000 ≈ 6.3 h,
+  2 000 ≈ 12.6 h. A 2-hour run is ~40 steps over 8 rollouts each.
+- **Why not just run the 2-hour version.** It would be underpowered by
+  construction, and this project has just retracted a headline for exactly that
+  reason: a single draw reported as a result. Round 3 measured run-to-run SD at
+  0.0823 on this recipe; an RL delta smaller than that is unreadable, and 40
+  steps is very unlikely to move the policy further than the noise floor. Running
+  it and reporting "GRPO improved/did not improve X" would repeat the error the
+  retraction was about.
+- One genuine optimisation was found and kept: the KL reference term is constant
+  with respect to the policy, so it is precomputed once per batch instead of
+  running a second full forward inside the differentiated graph
+  (`grpo.grpo_loss_cached_ref`). 255 s → 182 s per step, with a test asserting
+  the two formulations give identical loss, policy-gradient and KL at three
+  values of beta. It is a 29% saving, not an order of magnitude.
+- Status: the machinery is complete and verified — reward with no free optimum,
+  8-check environment gate, 306-task in-band set, GRPO core with 15 unit tests
+  covering advantages, masking, length normalisation and the KL term, and a
+  driver that refuses to start unless the gate passes. What is missing is
+  throughput, which is a hardware question rather than a correctness one.
+- Options, for an explicit decision rather than a default:
+  1. **Rent a GPU** (~$30 of the $60 budget). Fastest path to a defensible run,
+     but the RL variant would train on a different base quantization and runtime
+     than the SFT champion, so any RL-vs-SFT comparison confounds algorithm with
+     stack — the same class of unmatched comparison this work exists to remove.
+     Mitigable by also re-running the SFT baseline on the same rented stack,
+     which roughly doubles the cost.
+  2. **Accept ~6 h on the M5** for ~1 000 rollouts. Same base, same runtime,
+     genuinely comparable; still modest for RL but no longer a token run.
+  3. **Report GRPO as built-and-gated, not run.** Honest, cheap, and the
+     environment gate already produced a real finding (the reward hack) without
+     any training.
+
+## 2026-08-29 — R4-filter — The RL task filter selected on the wrong quantity, and the reward covers only 2 of 10 classes
+- Finding 1 — **the filter was wrong**. The RL set was built from the `is_correct`
+  solve-rate band (10–80%). GRPO needs within-group variance in the **reward**,
+  and the reward is coarser than the correctness rule: `is_correct` requires the
+  exact `exception_type`, while `rl_cost` prices only escalations, missed HIGHs
+  and false flags. A task whose rollouts alternate between two *wrong* exception
+  types therefore varies under `is_correct` and is **constant** under the reward.
+  It looks trainable and yields no advantage.
+- Measured consequence: the first GRPO run dropped **83%** of sampled groups as
+  degenerate — 1 gradient update in 3 steps, and that one on half a batch. The
+  run was stopped rather than left to burn ~6 h producing almost no gradient.
+- Rebuilt on reward variance directly (`model/scripts/rl_reward_variance.py`,
+  measured from the champion's stored ×5 draws, no inference): **236/800 tasks
+  (29.5%) carry reward signal**. Of the old 306-task band, **70 had none**; and
+  zero tasks had reward signal without being in the band, so the old filter was a
+  strict superset — it was not missing signal, it was admitting noise.
+- Finding 2 — **and this is the larger one**. The surviving set is
+  **216 MATCH + 20 AMOUNT_MISMATCH, 91.5% clean pairs**. Every other exception
+  class has *zero* reward variance, by construction: for a MEDIUM/LOW exception,
+  naming the wrong type is not priced — it is not an escalation, not a missed
+  HIGH, and not a false flag, so right-type and wrong-type score identically.
+  **The reward cannot see type errors on 8 of the 10 classes.**
+- Consequence for what GRPO can possibly achieve here: it can reduce false flags
+  on clean pairs and improve AMOUNT_MISMATCH recall. It cannot improve
+  exception-type accuracy for DUPLICATE, FIELD_CORRUPTION, VALUE_DATE_MISMATCH,
+  PARTIAL_MATCH, MISSING_MESSAGE, BENEFICIARY or COUNTERPARTY. That is a property
+  of the reward, not of the algorithm or the model.
+- Deliberately **not** changing the reward now. Adding a wrong-type cost after
+  observing that the current reward limits learning would be a post-hoc
+  modification made to get a better result, which is the move this project has
+  spent four rounds removing. The reward was specified and gated before the run;
+  it stays, and its coverage limits are reported as a finding.
+- The environment health gate did not catch this. It verified the reward
+  separates *policies* and has no free optimum; it never checked whether the
+  reward varies across *rollouts of a single prompt*, which is the property GRPO
+  actually consumes. A gate check for that has been added.
+
+## 2026-08-29 — R4-result — GRPO collapses exploration after one update; reported as a negative result, not tuned away
+- Result: the GRPO round **failed to train**, and the reason is diagnosed rather
+  than guessed. One gradient update in 60 steps; steps 2–60 all produced zero
+  within-group reward variance.
+- Cause: **entropy collapse after a single update.** Measured directly by probing
+  rollout diversity before and after one step (same tasks, same sampler,
+  temp 0.6, G=8):
+
+  | task | distinct rollouts before | after one update |
+  |---|---|---|
+  | recon-000003 | 2 | **1** |
+  | recon-000005 | 1 | 1 |
+  | recon-000009 | 2 | **1** |
+  | recon-000010 | 1 | **1** (and its reward moved −1.0 → 0.0) |
+
+  The policy becomes deterministic at temp 0.6, so every later group is
+  degenerate and GRPO has nothing to compute an advantage from.
+- Why it happens here: the starting policy is already extremely low-entropy — a
+  heavily-SFT'd model that emits 9 distinct reason strings across 800 predictions
+  with confidence pinned at 1.0. AdamW's per-parameter step is ~lr regardless of
+  gradient magnitude, so one step at lr 1e-5 with KL β=0.02 is enough to tip a
+  near-deterministic distribution over the edge.
+- **Not tuned away, deliberately.** The standard fixes are well known — entropy
+  bonus, much lower or non-adaptive learning rate, stronger KL, ratio clipping.
+  Applying them now, after seeing the failure, until a number improves is exactly
+  the outcome-tuning this project spent five rounds removing, and it would be
+  indistinguishable from fitting hyperparameters to the eval. A proper
+  hyperparameter study is the honest next step and it is not in this budget.
+- What the round does establish, all of it measured:
+  1. The reward had a **free optimum** (flag-everything scored 0.000, tying the
+     oracle). Caught by the environment gate before any GPU spend.
+  2. The task filter selected on the **wrong quantity** — correctness variance,
+     not reward variance — wasting 83% of groups until corrected.
+  3. The reward is **blind to type errors on 8 of the 10 classes**, so GRPO here
+     could only ever have touched false flags and AMOUNT_MISMATCH.
+  4. A near-deterministic SFT policy **collapses under GRPO** at otherwise
+     reasonable settings.
+  Each of those is a finding about running RL on this kind of task, and three of
+  the four were invisible until something was actually executed.
+- Status: GRPO implementation is complete and unit-tested (15 tests over
+  advantages, masking, length normalisation, KL, and the cached-reference
+  equivalence). The blocker is not correctness, it is that this policy/reward
+  pairing needs exploration control that has not been designed or budgeted.
+
+## 2026-08-30 — R5 — Matched comparison: the margin inverts, and three corrections to how it was first reported
+- Result: under a matched prompt and matched decode budget the R_w margin goes
+  from **+0.0269** [+0.0064, +0.0493] to **−0.0288** [−0.0432, −0.0160]. Both
+  intervals exclude zero. DeepSeek leads accuracy (0.9487 vs 0.4338) and flag F1
+  (0.9604 vs 0.6649), and is level on cost and HIGH recall.
+  `docs/validation/matched-comparison.json`
+- The champion fails **2 of the 5** pre-registered guards under matched
+  conditions (G-a flag precision 0.5083; G-b flag F1 0.6649 and 0.296 behind the
+  best). Its R_w *rises* to 0.9401 while accuracy falls to 0.4338 — the rubric is
+  off-distribution for a model trained on one fixed prompt, it degenerates toward
+  flagging everything, and R_w rewards that because it never scores clean pairs.
+- **Three corrections, all from independent adversarial review, all recorded
+  because the first version of this result was wrong in ways that flattered it:**
+  1. The published margin was quoted as +0.0288, computed with whole-dict voting
+     — which §4.4 forbids. Under the rule every other condition uses it is
+     **+0.0269**, and the eye-catching +0.0288/−0.0288 symmetry was an artefact
+     of comparing two different estimators. E′ (re-aggregated) is now the quoted
+     figure; the vote rule changes 8 of 800 decisions.
+  2. "Fails 3 of 5 guards" was a miscount: the table split G-b across two rows
+     and silently omitted G-d, which passes. It is **2 of 5**.
+  3. The section was headlined as the pre-registered confirmatory test. It is
+     **exploratory**: §4.5 requires held-out abbreviation pairs and §3 names the
+     frozen seed-999 pool, and this ran on seed-777 (v1) whose PARTIAL_MATCH
+     overlap fraction is 1.0. The violation is conservative — it favours the
+     champion — so a compliant pool would push the result further negative.
+- Also corrected: an invented mechanism (greedy decoding overrunning the token
+  budget) had been asserted in a code comment by the very commit that retracted
+  it in the docs. Deleted. The replacement is not a better mechanism but an
+  admission that the discriminating evidence was deleted with the checkpoint, so
+  the cause of that condition's failure is **unknown**.
+- Provenance gap closed: `compare_deepseek` now records prompt, sample count,
+  temperature and max_tokens in the artifact. The matched DeepSeek run could not
+  previously prove from its own artifact which prompt produced it.
+- What is still missing: condition B (rubric, ×1) and a DeepSeek base-prompt ×5
+  run. Without them the +0.0970 cannot be split into definition and budget
+  effects, so "the margin does not survive a matched prompt" is supported while
+  the budget's separate contribution is not established.
+
+## 2026-11-23 — P1 — The retraction is released as a paper, and the repository now says what the working copy said
+- Decision: publish the retraction as `paper/reconforge.tex` (PDF built with tectonic,
+  numbers/tables/figures generated from `docs/validation/*.json` by `paper/build_assets.py`),
+  commit the recovered retraction work, and prepare a Zenodo draft. This entry is dated by the
+  day the commit is made; it dates nothing earlier.
+- What was found. The public repository (last commit 2026-09-05) carried the headline with no
+  retraction; the retraction (README box, `PRE-REGISTRATION.md`, `THREATS-TO-VALIDITY.md`,
+  rewritten `BENCHMARK.md`/`DECISIONS.md`/`HANDOFF.md`/`TRAINING.md`/blog, 21 artifacts, the
+  CI workflow, scripts and tests) existed only in an uncommitted iCloud working copy. The Hub
+  model card source (`model/README.md`) still led with the claim.
+- What was committed from that copy: the docs above, `PRE-REGISTRATION.md` (verbatim; its
+  SHA-256 is pinned in `paper/tests/test_metadata.py`), `taxonomy.json`, `ruff.toml`,
+  `mypy.ini`, and every `docs/validation/*.json` artifact the paper cites. `docs/validation/pilot-7.json`
+  is superseded by `pilot-7-n300.json` in that copy and is left as committed.
+- What was not committed: the scripts that produced the round-2 artifacts
+  (`model/scripts/{train_seed_study.sh,score_seed_study.py,multiseed_matrix.py,matched_comparison.py,...}`),
+  the `model/src` and `forge/src` changes they import, their tests, the copy's CI workflow (replaced by `.github/workflows/ci.yml`, which runs the forge tests
+  and the paper checks only), and the evidence logs `runconfig.json` names under `model/data/*.log`.
+  They were not recovered intact, and committing scripts that do not run against the committed
+  source would misstate the record. They remain in the owner's iCloud copy. The artifacts and the
+  committed per-task exports are enough to re-score every published run; `paper/` does so and
+  also derives one new contrast (`docs/validation/best-prompt-comparison.json`), after first
+  reproducing two committed ones.
+- Corrections made here, each found on a cold re-read: the README box said the matched rerun
+  "fails 3 of the 5 guards" (it is 2 of 5); "~97% of the margin from PARTIAL_MATCH" is the
+  three-sample margin, at the five-sample headline it is 112% (recomputed from the per-task
+  exports); BENCHMARK listed COUNTERPARTY_MISMATCH as 31/37 caught where the HIGH rule gives 37/37;
+  the exception rate was "~45%" and is 48%; the blog and the Hub card source said the matched
+  result as if it were the registered test (it is exploratory). Edits are to non-frozen text only;
+  `PRE-REGISTRATION.md` and `CONTRACTS.md` are unchanged (the iCloud copy's `CONTRACTS.md` differs
+  from the committed one by 47 bytes; the committed one stands).
+- A weakness the paper states and the earlier docs did not: the 2.86x figure includes the shipped
+  run, which was chosen for scoring well. The three unselected runs give SD 0.0479, 1.66x, with
+  a chi-square interval that includes the margin. The comparison is underpowered, not reversed.
+- Registration provenance. The tag `prereg-v1` (annotated, unsigned, 2026-08-29 21:50 UTC, tagger
+  email a work address) and `prereg-v1-amend1` exist only in the iCloud copy's git; they were not
+  pushed. The only external clock in this repository is GitHub's commit date: the seed-999
+  signatures were committed 2026-08-27 (`56185d0`), and this release is 2026-11-23. The paper
+  says the registration date is the author's word.
+- The deposit. A Zenodo draft (preprint, CC BY 4.0, ORCID 0009-0005-7343-981X) was prepared and
+  left unpublished; its record id is not recorded here because it is not final. When it is
+  published its real creation date goes in a later entry, as D110 does in lacuna. The deposit is
+  not the registration clock: it dates the paper, made after every run here, and nothing about
+  when the registration was fixed.
+- Not done, and said so in the paper: no score on the frozen seed-999 pool (that needs the frontier
+  model and a set of trained runs); no further training seeds; no DeepSeek run on the seed-13
+  pool; the Hub model card itself was not updated (only its source in `model/README.md`).
+- Clean room: `docs/HANDOFF.md` named an employer's product in a parenthetical ("Adopt AI harness
+  pattern"); that phrase is now generic. Nothing else in the tree names the employer or its product.
+- Early commits in the public history (`be301ea`, `0cf03a7`, `56185d0`, `38984b2`, `dd642b7`,
+  `5613be1`) carry a work email as author. History was not rewritten.
+- Reversal: this entry changes no frozen text. If a number in the paper is found wrong, a later
+  entry corrects it and a corrected paper goes up as a new version. The retraction itself is
+  reversed only by a test registered before it runs: at least three training seeds scored with the
+  frontier model on the frozen seed-999 pool, the claim holding at the mean minus one standard
+  deviation. If the Zenodo draft is deleted or never published, this entry stands as the record
+  of what the repository contained on 2026-11-23.

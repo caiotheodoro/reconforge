@@ -1,0 +1,92 @@
+{
+  "_comment": "Across-seed variance for one checkpoint. Reported beside, never merged into, the task-resampling bootstrap: they answer different questions.",
+  "label": "champion",
+  "adapter_path": "/Users/caiotheodoro/Documents/personal/personal-ml/reconforge/model/adapters/champion",
+  "decoding": {
+    "samples": 5,
+    "temperature": 0.6
+  },
+  "n_tasks_per_seed": 300,
+  "per_seed": {
+    "7": {
+      "n_tasks": 300,
+      "accuracy": 0.83,
+      "severity_weighted_recall": 0.9221,
+      "flag_precision": 0.8219,
+      "flag_f1": 0.8392,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 1723.3
+    },
+    "13": {
+      "n_tasks": 300,
+      "accuracy": 0.8267,
+      "severity_weighted_recall": 0.9451,
+      "flag_precision": 0.8278,
+      "flag_f1": 0.8503,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 1202.3
+    },
+    "42": {
+      "n_tasks": 300,
+      "accuracy": 0.83,
+      "severity_weighted_recall": 0.9351,
+      "flag_precision": 0.8344,
+      "flag_f1": 0.8601,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 1182.5
+    }
+  },
+  "across_seed": {
+    "accuracy": {
+      "values": [
+        0.83,
+        0.8267,
+        0.83
+      ],
+      "mean": 0.8289,
+      "sd": 0.0019,
+      "min": 0.8267,
+      "max": 0.83,
+      "range": 0.0033
+    },
+    "severity_weighted_recall": {
+      "values": [
+        0.9221,
+        0.9451,
+        0.9351
+      ],
+      "mean": 0.9341,
+      "sd": 0.0115,
+      "min": 0.9221,
+      "max": 0.9451,
+      "range": 0.023
+    },
+    "flag_f1": {
+      "values": [
+        0.8392,
+        0.8503,
+        0.8601
+      ],
+      "mean": 0.8499,
+      "sd": 0.0105,
+      "min": 0.8392,
+      "max": 0.8601,
+      "range": 0.0209
+    },
+    "normalized_cost": {
+      "values": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean": 0.0,
+      "sd": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "range": 0.0
+    }
+  }
+}

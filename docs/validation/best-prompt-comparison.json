@@ -1,0 +1,13 @@
+{
+  "_comment": "The fine-tune on the prompt it was trained on (E', vote corrected) against DeepSeek on the defined-class prompt with five samples (C): each model on its own best prompt, both at five samples. Derived by paper/derive_best_prompt.py from the committed per-task exports with the estimator of model/scripts/matched_comparison.py; the script first reproduces D-C and E'-A from matched-comparison.json and stops if either differs. Exploratory on the same seed-777 pool for the same reasons as the other contrasts.",
+  "resamples": 10000,
+  "seed": 11,
+  "effect_Eprime_minus_C": {
+    "point": -0.0701,
+    "ci95": [
+      -0.0936,
+      -0.0481
+    ],
+    "excludes_zero": true
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "_comment": "Controlled training-seed variance. Runs are identical except --seed. The champion is NOT among them (different validation cadence, and validation consumes RNG), so it is not weight-comparable to these.",
+  "dev_seed": 13,
+  "n_tasks": 300,
+  "decoding": {
+    "samples": 5,
+    "temperature": 0.6,
+    "sampling_seed": 11
+  },
+  "per_seed": {
+    "101": {
+      "accuracy": 0.8233,
+      "severity_weighted_recall": 0.8353,
+      "flag_precision": 0.8862,
+      "flag_f1": 0.8195,
+      "normalized_cost": 0.15,
+      "parse_rate": 1.0,
+      "wall_seconds": 1132.7
+    },
+    "202": {
+      "accuracy": 0.7967,
+      "severity_weighted_recall": 0.7457,
+      "flag_precision": 0.9057,
+      "flag_f1": 0.7711,
+      "normalized_cost": 0.2667,
+      "parse_rate": 1.0,
+      "wall_seconds": 1348.5
+    },
+    "303": {
+      "accuracy": 0.8267,
+      "severity_weighted_recall": 0.8198,
+      "flag_precision": 0.8917,
+      "flag_f1": 0.8137,
+      "normalized_cost": 0.1667,
+      "parse_rate": 1.0,
+      "wall_seconds": 1141.5
+    }
+  },
+  "champion_admitted_as_sample": true,
+  "champion_r_w_same_pool": 0.9451,
+  "severity_weighted_recall": {
+    "values": [
+      0.8353,
+      0.7457,
+      0.8198,
+      0.9451
+    ],
+    "n": 4,
+    "sigma_ci95_chi2": [
+      0.0466,
+      0.3068
+    ],
+    "sigma_one_sided_95_lower": 0.051,
+    "sd_excluding_decode_noise": 0.0814,
+    "mean": 0.8365,
+    "sd": 0.0823,
+    "min": 0.7457,
+    "max": 0.9451,
+    "range": 0.1994,
+    "mean_minus_1sd": 0.7542
+  },
+  "prereg_evaluation": {
+    "observed_margin": 0.0288,
+    "deepseek_r_w_seed777": 0.8719,
+    "section_11_sd_exceeds_margin": true,
+    "section_6_holds_at_mean_minus_1sd_vs_deepseek": false,
+    "sd_is_an_upper_bound": "The measured SD includes decode-sampling noise. Deflating by the repo's own sampling marginal (0.0121) gives 0.0814, still above the margin.",
+    "test_calibration_warning": "At this n the SD is barely estimated: the chi-square CI on sigma is [0.0466, 0.3068], whose lower bound sits near the margin. The rule fires on a point estimate the data cannot cleanly separate from the margin. The CONCLUSION -- that the comparison is underpowered -- is what a sigma interval this wide says directly, and is better supported by the interval than by the threshold rule.",
+    "caveat": "The mean-1SD comparison against DeepSeek's 0.8719 is INDICATIVE only: DeepSeek was scored on the 800-task seed-777 pool while these are 300-task seed-13 pools. A confirmatory test requires both models on the same pool under PRE-REGISTRATION section 4's matched conditions."
+  }
+}

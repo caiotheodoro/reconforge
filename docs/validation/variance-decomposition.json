@@ -1,0 +1,47 @@
+{
+  "_comment": "Three different variances. The published CIs measure only the first. Quoting a task-resampling interval next to a claim that depends on the other two invites the reader to assume a precision the design does not support.",
+  "headline_margin_r_w": 0.0288,
+  "task_resampling": {
+    "what_it_measures": "redraw the 800 tasks from the same generator",
+    "method": "percentile bootstrap over tasks",
+    "ci95": [
+      0.8756,
+      0.9239
+    ],
+    "width": 0.0483,
+    "measured": true
+  },
+  "sampling_marginal": {
+    "what_it_measures": "same weights, same pool, different decode budget",
+    "champion_x3": 0.9128,
+    "champion_x5": 0.9007,
+    "delta": 0.0121,
+    "fraction_of_headline_margin": 0.42,
+    "measured": true,
+    "caveat": "n=1 pair of runs at two budgets, not a variance estimate. It bounds the effect from below by showing a single budget change moves R_w by this much."
+  },
+  "eval_pool_seed": {
+    "what_it_measures": "same weights, same budget, different draw of tasks",
+    "measured": true,
+    "source": "multiseed-matrix.json (seeds 7/13/42, 300 tasks, x5 @ temp 0.6)",
+    "values": [
+      0.9221,
+      0.9451,
+      0.9351
+    ],
+    "caveat": "Establishes only that the CHAMPION's R_w is stable across eval pools. It says nothing about the comparison: DeepSeek was not run on these seeds, and these are 300-task pools while the headline is an 800-task pool. Reading the champion's mean here against DeepSeek's seed-777 score would be exactly the unmatched comparison this work exists to remove.",
+    "mean": 0.9341,
+    "sd": 0.0115,
+    "range": 0.023,
+    "mean_minus_1sd": 0.9226,
+    "sd_as_fraction_of_margin": 0.399
+  },
+  "training_seed": {
+    "what_it_measures": "same recipe, same data, different training seed",
+    "champion_run": 0.9128,
+    "sibling_run_same_recipe": 0.7291,
+    "delta": 0.1837,
+    "measured": false,
+    "caveat": "The two runs differ by 0.18 R_w, but they are not a controlled seed comparison -- the sibling's weights were overwritten and it cannot be re-scored. PRE-REGISTRATION section 6 requires >=3 training seeds and the claim holding at mean - 1 SD. Until those run, no single-run claim in either direction is supportable."
+  }
+}

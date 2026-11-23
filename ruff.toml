@@ -1,0 +1,50 @@
+# Shared lint/format config for all four workstreams.
+# The packages are independent uv projects but share one style contract.
+
+line-length = 100
+target-version = "py311"
+
+extend-exclude = [
+    ".venv",
+    "**/data/**",
+    "**/adapters/**",
+]
+
+[lint]
+select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # import sorting
+    "UP",   # pyupgrade
+    "B",    # bugbear
+    "SIM",  # simplify
+    "RUF",  # ruff-specific
+]
+ignore = [
+    "E501",    # line length is handled by the formatter
+    "B008",    # FastAPI Depends() in defaults is idiomatic
+    "SIM108",  # ternary-vs-if is a readability call, not a rule
+    # The rules below flag control-flow style in the scoring/verifier code that
+    # produces the published numbers. Guard-clause and explicit-nesting style is
+    # deliberate there (the verifier's nested checks mirror its documented
+    # priority order); collapsing them would obscure the logic without fixing a
+    # defect, so they are not worth the churn risk on numeric code.
+    "SIM102",  # collapsible-if  (forge verifier priority order)
+    "SIM103",  # needless-bool   (metrics guard clauses)
+    "SIM117",  # nested with     (db.py transaction scoping)
+    "UP042",   # str+Enum is deliberate for JSON serialization compatibility
+]
+
+[lint.per-file-ignores]
+# Tests may shadow builtins and use assert-heavy style.
+"**/tests/**" = ["B011"]
+# Re-export modules intentionally expose unused names.
+"**/__init__.py" = ["F401"]
+
+[lint.isort]
+known-first-party = [
+    "reconforge_forge",
+    "reconforge_knowledge",
+    "reconforge_model",
+    "reconforge_system",
+]

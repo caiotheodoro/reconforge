@@ -1,0 +1,152 @@
+{
+  "champion_x5": {
+    "artifact": "bench-eval-champion-x5.json",
+    "fields": {
+      "exception_type_accuracy": {
+        "published": 0.2966,
+        "corrected": 0.7664
+      },
+      "escalation_precision": {
+        "published": 0.0,
+        "corrected": null
+      },
+      "n_escalations": {
+        "published": 0,
+        "corrected": 0
+      },
+      "severity_weighted_recall": {
+        "published": 0.9007,
+        "corrected": 0.9007
+      },
+      "verdict_accuracy": {
+        "published": 0.8325,
+        "corrected": 0.8325
+      }
+    }
+  },
+  "champion_x3": {
+    "artifact": "bench-eval-full-740.json",
+    "fields": {
+      "exception_type_accuracy": {
+        "published": 0.3176,
+        "corrected": 0.7848
+      },
+      "escalation_precision": {
+        "published": 0.0,
+        "corrected": null
+      },
+      "n_escalations": {
+        "published": 0,
+        "corrected": 0
+      },
+      "severity_weighted_recall": {
+        "published": 0.9128,
+        "corrected": 0.9128
+      },
+      "verdict_accuracy": {
+        "published": 0.8325,
+        "corrected": 0.8325
+      }
+    }
+  },
+  "champion_x3_aborted": {
+    "artifact": "bench-eval-full-700.json",
+    "fields": {
+      "exception_type_accuracy": {
+        "published": 0.2021,
+        "corrected": 0.6168
+      },
+      "escalation_precision": {
+        "published": 0.0,
+        "corrected": null
+      },
+      "n_escalations": {
+        "published": 0,
+        "corrected": 0
+      },
+      "severity_weighted_recall": {
+        "published": 0.7291,
+        "corrected": 0.7291
+      },
+      "verdict_accuracy": {
+        "published": 0.8113,
+        "corrected": 0.8113
+      }
+    }
+  },
+  "b2_x3": {
+    "artifact": "bench-eval-b2-590.json",
+    "fields": {
+      "exception_type_accuracy": {
+        "published": 0.1811,
+        "corrected": 0.6089
+      },
+      "escalation_precision": {
+        "published": 0.0,
+        "corrected": null
+      },
+      "n_escalations": {
+        "published": 0,
+        "corrected": 0
+      },
+      "severity_weighted_recall": {
+        "published": 0.723,
+        "corrected": 0.723
+      },
+      "verdict_accuracy": {
+        "published": 0.8025,
+        "corrected": 0.8025
+      }
+    }
+  },
+  "deepseek": {
+    "artifact": "bench-deepseek-full.json",
+    "fields": {
+      "exception_type_accuracy": {
+        "published": 0.2598,
+        "corrected": 0.7402
+      },
+      "escalation_precision": {
+        "published": 1.0,
+        "corrected": 1.0
+      },
+      "n_escalations": {
+        "published": 2,
+        "corrected": 2
+      },
+      "severity_weighted_recall": {
+        "published": 0.8719,
+        "corrected": 0.8719
+      },
+      "verdict_accuracy": {
+        "published": 0.91,
+        "corrected": 0.91
+      }
+    }
+  },
+  "base_qwen3": {
+    "artifact": "bench-eval-base-ablation.json",
+    "fields": {
+      "exception_type_accuracy": {
+        "published": null,
+        "corrected": 0.4304
+      },
+      "escalation_precision": {
+        "published": 0.0,
+        "corrected": null
+      },
+      "n_escalations": {
+        "published": 0,
+        "corrected": 0
+      },
+      "severity_weighted_recall": {
+        "published": 0.6002,
+        "corrected": 0.6002
+      },
+      "verdict_accuracy": {
+        "published": null,
+        "corrected": 0.7662
+      }
+    }
+  }
+}

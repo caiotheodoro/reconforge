@@ -1,0 +1,20 @@
+{
+  "_comment": "RL task set filtered on REWARD variance. The previous filter used is_correct solve rate, which is a finer-grained signal than the reward: rollouts alternating between two wrong exception types vary under is_correct and are constant under rl_cost. GRPO drops such groups, so the old set wasted most of its compute (83% of groups degenerate in the aborted run).",
+  "source_run": "bench-eval-champion-x5.json",
+  "n_scored": 800,
+  "n_with_reward_signal": 236,
+  "fraction_with_signal": 0.295,
+  "class_mix": {
+    "AMOUNT_MISMATCH": 20,
+    "MATCH": 216
+  },
+  "clean_fraction": 0.9153,
+  "comparison_to_correctness_band": {
+    "correctness_band_size": 306,
+    "reward_signal_size": 236,
+    "in_both": 236,
+    "correctness_only_no_reward_signal": 70,
+    "reward_signal_only": 0
+  },
+  "artifact": "model/data/rl-tasks.jsonl"
+}

@@ -1,0 +1,128 @@
+{
+  "_comment": "Floors and ceiling for the seed-777 benchmark. Model scores are uninterpretable without them: answering MATCH to everything is worth 419/800 accuracy for free, and escalating everything scores well on R_w while getting every verdict wrong.",
+  "benchmark": {
+    "seed": 777,
+    "n_tasks": 800,
+    "n_clean": 419,
+    "n_exception": 381
+  },
+  "policies": {
+    "always_match": {
+      "accuracy": 0.5238,
+      "severity_weighted_recall": 0.0,
+      "flag_precision": 0.0,
+      "flag_recall": 0.0,
+      "flag_f1": 0.0,
+      "normalized_cost": 1.15
+    },
+    "always_exception": {
+      "accuracy": 0.0912,
+      "severity_weighted_recall": 0.6673,
+      "flag_precision": 0.4763,
+      "flag_recall": 1.0,
+      "flag_f1": 0.6452,
+      "normalized_cost": 0.0
+    },
+    "always_escalate": {
+      "accuracy": 0.0,
+      "severity_weighted_recall": 0.6673,
+      "flag_precision": 0.4763,
+      "flag_recall": 1.0,
+      "flag_f1": 0.6452,
+      "normalized_cost": 1.0
+    },
+    "majority_class": {
+      "accuracy": 0.5238,
+      "severity_weighted_recall": 0.0,
+      "flag_precision": 0.0,
+      "flag_recall": 0.0,
+      "flag_f1": 0.0,
+      "normalized_cost": 1.15
+    },
+    "stratified_random": {
+      "accuracy": 0.2913,
+      "severity_weighted_recall": 0.3903,
+      "flag_precision": 0.4952,
+      "flag_recall": 0.5433,
+      "flag_f1": 0.5181,
+      "normalized_cost": 0.5062
+    },
+    "rules_oracle": {
+      "accuracy": 1.0,
+      "severity_weighted_recall": 1.0,
+      "flag_precision": 1.0,
+      "flag_recall": 1.0,
+      "flag_f1": 1.0,
+      "normalized_cost": 0.0
+    }
+  },
+  "models": {
+    "champion_x5": {
+      "accuracy": 0.805,
+      "severity_weighted_recall": 0.9007,
+      "flag_precision": 0.8241,
+      "flag_recall": 0.8241,
+      "flag_f1": 0.8241,
+      "normalized_cost": 0.0
+    },
+    "champion_x3": {
+      "accuracy": 0.805,
+      "severity_weighted_recall": 0.9128,
+      "flag_precision": 0.8127,
+      "flag_recall": 0.8425,
+      "flag_f1": 0.8273,
+      "normalized_cost": 0.0
+    },
+    "deepseek_v4_flash": {
+      "accuracy": 0.8762,
+      "severity_weighted_recall": 0.8719,
+      "flag_precision": 1.0,
+      "flag_recall": 0.8241,
+      "flag_f1": 0.9036,
+      "normalized_cost": 0.0125
+    },
+    "base_qwen3_1_7b": {
+      "accuracy": 0.6775,
+      "severity_weighted_recall": 0.6002,
+      "flag_precision": 0.852,
+      "flag_recall": 0.6194,
+      "flag_f1": 0.7173,
+      "normalized_cost": 0.145
+    }
+  },
+  "skill_normalized": {
+    "accuracy": {
+      "floor": 0.5238,
+      "floor_policy": "always_match",
+      "ceiling": 1.0,
+      "models": {
+        "champion_x5": 0.5905,
+        "champion_x3": 0.5905,
+        "deepseek_v4_flash": 0.74,
+        "base_qwen3_1_7b": 0.3228
+      }
+    },
+    "severity_weighted_recall": {
+      "floor": 0.6673,
+      "floor_policy": "always_exception",
+      "ceiling": 1.0,
+      "models": {
+        "champion_x5": 0.7015,
+        "champion_x3": 0.7379,
+        "deepseek_v4_flash": 0.615,
+        "base_qwen3_1_7b": -0.2017
+      }
+    },
+    "flag_f1": {
+      "floor": 0.6452,
+      "floor_policy": "always_exception",
+      "ceiling": 1.0,
+      "models": {
+        "champion_x5": 0.5042,
+        "champion_x3": 0.5132,
+        "deepseek_v4_flash": 0.7283,
+        "base_qwen3_1_7b": 0.2032
+      }
+    }
+  }
+}

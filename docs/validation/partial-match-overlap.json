@@ -1,0 +1,22 @@
+{
+  "_comment": "PARTIAL_MATCH items are generated from a fixed table of abbreviation pairs. If the benchmark's pairs all appear in training, the class cannot distinguish 'learned the concept of an abbreviated name' from 'memorized these specific strings' -- and this class carries ~97% of the champion's R_w margin.",
+  "variant_table_size": 10,
+  "benchmark_partial_match_tasks": 32,
+  "distinct_pairs_in_benchmark": 9,
+  "distinct_pairs_in_training": 10,
+  "pairs_in_both": 9,
+  "pairs_unique_to_benchmark": 0,
+  "overlap_fraction": 1.0,
+  "unseen_pairs": [],
+  "shared_pairs": [
+    "ACME CORPORATION -> ACME CORP",
+    "ATLAS FREIGHT CO -> ATLAS FREIGHT",
+    "BANK-ACCT-1234 -> BANK-ACCT-12",
+    "BKTRIBSPXXX -> BKTRIBSP",
+    "CHASUS33XXX -> CHASUS33",
+    "GLOBAL BANKING SERVICES -> GLOBAL BANKING",
+    "HELIOS ENERGY LLC -> HELIOS ENERGY",
+    "HLBKRSEOSEX -> HLBKRSEOS",
+    "NORDWIND LOGISTICS GMBH -> NORDWIND LOGISTICS"
+  ]
+}

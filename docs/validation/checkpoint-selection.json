@@ -1,0 +1,143 @@
+{
+  "_comment": "Every persisted checkpoint scored on a dev pool. The shipped champion was chosen by reading a training-loss curve, which issue #12 shows carries no selection signal for this task.",
+  "dev_seed": 13,
+  "n_tasks": 200,
+  "decoding": {
+    "samples": 1,
+    "temperature": 0.0
+  },
+  "adapter_dir": "model/adapters/lora-full",
+  "checkpoints": {
+    "50": {
+      "accuracy": 0.685,
+      "severity_weighted_recall": 0.7922,
+      "flag_precision": 0.8125,
+      "flag_f1": 0.8254,
+      "normalized_cost": 0.05,
+      "parse_rate": 1.0,
+      "wall_seconds": 164.2
+    },
+    "100": {
+      "accuracy": 0.795,
+      "severity_weighted_recall": 0.8753,
+      "flag_precision": 0.8065,
+      "flag_f1": 0.8065,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 156.4
+    },
+    "150": {
+      "accuracy": 0.805,
+      "severity_weighted_recall": 0.892,
+      "flag_precision": 0.8182,
+      "flag_f1": 0.8438,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 154.0
+    },
+    "200": {
+      "accuracy": 0.74,
+      "severity_weighted_recall": 0.7022,
+      "flag_precision": 0.7945,
+      "flag_f1": 0.6988,
+      "normalized_cost": 0.325,
+      "parse_rate": 1.0,
+      "wall_seconds": 150.2
+    },
+    "250": {
+      "accuracy": 0.76,
+      "severity_weighted_recall": 0.8629,
+      "flag_precision": 0.809,
+      "flag_f1": 0.7912,
+      "normalized_cost": 0.025,
+      "parse_rate": 1.0,
+      "wall_seconds": 150.9
+    },
+    "300": {
+      "accuracy": 0.69,
+      "severity_weighted_recall": 0.9474,
+      "flag_precision": 0.6905,
+      "flag_f1": 0.7945,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 154.1
+    },
+    "350": {
+      "accuracy": 0.82,
+      "severity_weighted_recall": 0.9127,
+      "flag_precision": 0.8235,
+      "flag_f1": 0.8615,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 151.8
+    },
+    "400": {
+      "accuracy": 0.8,
+      "severity_weighted_recall": 0.8476,
+      "flag_precision": 0.8256,
+      "flag_f1": 0.7933,
+      "normalized_cost": 0.05,
+      "parse_rate": 1.0,
+      "wall_seconds": 150.8
+    },
+    "450": {
+      "accuracy": 0.815,
+      "severity_weighted_recall": 0.8698,
+      "flag_precision": 0.8391,
+      "flag_f1": 0.8111,
+      "normalized_cost": 0.025,
+      "parse_rate": 1.0,
+      "wall_seconds": 155.6
+    },
+    "500": {
+      "accuracy": 0.83,
+      "severity_weighted_recall": 0.9266,
+      "flag_precision": 0.82,
+      "flag_f1": 0.8497,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 158.9
+    },
+    "550": {
+      "accuracy": 0.83,
+      "severity_weighted_recall": 0.9086,
+      "flag_precision": 0.8316,
+      "flag_f1": 0.8404,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 147.7
+    },
+    "600": {
+      "accuracy": 0.84,
+      "severity_weighted_recall": 0.9294,
+      "flag_precision": 0.8247,
+      "flag_f1": 0.8421,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 147.4
+    },
+    "650": {
+      "accuracy": 0.84,
+      "severity_weighted_recall": 0.8947,
+      "flag_precision": 0.8556,
+      "flag_f1": 0.8415,
+      "normalized_cost": 0.025,
+      "parse_rate": 1.0,
+      "wall_seconds": 147.0
+    },
+    "700": {
+      "accuracy": 0.85,
+      "severity_weighted_recall": 0.9612,
+      "flag_precision": 0.8269,
+      "flag_f1": 0.8731,
+      "normalized_cost": 0.0,
+      "parse_rate": 1.0,
+      "wall_seconds": 148.6
+    }
+  },
+  "best_by_severity_weighted_recall": 700,
+  "best_by_flag_f1": 700,
+  "shipped_checkpoint": 700,
+  "loss_selected_would_have_picked": 700,
+  "shipped_vs_best_r_w_delta": 0.0
+}

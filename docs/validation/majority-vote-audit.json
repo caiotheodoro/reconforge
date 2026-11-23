@@ -1,0 +1,112 @@
+{
+  "runs": [
+    {
+      "run": "champion_x5",
+      "artifact": "bench-eval-champion-x5.json",
+      "n_tasks": 800,
+      "samples_per_task": 5,
+      "published_ece": 0.0875,
+      "whole_dict_vote_fell_back_to_first_sample": 0,
+      "whole_dict_fallback_rate": 0.0,
+      "decision_unanimous_across_samples": 467,
+      "decision_unanimous_rate": 0.5837,
+      "winner_differs_between_rules": 8,
+      "winner_differs_rate": 0.01,
+      "mean_confidence_whole_dict_rule": 0.88,
+      "mean_confidence_decision_rule": 0.885,
+      "ece_whole_dict_rule": 0.0875,
+      "ece_decision_rule": 0.0925,
+      "profile_whole_dict_rule": {
+        "accuracy": 0.805,
+        "severity_weighted_recall": 0.9007,
+        "flag_f1": 0.8241
+      },
+      "profile_decision_rule": {
+        "accuracy": 0.805,
+        "severity_weighted_recall": 0.8988,
+        "flag_f1": 0.8252
+      }
+    },
+    {
+      "run": "champion_x3_full740",
+      "artifact": "bench-eval-full-740.json",
+      "n_tasks": 800,
+      "samples_per_task": 3,
+      "published_ece": 0.1175,
+      "whole_dict_vote_fell_back_to_first_sample": 14,
+      "whole_dict_fallback_rate": 0.0175,
+      "decision_unanimous_across_samples": 573,
+      "decision_unanimous_rate": 0.7163,
+      "winner_differs_between_rules": 0,
+      "winner_differs_rate": 0.0,
+      "mean_confidence_whole_dict_rule": 0.8975,
+      "mean_confidence_decision_rule": 0.9,
+      "ece_whole_dict_rule": 0.1175,
+      "ece_decision_rule": 0.1225,
+      "profile_whole_dict_rule": {
+        "accuracy": 0.805,
+        "severity_weighted_recall": 0.9128,
+        "flag_f1": 0.8273
+      },
+      "profile_decision_rule": {
+        "accuracy": 0.805,
+        "severity_weighted_recall": 0.9128,
+        "flag_f1": 0.8273
+      }
+    },
+    {
+      "run": "champion_x3_full700",
+      "artifact": "bench-eval-full-700.json",
+      "n_tasks": 800,
+      "samples_per_task": 3,
+      "published_ece": 0.16,
+      "whole_dict_vote_fell_back_to_first_sample": 8,
+      "whole_dict_fallback_rate": 0.01,
+      "decision_unanimous_across_samples": 669,
+      "decision_unanimous_rate": 0.8363,
+      "winner_differs_between_rules": 1,
+      "winner_differs_rate": 0.0013,
+      "mean_confidence_whole_dict_rule": 0.9404,
+      "mean_confidence_decision_rule": 0.9442,
+      "ece_whole_dict_rule": 0.16,
+      "ece_decision_rule": 0.1617,
+      "profile_whole_dict_rule": {
+        "accuracy": 0.7812,
+        "severity_weighted_recall": 0.7291,
+        "flag_f1": 0.7743
+      },
+      "profile_decision_rule": {
+        "accuracy": 0.7825,
+        "severity_weighted_recall": 0.7313,
+        "flag_f1": 0.7761
+      }
+    },
+    {
+      "run": "b2_x3",
+      "artifact": "bench-eval-b2-590.json",
+      "n_tasks": 800,
+      "samples_per_task": 3,
+      "published_ece": 0.11,
+      "whole_dict_vote_fell_back_to_first_sample": 23,
+      "whole_dict_fallback_rate": 0.0288,
+      "decision_unanimous_across_samples": 541,
+      "decision_unanimous_rate": 0.6763,
+      "winner_differs_between_rules": 1,
+      "winner_differs_rate": 0.0013,
+      "mean_confidence_whole_dict_rule": 0.8788,
+      "mean_confidence_decision_rule": 0.8846,
+      "ece_whole_dict_rule": 0.11,
+      "ece_decision_rule": 0.1171,
+      "profile_whole_dict_rule": {
+        "accuracy": 0.7688,
+        "severity_weighted_recall": 0.723,
+        "flag_f1": 0.7663
+      },
+      "profile_decision_rule": {
+        "accuracy": 0.7675,
+        "severity_weighted_recall": 0.723,
+        "flag_f1": 0.7663
+      }
+    }
+  ]
+}

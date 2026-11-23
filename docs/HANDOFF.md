@@ -11,10 +11,19 @@ A benchmark-grade evaluation system for financial back-office reconciliation
 agents, built to answer one question: can a small model fine-tuned on a laptop
 beat a frontier model on the metric that matters for the job?
 
-The answer, measured on an 800-task held-out benchmark with zero
-contamination and byte-identical reproducibility: **yes**. Qwen3-1.7B with a
+**The answer, after a pre-registered test, is: not demonstrably, and this
+benchmark cannot currently tell.** Four runs of the recipe differing only in the
+training seed span R_w 0.7457–0.9451 (SD 0.0823, 2.86× the claimed 0.0288
+margin). The shipped model is the top of that range. `PRE-REGISTRATION.md` §11
+named exactly this as falsifying, before the runs happened. See
+`docs/BENCHMARK.md` → "The headline does not survive training-seed variance".
+
+What follows is the record of what was built and measured, including the
+retracted claim, because the retraction is the result. Qwen3-1.7B with a
 LoRA adapter trained in ~100 minutes on an Apple M5 reaches severity-weighted
-recall **0.913 vs DeepSeek v4-flash's 0.872**, and catches **100% of
+recall **0.9007 [0.876, 0.924] vs DeepSeek v4-flash's 0.8719** (the ×5
+self-consistency headline; the ×3 run scores 0.9128 and is a secondary
+sampling-sensitivity row), and catches **100% of
 high-severity exceptions** (DeepSeek misses some). It does it at zero API
 cost, zero reasoning-token overhead, 100% output-parse discipline.
 
@@ -27,10 +36,13 @@ weekly judge recalibration, per-release benchmark, drift-triggered retrain).
 
 Three claims, each with a measured artifact:
 
-1. **A narrow operational task is a small-model problem.** Fine-tuned on
-   synthetic in-domain data, a 1.7B model outperforms a frontier model on the
-   severity-weighted axis. The frontier's raw-accuracy lead is irrelevant when
-   the money metric is exception recall.
+1. ~~**A narrow operational task is a small-model problem.**~~ **RETRACTED.**
+   This claimed a 1.7B model outperforms a frontier model on the
+   severity-weighted axis. Controlled training-seed replication shows the result
+   is a favourable draw: SD across seeds is 2.86× the margin, and the recipe's
+   mean run does not clear the frontier baseline. What the evidence supports is
+   the weaker, still-useful statement that a 1.7B fine-tune reaches the same
+   neighbourhood at a fraction of the latency and zero marginal cost.
 2. **Benchmark validity is a construction property, not a claim.** The
    benchmark's value rests on verifier-as-oracle agreement (100%), zero
    train/benchmark contamination (SHA-256 signatures), and determinism
@@ -65,7 +77,7 @@ Airbnb eval-engineering articles, ported to a vertical domain:
   schedule to re-measure. DeepSeek judge kappa 0.90 with the C2 rubric-fixed
   prompt (bar cleared); local fine-tuned judge kappa 0.74→0.37 (regressed —
   prompt-brittle, open gap remains there).
-- **Durable HITL** (Adopt AI harness pattern): Temporal workflow opens a
+- **Durable HITL** (durable agent-harness pattern): Temporal workflow opens a
   review, blocks on a human signal with timeout, records the final verdict
   with `source: human` and full audit trail. Proven live against Temporal
   Cloud.
@@ -74,24 +86,39 @@ Airbnb eval-engineering articles, ported to a vertical domain:
 
 ## 4. What was built (11 commits, all green)
 
-| Directory | Contents | Tests |
+| Directory | Contents | Tests (counts drift; CI is the authority) |
 |---|---|---|
-| `forge/` | Seeded generator (difficulty priors, adversarial near-misses, wrong-but-plausible FX rates), verifier-as-oracle, pilot benchmark + `score_verdicts` (severity-weighted recall, confusion matrix, escalation precision), signature contamination monitor + ROC study, async cadence seams (`check_latest`, `judge_kappa`, `run_pilot`) | 55 |
-| `knowledge/` | Researched corpus (SWIFT MT103/202/300/940, ISO 20022, Herstatt/CLS, recon ops; 50 gold triples with sources), deterministic + LLM (DeepSeek) typed extraction, Neo4j loader (idempotent, 91n/88e on the real corpus), grounded gate (SUPPORT/CONTRADICT/SILENT + evidence chains, async `ground` seam), 12 multi-hop probes | 24 (+1 neo4j skipif) |
-| `model/` | Dataset builder (stratified by difficulty decile × exception type, signature-leak guard), MLX-LoRA training, benchmark eval with self-consistency confidence, DeepSeek head-to-head (16 workers, resumable checkpoint), calibration (ECE, threshold search), HF model card | 24 |
-| `system/` | FastAPI services (ingest/decision/ledger/gate/hitl), Kafka (KRaft, apache/kafka:3.9.0), Temporal Cloud workflows (DecisionWorkflow durable HITL + ContaminationProbe/JudgeRecalibration/Benchmark/DriftRetrain) + schedule registry, Postgres audit ledger (idempotent, source-checked), drift module (PSI), model-client with strict JSON parse | 59 |
+| `forge/` | Seeded generator (difficulty priors, adversarial near-misses, wrong-but-plausible FX rates), verifier-as-oracle, pilot benchmark + `score_verdicts` (severity-weighted recall, confusion matrix, escalation precision), signature contamination monitor + ROC study, async cadence seams (`check_latest`, `judge_kappa`, `run_pilot`) | see CI |
+| `knowledge/` | Researched corpus (SWIFT MT103/202/300/940, ISO 20022, Herstatt/CLS, recon ops; 50 gold triples with sources), deterministic + LLM (DeepSeek) typed extraction, Neo4j loader (idempotent, 91n/88e on the real corpus), grounded gate (SUPPORT/CONTRADICT/SILENT + evidence chains, async `ground` seam), 12 multi-hop probes | see CI |
+| `model/` | Dataset builder (stratified by difficulty decile × exception type, signature-leak guard), MLX-LoRA training, benchmark eval with self-consistency confidence, DeepSeek head-to-head (16 workers, resumable checkpoint), calibration (ECE, threshold search), HF model card | see CI |
+| `system/` | FastAPI services (ingest/decision/ledger/gate/hitl), Kafka (KRaft, apache/kafka:3.9.0), Temporal Cloud workflows (DecisionWorkflow durable HITL + ContaminationProbe/JudgeRecalibration/Benchmark/DriftRetrain) + schedule registry, Postgres audit ledger (idempotent, source-checked), drift module (PSI), model-client with strict JSON parse | see CI |
 | `docs/` | Corpus (6 files), BENCHMARK.md, DECISIONS.md (decision log), validation artifacts | — |
 
 ## 5. The measured results
 
-### 5.1 Head-to-head (800-task held-out benchmark, seed 777, zero contamination)
+### 5.1 Head-to-head (800-task held-out benchmark, seed 777, zero *exact* contamination)
 
 | Model | Accuracy | Severity-w. recall | HIGH recall | Escalation prec. | Parse rate |
 |---|---|---|---|---|---|
-| **ReconForge Recon (1.7B LoRA, champion / iter 700)** | 0.8050 | **0.9128** | **1.0000** | 0.0 (0 esc) | 1.0000 |
-| DeepSeek v4-flash (frontier, zero-shot) | 0.8762 | 0.8719 | — | 1.0000 (2 esc) | 0.9962 |
-| Base Qwen3-1.7B (zero-shot) | — | 0.6002 | — | 0.0 (0 esc) | 0.9988 |
+| **ReconForge Recon (1.7B LoRA, champion / iter 700, ×5)** | 0.8050 | **0.9007** [0.876, 0.924] | **1.0000** [0.980, 1.000] | n/a (0 esc) | 1.0000 |
+| DeepSeek v4-flash (frontier, zero-shot) | 0.8762 | 0.8719 | — | 1.0000 (2 esc, see note) | 0.9962 |
+| Base Qwen3-1.7B (zero-shot) | — | 0.6002 | — | n/a (0 esc) | 0.9988 |
 | Fine-tuned iter 700 (aborted run) | 0.7812 | 0.7291 | — | — | 1.0000 |
+
+> **Escalation precision was not a measurement.** The counter sat inside the
+> exception-task branch, so escalations on clean pairs were never counted and the
+> "correct" condition was always true — the metric could only ever come out 1.0
+> (or 0.0, via a floored denominator, when a model never escalated at all).
+> DeepSeek's 1.0000 is over n=2 and was structurally guaranteed. Fixed in
+> `forge/benchmark.py`: escalations are now counted over all tasks, and a model
+> that never escalates reports `null` rather than 0.0. Corrected values for every
+> committed export are in `docs/validation/harness-fix-deltas.json`.
+>
+> **`exception_type_accuracy` was understated by ~0.45 for every model** — its
+> numerator counted only MEDIUM/LOW type hits while its denominator counted all
+> exception tasks. Champion ×3 0.3176 → 0.7848, DeepSeek 0.2598 → 0.7402, base
+> → 0.4304. The ordering is unchanged. Proof the old value was wrong: scoring the
+> verifier against itself now yields 1.0 where the committed pilot reports 0.5.
 
 > **Checkpoint identity.** The champion adapter is the **iter-700** checkpoint
 > (last persisted save; the final run's training loop ran to step 740, but the
@@ -103,8 +130,9 @@ Airbnb eval-engineering articles, ported to a vertical domain:
 > 700. Earlier docs labeled this row "iter 740" — that was the run's step
 > count, not the saved-weights identity.
 
-Self-consistency ×5 (champion): R_w 0.9007, ECE 0.0875. ×3 used for the
-headline (0.9128). Both artifacts published.
+Self-consistency ×5 (champion) is the headline: R_w 0.9007, ECE 0.0875. The
+×3 run scores R_w 0.9128 and is retained as a sampling-sensitivity row. Both
+artifacts published.
 
 ### 5.2 The studies
 
@@ -114,7 +142,7 @@ headline (0.9128). Both artifacts published.
 | **C1** | Judge calibration (golden-100, seed 333, verifier labels) | DeepSeek judge kappa 0.741/0.82; fine-tuned local judge 0.736/0.81. Tied, both below the 0.85 bar. |
 | **C2** | Fix C1's gap with an explicit-rules judge prompt (same golden set) | DeepSeek kappa 0.741→**0.904** (bar cleared); local judge kappa 0.736→**0.367** (regressed — prompt-brittle, off-distribution for a model fine-tuned on one fixed prompt). DeepSeek is now the designated production judge for the weekly schedule. |
 | **Contamination ROC** | Does the monitor detect leaks? | Fire-on-leaked 1.0 at every leak fraction (0.05–0.5); false-fire-on-clean 0.0. |
-| **A4 gate** | Is the verifier an oracle? | 100% agreement on 300- and 400-task pilots; byte-identical across runs. |
+| **A4 gate** | Is the verifier an oracle? | 100% agreement on the committed 300-task pilot (`pilot-7-n300.json`); byte-identical across runs. Scoring the verifier against itself scores 1.0 on every field, pinned as an invariant test. |
 | **S1-style sweeps** | (from substrate Foundry, reused here) | Difficulty monotonicity, split predictability, judge-ladder economics — the methodology lineage is documented in the research repo's HANDOFF. |
 
 ### 5.3 System proofs
@@ -201,8 +229,8 @@ headline (0.9128). Both artifacts published.
 ```sh
 cd ~/Documents/personal/reconforge
 
-make sync && make validate     # 162 tests across 4 workstreams
-make study                     # pilot benchmark (400 tasks, seed 7)
+make sync && make validate     # all four workstreams green (CI enforces this)
+make study                     # pilot benchmark (300 tasks, seed 7)
 
 # head-to-head (needs .env with MODEL_PROVIDER_API_KEY)
 cd model && PYTHONPATH=../forge/src:src uv run python -m reconforge_model.compare_deepseek \
@@ -213,7 +241,7 @@ cd model && PYTHONPATH=../forge/src:src uv run python -m reconforge_model.benchm
   --adapter-path adapters/champion --tasks-file data/benchmark.jsonl --run x5 --samples 5
 
 # full stack
-docker compose up -d           # kafka, postgres, neo4j, redis
+docker compose up -d           # kafka, postgres, neo4j
 cd system && uv run reconforge-ledger & uv run reconforge-cadence worker &
 ```
 

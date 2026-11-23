@@ -1,0 +1,71 @@
+{
+  "_comment": "RL environment health gate. Every check must pass before RL compute is spent.",
+  "pool": {
+    "seed": 13,
+    "n_tasks": 200
+  },
+  "reward": {
+    "definition": "-normalized rl_cost (escalations + missed HIGH + false flags)",
+    "cost_esc": 1.0,
+    "cost_missed_high": 5.0,
+    "cost_false_flag": 1.0,
+    "why_not_r_w": "R_w is gameable: an always-ESCALATE policy scores 0.6673 at accuracy 0.0.",
+    "why_not_the_published_cost": "severity_weighted_cost does not price flagging a clean pair as EXCEPTION, so always-EXCEPTION scores 0.000 and ties the rules-oracle for the global optimum at flag precision 0.465. Measured, not hypothesised."
+  },
+  "policy_rewards": {
+    "always_escalate": -1.0,
+    "always_exception": -0.535,
+    "always_match": -1.475,
+    "majority_class": -1.475,
+    "rules_oracle": -0.0,
+    "stratified_random": -1.045
+  },
+  "checks": [
+    {
+      "check": "verifier_determinism",
+      "passed": true,
+      "detail": "200 tasks scored twice, identical"
+    },
+    {
+      "check": "reward_determinism",
+      "passed": true,
+      "detail": "reward stable at -0.000000"
+    },
+    {
+      "check": "reward_separates_policies",
+      "passed": true,
+      "detail": "spread 1.4750 across 6 policies: rules_oracle=-0.000, always_exception=-0.535, always_escalate=-1.000, stratified_random=-1.045, always_match=-1.475, majority_class=-1.475"
+    },
+    {
+      "check": "no_free_optimum",
+      "passed": true,
+      "detail": "policies reaching the optimum without solving: none"
+    },
+    {
+      "check": "false_flag_is_priced",
+      "passed": true,
+      "detail": "always-EXCEPTION: published cost 0.0000 (ties oracle) vs RL cost 0.5350 -- the false-flag term is what closes it"
+    },
+    {
+      "check": "reward_is_the_documented_rl_cost",
+      "passed": true,
+      "detail": "reward == -rl_cost (-0.5350) and differs from -severity_weighted_cost (-0.0000) on a policy that separates them"
+    },
+    {
+      "check": "trainable_band_nonempty",
+      "passed": true,
+      "detail": "306/800 tasks in the 10%-80% band"
+    },
+    {
+      "check": "reward_varies_within_prompt_groups",
+      "passed": true,
+      "detail": "236/800 tasks carry within-prompt reward variance; the task set is filtered on this, not on correctness solve rate"
+    },
+    {
+      "check": "reward_bounded",
+      "passed": true,
+      "detail": "reward in [-1.475, -0.000]; 0 is the ceiling (no cost)"
+    }
+  ],
+  "gate_passed": true
+}

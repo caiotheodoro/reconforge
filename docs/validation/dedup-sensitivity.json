@@ -1,0 +1,116 @@
+{
+  "_comment": "Scores with near-duplicate eval tasks removed. 'Zero contamination' in this repo means zero EXACT signature overlap; it does not mean the eval pool is far from the training pool. The nearest-neighbour histogram has no mass below 0.6 Jaccard, so every benchmark task resembles something in training -- expected from a shared generator, and a bound on how much of the benchmark is novel to the model.",
+  "threshold": 0.8,
+  "near_duplicate_count": 29,
+  "near_duplicate_rate": 0.0362,
+  "nearest_neighbour_similarity_histogram": {
+    "[0.0,0.1)": 0,
+    "[0.1,0.2)": 0,
+    "[0.2,0.3)": 0,
+    "[0.3,0.4)": 0,
+    "[0.4,0.5)": 0,
+    "[0.5,0.6)": 0,
+    "[0.6,0.7)": 112,
+    "[0.7,0.8)": 659,
+    "[0.8,0.9)": 29,
+    "[0.9,1.0)": 0,
+    "[1.0,1.0]": 0
+  },
+  "tasks_between_0.6_and_0.8": 771,
+  "runs": {
+    "champion_x5": {
+      "artifact": "bench-eval-champion-x5.json",
+      "full": {
+        "n": 800,
+        "accuracy": 0.805,
+        "severity_weighted_recall": 0.9007,
+        "flag_precision": 0.8241,
+        "flag_recall": 0.8241,
+        "flag_f1": 0.8241,
+        "normalized_cost": 0.0
+      },
+      "dedup": {
+        "n": 771,
+        "accuracy": 0.8067,
+        "severity_weighted_recall": 0.9079,
+        "flag_precision": 0.8218,
+        "flag_recall": 0.8351,
+        "flag_f1": 0.8284,
+        "normalized_cost": 0.0
+      },
+      "n_removed": 29
+    },
+    "champion_x3": {
+      "artifact": "bench-eval-full-740.json",
+      "full": {
+        "n": 800,
+        "accuracy": 0.805,
+        "severity_weighted_recall": 0.9128,
+        "flag_precision": 0.8127,
+        "flag_recall": 0.8425,
+        "flag_f1": 0.8273,
+        "normalized_cost": 0.0
+      },
+      "dedup": {
+        "n": 771,
+        "accuracy": 0.8067,
+        "severity_weighted_recall": 0.9203,
+        "flag_precision": 0.8093,
+        "flag_recall": 0.8486,
+        "flag_f1": 0.8285,
+        "normalized_cost": 0.0
+      },
+      "n_removed": 29
+    },
+    "deepseek_v4_flash": {
+      "artifact": "bench-deepseek-full.json",
+      "full": {
+        "n": 800,
+        "accuracy": 0.8762,
+        "severity_weighted_recall": 0.8719,
+        "flag_precision": 1.0,
+        "flag_recall": 0.8241,
+        "flag_f1": 0.9036,
+        "normalized_cost": 0.0125
+      },
+      "dedup": {
+        "n": 771,
+        "accuracy": 0.8807,
+        "severity_weighted_recall": 0.8785,
+        "flag_precision": 1.0,
+        "flag_recall": 0.8324,
+        "flag_f1": 0.9086,
+        "normalized_cost": 0.013
+      },
+      "n_removed": 29
+    },
+    "base_qwen3_1_7b": {
+      "artifact": "bench-eval-base-ablation.json",
+      "full": {
+        "n": 800,
+        "accuracy": 0.6775,
+        "severity_weighted_recall": 0.6002,
+        "flag_precision": 0.852,
+        "flag_recall": 0.6194,
+        "flag_f1": 0.7173,
+        "normalized_cost": 0.145
+      },
+      "dedup": {
+        "n": 771,
+        "accuracy": 0.677,
+        "severity_weighted_recall": 0.6054,
+        "flag_precision": 0.8504,
+        "flag_recall": 0.6297,
+        "flag_f1": 0.7236,
+        "normalized_cost": 0.1505
+      },
+      "n_removed": 29
+    }
+  },
+  "headline_margin": {
+    "_comment": "R_w margin (champion x5 - DeepSeek) with and without near-duplicates. Every model gains slightly when near-dups are dropped, and they gain by similar amounts, so the margin is not an artefact of the duplicated slice. This is evidence FOR the comparison, not against it.",
+    "margin_full": 0.0288,
+    "margin_dedup": 0.0294,
+    "margin_shift": 0.0006
+  }
+}

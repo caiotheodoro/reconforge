@@ -36,5 +36,45 @@
     "model_revision": "mlx-community/Qwen3-1.7B-4bit (no adapter)",
     "source": "reconforge/model/src/reconforge_model/eval.py; docs/validation/bench-eval-base-ablation.log"
   },
-  "note": "reconforge_recon's Quick Start card snippet uses a single greedy sample (temp=0.0) for a minimal usage example -- it does NOT match this eval config (self-consistency x5 @ temp=0.6). This is stated explicitly in the card; the earlier spec draft's claim that Quick Start 'matches the eval config' was wrong and is corrected here."
+  "note": "reconforge_recon's Quick Start card snippet uses a single greedy sample (temp=0.0) for a minimal usage example -- it does NOT match this eval config (self-consistency x5 @ temp=0.6). This is stated explicitly in the card; the earlier spec draft's claim that Quick Start 'matches the eval config' was wrong and is corrected here.",
+  "evidence_chain": {
+    "_comment": "Provenance for the champion adapter and the code that scored it (issue #13). Every hash here was verified, not transcribed: the local champion, the lora-full run's last persisted checkpoint, and the published Hub revision are byte-identical.",
+    "champion_adapter": {
+      "sha256": "4754fe569b703f075725f0415a9ae70664fda6d7d66a865e956be2ff69bacdfa",
+      "checkpoint_identity": "iter 700 (last persisted save; the run's loop reached step 740)",
+      "local_paths_verified_identical": [
+        "model/adapters/champion/adapters.safetensors",
+        "model/adapters/lora-full/adapters.safetensors",
+        "model/adapters/lora-full/0000700_final.safetensors"
+      ],
+      "note": "adapters are gitignored (binary); the SHA-256 is the tracked identity"
+    },
+    "huggingface": {
+      "repo_id": "caiotheodoro/reconforge-recon-lora",
+      "revision": "c56513f19ef865822940ec43653580f95040e478",
+      "last_modified": "2026-08-22T18:26:44.000Z",
+      "hub_adapter_sha256": "4754fe569b703f075725f0415a9ae70664fda6d7d66a865e956be2ff69bacdfa",
+      "hub_matches_local": true,
+      "verified_by": "downloaded adapters.safetensors at the pinned revision and hashed it"
+    },
+    "scoring_code_commit": "56185d0f2e8ed043b0ebb6f07b6cd1adbff8a44a",
+    "evidence_logs": {
+      "_comment": "Un-ignored in .gitignore and committed; these are the raw run records.",
+      "training_champion": "model/data/train-full.log",
+      "training_b2": "model/data/train-b2.log",
+      "eval_champion_x5": "model/data/bench-eval-champion-x5.log",
+      "eval_champion_x3": "model/data/bench-eval-full-740.log",
+      "eval_b2": "model/data/bench-eval-b2-590.log",
+      "eval_base_ablation": "model/data/base-ablation.log"
+    },
+    "training_data_determinism": {
+      "generation_seed": 101,
+      "split_seed": 7,
+      "rows": {
+        "train": 3198,
+        "val": 802
+      },
+      "verified": "generate_tasks(4000, seed=101) -> build_datasets(train_frac=0.8, seed=7) reproduces model/data/{train,val}.jsonl byte-identically; enforced by the dataset-determinism CI job"
+    }
+  }
 }

@@ -19,6 +19,60 @@
       "significant_at_0.05": true
     }
   },
+  "judge_kappa": {
+    "c1_deepseek_worker_prompt": {
+      "agreement": 0.82,
+      "artifact": "golden-100.jsonl",
+      "ci95": [
+        0.6323,
+        0.8395
+      ],
+      "ci_lower_above_bar": false,
+      "kappa": 0.7407,
+      "method": "percentile bootstrap over golden-set items",
+      "n": 100,
+      "point_above_bar": false
+    },
+    "c1_local_worker_prompt": {
+      "agreement": 0.81,
+      "artifact": "golden-100-local-judge.jsonl",
+      "ci95": [
+        0.6217,
+        0.836
+      ],
+      "ci_lower_above_bar": false,
+      "kappa": 0.7361,
+      "method": "percentile bootstrap over golden-set items",
+      "n": 100,
+      "point_above_bar": false
+    },
+    "c2_deepseek_rubric_v2": {
+      "agreement": 0.93,
+      "artifact": "golden-100-rubric-v2.jsonl",
+      "ci95": [
+        0.8283,
+        0.9683
+      ],
+      "ci_lower_above_bar": false,
+      "kappa": 0.9037,
+      "method": "percentile bootstrap over golden-set items",
+      "n": 100,
+      "point_above_bar": true
+    },
+    "c2_local_rubric_v2": {
+      "agreement": 0.42,
+      "artifact": "golden-100-local-judge-rubric-v2.jsonl",
+      "ci95": [
+        0.2698,
+        0.4671
+      ],
+      "ci_lower_above_bar": false,
+      "kappa": 0.3672,
+      "method": "percentile bootstrap over golden-set items",
+      "n": 100,
+      "point_above_bar": false
+    }
+  },
   "resamples": 10000,
   "runs": {
     "base_qwen3_1_7b": {
@@ -27,30 +81,132 @@
           0.645,
           0.71
         ],
+        "method": "percentile bootstrap over tasks",
         "point": 0.6775
       },
       "n": 800,
+      "per_exception_type_recall": {
+        "AMOUNT_MISMATCH": {
+          "ci95": [
+            0.95,
+            1.0
+          ],
+          "k": 73,
+          "method": "wilson",
+          "n": 73,
+          "point": 1.0
+        },
+        "BENEFICIARY_MISMATCH": {
+          "ci95": [
+            0.9162,
+            1.0
+          ],
+          "k": 42,
+          "method": "wilson",
+          "n": 42,
+          "point": 1.0
+        },
+        "COUNTERPARTY_MISMATCH": {
+          "ci95": [
+            0.1963,
+            0.4854
+          ],
+          "k": 12,
+          "method": "wilson",
+          "n": 37,
+          "point": 0.3243
+        },
+        "DUPLICATE": {
+          "ci95": [
+            0.0,
+            0.1103
+          ],
+          "k": 0,
+          "method": "wilson",
+          "n": 31,
+          "point": 0.0
+        },
+        "FIELD_CORRUPTION": {
+          "ci95": [
+            0.0,
+            0.0941
+          ],
+          "k": 0,
+          "method": "wilson",
+          "n": 37,
+          "point": 0.0
+        },
+        "FX_CONVERSION_ERROR": {
+          "ci95": [
+            0.8928,
+            1.0
+          ],
+          "k": 32,
+          "method": "wilson",
+          "n": 32,
+          "point": 1.0
+        },
+        "MISSING_MESSAGE": {
+          "ci95": [
+            0.0,
+            0.0787
+          ],
+          "k": 0,
+          "method": "wilson",
+          "n": 45,
+          "point": 0.0
+        },
+        "PARTIAL_MATCH": {
+          "ci95": [
+            0.0,
+            0.1072
+          ],
+          "k": 0,
+          "method": "wilson",
+          "n": 32,
+          "point": 0.0
+        },
+        "VALUE_DATE_MISMATCH": {
+          "ci95": [
+            0.0418,
+            0.2061
+          ],
+          "k": 5,
+          "method": "wilson",
+          "n": 52,
+          "point": 0.0962
+        }
+      },
       "severity_band_recall": {
         "HIGH": {
           "ci95": [
-            0.8251,
-            0.9213
+            0.8194,
+            0.9152
           ],
+          "k": 161,
+          "method": "wilson",
+          "n": 184,
           "point": 0.875
         },
         "LOW": {
           "ci95": [
             0.0,
-            0.0
+            0.0535
           ],
+          "k": 0,
+          "method": "wilson",
+          "n": 68,
           "point": 0.0
         },
         "MEDIUM": {
           "ci95": [
-            0.0083,
-            0.0756
+            0.0167,
+            0.0875
           ],
-          "point": 0.03875968992248062
+          "k": 5,
+          "method": "wilson",
+          "n": 129,
+          "point": 0.0388
         }
       },
       "severity_weighted_recall": {
@@ -58,6 +214,7 @@
           0.5475,
           0.65
         ],
+        "method": "percentile bootstrap over tasks",
         "point": 0.6002
       }
     },
@@ -67,30 +224,132 @@
           0.8525,
           0.8988
         ],
+        "method": "percentile bootstrap over tasks",
         "point": 0.8762
       },
       "n": 800,
+      "per_exception_type_recall": {
+        "AMOUNT_MISMATCH": {
+          "ci95": [
+            0.95,
+            1.0
+          ],
+          "k": 73,
+          "method": "wilson",
+          "n": 73,
+          "point": 1.0
+        },
+        "BENEFICIARY_MISMATCH": {
+          "ci95": [
+            0.9162,
+            1.0
+          ],
+          "k": 42,
+          "method": "wilson",
+          "n": 42,
+          "point": 1.0
+        },
+        "COUNTERPARTY_MISMATCH": {
+          "ci95": [
+            0.8618,
+            0.9952
+          ],
+          "k": 36,
+          "method": "wilson",
+          "n": 37,
+          "point": 0.973
+        },
+        "DUPLICATE": {
+          "ci95": [
+            0.0,
+            0.1103
+          ],
+          "k": 0,
+          "method": "wilson",
+          "n": 31,
+          "point": 0.0
+        },
+        "FIELD_CORRUPTION": {
+          "ci95": [
+            0.154,
+            0.4298
+          ],
+          "k": 10,
+          "method": "wilson",
+          "n": 37,
+          "point": 0.2703
+        },
+        "FX_CONVERSION_ERROR": {
+          "ci95": [
+            0.8928,
+            1.0
+          ],
+          "k": 32,
+          "method": "wilson",
+          "n": 32,
+          "point": 1.0
+        },
+        "MISSING_MESSAGE": {
+          "ci95": [
+            0.8843,
+            0.9961
+          ],
+          "k": 44,
+          "method": "wilson",
+          "n": 45,
+          "point": 0.9778
+        },
+        "PARTIAL_MATCH": {
+          "ci95": [
+            0.0686,
+            0.3175
+          ],
+          "k": 5,
+          "method": "wilson",
+          "n": 32,
+          "point": 0.1562
+        },
+        "VALUE_DATE_MISMATCH": {
+          "ci95": [
+            0.6387,
+            0.8628
+          ],
+          "k": 40,
+          "method": "wilson",
+          "n": 52,
+          "point": 0.7692
+        }
+      },
       "severity_band_recall": {
         "HIGH": {
           "ci95": [
-            0.9828,
-            1.0
+            0.9699,
+            0.999
           ],
-          "point": 0.9945652173913043
+          "k": 183,
+          "method": "wilson",
+          "n": 184,
+          "point": 0.9946
         },
         "LOW": {
           "ci95": [
-            0.0667,
-            0.2373
+            0.0819,
+            0.25
           ],
-          "point": 0.14705882352941177
+          "k": 10,
+          "method": "wilson",
+          "n": 68,
+          "point": 0.1471
         },
         "MEDIUM": {
           "ci95": [
-            0.6074,
-            0.768
+            0.6056,
+            0.7633
           ],
-          "point": 0.689922480620155
+          "k": 89,
+          "method": "wilson",
+          "n": 129,
+          "point": 0.6899
         }
       },
       "severity_weighted_recall": {
@@ -98,6 +357,7 @@
           0.8431,
           0.8993
         ],
+        "method": "percentile bootstrap over tasks",
         "point": 0.8719
       }
     },
@@ -107,95 +367,132 @@
           0.7775,
           0.8325
         ],
+        "method": "percentile bootstrap over tasks",
         "point": 0.805
       },
       "n": 800,
       "per_exception_type_recall": {
         "AMOUNT_MISMATCH": {
           "ci95": [
-            1.0,
+            0.95,
             1.0
           ],
+          "k": 73,
+          "method": "wilson",
+          "n": 73,
           "point": 1.0
         },
         "BENEFICIARY_MISMATCH": {
           "ci95": [
-            1.0,
+            0.9162,
             1.0
           ],
+          "k": 42,
+          "method": "wilson",
+          "n": 42,
           "point": 1.0
         },
         "COUNTERPARTY_MISMATCH": {
           "ci95": [
-            0.7442,
-            0.9697
+            0.7202,
+            0.9409
           ],
-          "point": 0.8648648648648649
+          "k": 32,
+          "method": "wilson",
+          "n": 37,
+          "point": 0.8649
         },
         "DUPLICATE": {
           "ci95": [
             0.0,
-            0.0
+            0.1103
           ],
+          "k": 0,
+          "method": "wilson",
+          "n": 31,
           "point": 0.0
         },
         "FIELD_CORRUPTION": {
           "ci95": [
-            0.1333,
-            0.4211
+            0.154,
+            0.4298
           ],
-          "point": 0.2702702702702703
+          "k": 10,
+          "method": "wilson",
+          "n": 37,
+          "point": 0.2703
         },
         "FX_CONVERSION_ERROR": {
           "ci95": [
-            1.0,
+            0.8928,
             1.0
           ],
+          "k": 32,
+          "method": "wilson",
+          "n": 32,
           "point": 1.0
         },
         "MISSING_MESSAGE": {
           "ci95": [
-            1.0,
+            0.9213,
             1.0
           ],
+          "k": 45,
+          "method": "wilson",
+          "n": 45,
           "point": 1.0
         },
         "PARTIAL_MATCH": {
           "ci95": [
-            0.5172,
-            0.8462
+            0.5143,
+            0.8205
           ],
+          "k": 22,
+          "method": "wilson",
+          "n": 32,
           "point": 0.6875
         },
         "VALUE_DATE_MISMATCH": {
           "ci95": [
-            0.5641,
-            0.8136
+            0.5573,
+            0.8009
           ],
-          "point": 0.6923076923076923
+          "k": 36,
+          "method": "wilson",
+          "n": 52,
+          "point": 0.6923
         }
       },
       "severity_band_recall": {
         "HIGH": {
           "ci95": [
-            1.0,
+            0.9795,
             1.0
           ],
+          "k": 184,
+          "method": "wilson",
+          "n": 184,
           "point": 1.0
         },
         "LOW": {
           "ci95": [
-            0.0678,
-            0.2373
+            0.0819,
+            0.25
           ],
-          "point": 0.14705882352941177
+          "k": 10,
+          "method": "wilson",
+          "n": 68,
+          "point": 0.1471
         },
         "MEDIUM": {
           "ci95": [
-            0.7265,
-            0.8661
+            0.7211,
+            0.8586
           ],
-          "point": 0.7984496124031008
+          "k": 103,
+          "method": "wilson",
+          "n": 129,
+          "point": 0.7984
         }
       },
       "severity_weighted_recall": {
@@ -203,6 +500,7 @@
           0.8756,
           0.9239
         ],
+        "method": "percentile bootstrap over tasks",
         "point": 0.9007
       }
     }

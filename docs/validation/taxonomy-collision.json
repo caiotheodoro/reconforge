@@ -1,0 +1,64 @@
+{
+  "_comment": "FIELD_CORRUPTION items injected into value_date are indistinguishable from VALUE_DATE_MISMATCH without knowing the verifier's priority order, which the prompt never states. Strict scoring is the published rule; collision-tolerant scoring accepts either label on the ambiguous items.",
+  "n_ambiguous_items": 12,
+  "ambiguous_task_ids": [
+    "recon-000015",
+    "recon-000109",
+    "recon-000118",
+    "recon-000156",
+    "recon-000237",
+    "recon-000292",
+    "recon-000471",
+    "recon-000522",
+    "recon-000593",
+    "recon-000604",
+    "recon-000614",
+    "recon-000689"
+  ],
+  "runs": {
+    "champion_x5": {
+      "artifact": "bench-eval-champion-x5.json",
+      "field_corruption_n": 37,
+      "field_corruption_to_value_date_confusions": 12,
+      "field_corruption_recall_strict": 0.2703,
+      "field_corruption_recall_collision_tolerant": 0.5946,
+      "severity_weighted_recall_strict": 0.9007,
+      "severity_weighted_recall_collision_tolerant": 0.9098,
+      "accuracy_strict": 0.805,
+      "accuracy_collision_tolerant": 0.82
+    },
+    "champion_x3": {
+      "artifact": "bench-eval-full-740.json",
+      "field_corruption_n": 37,
+      "field_corruption_to_value_date_confusions": 11,
+      "field_corruption_recall_strict": 0.3514,
+      "field_corruption_recall_collision_tolerant": 0.5946,
+      "severity_weighted_recall_strict": 0.9128,
+      "severity_weighted_recall_collision_tolerant": 0.9197,
+      "accuracy_strict": 0.805,
+      "accuracy_collision_tolerant": 0.8163
+    },
+    "deepseek_v4_flash": {
+      "artifact": "bench-deepseek-full.json",
+      "field_corruption_n": 37,
+      "field_corruption_to_value_date_confusions": 7,
+      "field_corruption_recall_strict": 0.2703,
+      "field_corruption_recall_collision_tolerant": 0.4595,
+      "severity_weighted_recall_strict": 0.8719,
+      "severity_weighted_recall_collision_tolerant": 0.8772,
+      "accuracy_strict": 0.8762,
+      "accuracy_collision_tolerant": 0.885
+    },
+    "base_qwen3_1_7b": {
+      "artifact": "bench-eval-base-ablation.json",
+      "field_corruption_n": 37,
+      "field_corruption_to_value_date_confusions": 10,
+      "field_corruption_recall_strict": 0.0,
+      "field_corruption_recall_collision_tolerant": 0.2703,
+      "severity_weighted_recall_strict": 0.6002,
+      "severity_weighted_recall_collision_tolerant": 0.6078,
+      "accuracy_strict": 0.6775,
+      "accuracy_collision_tolerant": 0.69
+    }
+  }
+}

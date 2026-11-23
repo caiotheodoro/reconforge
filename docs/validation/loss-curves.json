@@ -1,0 +1,676 @@
+{
+  "_comment": "Validation loss carries no selection signal for this task. The two runs below end at indistinguishable val loss and differ by 19 points of R_w. The loss-plateau stopping rule decides WHEN to stop; it cannot decide WHICH checkpoint is better, and it was never validated for that use.",
+  "runs": {
+    "run1_champion": {
+      "log": "model/data/train-full.log",
+      "note": "default exception mix; champion adapter is the iter-700 save",
+      "val_loss_curve": [
+        {
+          "iter": 1,
+          "val_loss": 2.764
+        },
+        {
+          "iter": 50,
+          "val_loss": 0.385
+        },
+        {
+          "iter": 100,
+          "val_loss": 0.146
+        },
+        {
+          "iter": 150,
+          "val_loss": 0.117
+        },
+        {
+          "iter": 200,
+          "val_loss": 0.111
+        },
+        {
+          "iter": 250,
+          "val_loss": 0.105
+        },
+        {
+          "iter": 300,
+          "val_loss": 0.098
+        },
+        {
+          "iter": 350,
+          "val_loss": 0.093
+        },
+        {
+          "iter": 400,
+          "val_loss": 0.093
+        },
+        {
+          "iter": 450,
+          "val_loss": 0.092
+        },
+        {
+          "iter": 500,
+          "val_loss": 0.092
+        },
+        {
+          "iter": 550,
+          "val_loss": 0.091
+        },
+        {
+          "iter": 600,
+          "val_loss": 0.091
+        },
+        {
+          "iter": 650,
+          "val_loss": 0.091
+        },
+        {
+          "iter": 700,
+          "val_loss": 0.091
+        }
+      ],
+      "train_loss_curve": [
+        {
+          "iter": 10,
+          "train_loss": 2.473
+        },
+        {
+          "iter": 20,
+          "train_loss": 1.728
+        },
+        {
+          "iter": 30,
+          "train_loss": 1.312
+        },
+        {
+          "iter": 40,
+          "train_loss": 0.939
+        },
+        {
+          "iter": 50,
+          "train_loss": 0.554
+        },
+        {
+          "iter": 60,
+          "train_loss": 0.31
+        },
+        {
+          "iter": 70,
+          "train_loss": 0.225
+        },
+        {
+          "iter": 80,
+          "train_loss": 0.185
+        },
+        {
+          "iter": 90,
+          "train_loss": 0.158
+        },
+        {
+          "iter": 100,
+          "train_loss": 0.146
+        },
+        {
+          "iter": 110,
+          "train_loss": 0.138
+        },
+        {
+          "iter": 120,
+          "train_loss": 0.141
+        },
+        {
+          "iter": 130,
+          "train_loss": 0.135
+        },
+        {
+          "iter": 140,
+          "train_loss": 0.123
+        },
+        {
+          "iter": 150,
+          "train_loss": 0.122
+        },
+        {
+          "iter": 160,
+          "train_loss": 0.117
+        },
+        {
+          "iter": 170,
+          "train_loss": 0.114
+        },
+        {
+          "iter": 180,
+          "train_loss": 0.114
+        },
+        {
+          "iter": 190,
+          "train_loss": 0.113
+        },
+        {
+          "iter": 200,
+          "train_loss": 0.112
+        },
+        {
+          "iter": 210,
+          "train_loss": 0.109
+        },
+        {
+          "iter": 220,
+          "train_loss": 0.108
+        },
+        {
+          "iter": 230,
+          "train_loss": 0.102
+        },
+        {
+          "iter": 240,
+          "train_loss": 0.102
+        },
+        {
+          "iter": 250,
+          "train_loss": 0.107
+        },
+        {
+          "iter": 260,
+          "train_loss": 0.103
+        },
+        {
+          "iter": 270,
+          "train_loss": 0.1
+        },
+        {
+          "iter": 280,
+          "train_loss": 0.1
+        },
+        {
+          "iter": 290,
+          "train_loss": 0.098
+        },
+        {
+          "iter": 300,
+          "train_loss": 0.1
+        },
+        {
+          "iter": 310,
+          "train_loss": 0.102
+        },
+        {
+          "iter": 320,
+          "train_loss": 0.089
+        },
+        {
+          "iter": 330,
+          "train_loss": 0.089
+        },
+        {
+          "iter": 340,
+          "train_loss": 0.1
+        },
+        {
+          "iter": 350,
+          "train_loss": 0.095
+        },
+        {
+          "iter": 360,
+          "train_loss": 0.089
+        },
+        {
+          "iter": 370,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 380,
+          "train_loss": 0.088
+        },
+        {
+          "iter": 390,
+          "train_loss": 0.088
+        },
+        {
+          "iter": 400,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 410,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 420,
+          "train_loss": 0.094
+        },
+        {
+          "iter": 430,
+          "train_loss": 0.087
+        },
+        {
+          "iter": 440,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 450,
+          "train_loss": 0.098
+        },
+        {
+          "iter": 460,
+          "train_loss": 0.098
+        },
+        {
+          "iter": 470,
+          "train_loss": 0.095
+        },
+        {
+          "iter": 480,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 490,
+          "train_loss": 0.089
+        },
+        {
+          "iter": 500,
+          "train_loss": 0.088
+        },
+        {
+          "iter": 510,
+          "train_loss": 0.097
+        },
+        {
+          "iter": 520,
+          "train_loss": 0.086
+        },
+        {
+          "iter": 530,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 540,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 550,
+          "train_loss": 0.098
+        },
+        {
+          "iter": 560,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 570,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 580,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 590,
+          "train_loss": 0.093
+        },
+        {
+          "iter": 600,
+          "train_loss": 0.095
+        },
+        {
+          "iter": 610,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 620,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 630,
+          "train_loss": 0.091
+        },
+        {
+          "iter": 640,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 650,
+          "train_loss": 0.088
+        },
+        {
+          "iter": 660,
+          "train_loss": 0.084
+        },
+        {
+          "iter": 670,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 680,
+          "train_loss": 0.089
+        },
+        {
+          "iter": 690,
+          "train_loss": 0.088
+        },
+        {
+          "iter": 700,
+          "train_loss": 0.087
+        },
+        {
+          "iter": 710,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 720,
+          "train_loss": 0.095
+        },
+        {
+          "iter": 730,
+          "train_loss": 0.092
+        },
+        {
+          "iter": 740,
+          "train_loss": 0.088
+        }
+      ],
+      "final_iter": 700,
+      "final_val_loss": 0.091,
+      "val_plateau_from_iter": 450,
+      "benchmark_r_w_x3": 0.9128,
+      "benchmark_r_w_x5": 0.9007
+    },
+    "b2_rebalanced": {
+      "log": "model/data/train-b2.log",
+      "note": "rebalanced exception mix; rejected (negative result)",
+      "val_loss_curve": [
+        {
+          "iter": 1,
+          "val_loss": 2.767
+        },
+        {
+          "iter": 50,
+          "val_loss": 0.395
+        },
+        {
+          "iter": 100,
+          "val_loss": 0.147
+        },
+        {
+          "iter": 150,
+          "val_loss": 0.117
+        },
+        {
+          "iter": 200,
+          "val_loss": 0.109
+        },
+        {
+          "iter": 250,
+          "val_loss": 0.104
+        },
+        {
+          "iter": 300,
+          "val_loss": 0.096
+        },
+        {
+          "iter": 350,
+          "val_loss": 0.092
+        },
+        {
+          "iter": 400,
+          "val_loss": 0.091
+        },
+        {
+          "iter": 450,
+          "val_loss": 0.091
+        },
+        {
+          "iter": 500,
+          "val_loss": 0.091
+        },
+        {
+          "iter": 550,
+          "val_loss": 0.09
+        }
+      ],
+      "train_loss_curve": [
+        {
+          "iter": 10,
+          "train_loss": 2.448
+        },
+        {
+          "iter": 20,
+          "train_loss": 1.745
+        },
+        {
+          "iter": 30,
+          "train_loss": 1.33
+        },
+        {
+          "iter": 40,
+          "train_loss": 0.947
+        },
+        {
+          "iter": 50,
+          "train_loss": 0.531
+        },
+        {
+          "iter": 60,
+          "train_loss": 0.287
+        },
+        {
+          "iter": 70,
+          "train_loss": 0.223
+        },
+        {
+          "iter": 80,
+          "train_loss": 0.18
+        },
+        {
+          "iter": 90,
+          "train_loss": 0.152
+        },
+        {
+          "iter": 100,
+          "train_loss": 0.163
+        },
+        {
+          "iter": 110,
+          "train_loss": 0.152
+        },
+        {
+          "iter": 120,
+          "train_loss": 0.135
+        },
+        {
+          "iter": 130,
+          "train_loss": 0.141
+        },
+        {
+          "iter": 140,
+          "train_loss": 0.125
+        },
+        {
+          "iter": 150,
+          "train_loss": 0.117
+        },
+        {
+          "iter": 160,
+          "train_loss": 0.114
+        },
+        {
+          "iter": 170,
+          "train_loss": 0.118
+        },
+        {
+          "iter": 180,
+          "train_loss": 0.111
+        },
+        {
+          "iter": 190,
+          "train_loss": 0.108
+        },
+        {
+          "iter": 200,
+          "train_loss": 0.108
+        },
+        {
+          "iter": 210,
+          "train_loss": 0.113
+        },
+        {
+          "iter": 220,
+          "train_loss": 0.105
+        },
+        {
+          "iter": 230,
+          "train_loss": 0.116
+        },
+        {
+          "iter": 240,
+          "train_loss": 0.105
+        },
+        {
+          "iter": 250,
+          "train_loss": 0.102
+        },
+        {
+          "iter": 260,
+          "train_loss": 0.108
+        },
+        {
+          "iter": 270,
+          "train_loss": 0.113
+        },
+        {
+          "iter": 280,
+          "train_loss": 0.102
+        },
+        {
+          "iter": 290,
+          "train_loss": 0.1
+        },
+        {
+          "iter": 300,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 310,
+          "train_loss": 0.095
+        },
+        {
+          "iter": 320,
+          "train_loss": 0.1
+        },
+        {
+          "iter": 330,
+          "train_loss": 0.092
+        },
+        {
+          "iter": 340,
+          "train_loss": 0.095
+        },
+        {
+          "iter": 350,
+          "train_loss": 0.093
+        },
+        {
+          "iter": 360,
+          "train_loss": 0.098
+        },
+        {
+          "iter": 370,
+          "train_loss": 0.085
+        },
+        {
+          "iter": 380,
+          "train_loss": 0.092
+        },
+        {
+          "iter": 390,
+          "train_loss": 0.093
+        },
+        {
+          "iter": 400,
+          "train_loss": 0.086
+        },
+        {
+          "iter": 410,
+          "train_loss": 0.088
+        },
+        {
+          "iter": 420,
+          "train_loss": 0.09
+        },
+        {
+          "iter": 430,
+          "train_loss": 0.086
+        },
+        {
+          "iter": 440,
+          "train_loss": 0.096
+        },
+        {
+          "iter": 450,
+          "train_loss": 0.089
+        },
+        {
+          "iter": 460,
+          "train_loss": 0.092
+        },
+        {
+          "iter": 470,
+          "train_loss": 0.086
+        },
+        {
+          "iter": 480,
+          "train_loss": 0.093
+        },
+        {
+          "iter": 490,
+          "train_loss": 0.093
+        },
+        {
+          "iter": 500,
+          "train_loss": 0.085
+        },
+        {
+          "iter": 510,
+          "train_loss": 0.095
+        },
+        {
+          "iter": 520,
+          "train_loss": 0.084
+        },
+        {
+          "iter": 530,
+          "train_loss": 0.088
+        },
+        {
+          "iter": 540,
+          "train_loss": 0.087
+        },
+        {
+          "iter": 550,
+          "train_loss": 0.091
+        },
+        {
+          "iter": 560,
+          "train_loss": 0.092
+        },
+        {
+          "iter": 570,
+          "train_loss": 0.094
+        },
+        {
+          "iter": 580,
+          "train_loss": 0.089
+        },
+        {
+          "iter": 590,
+          "train_loss": 0.09
+        }
+      ],
+      "final_iter": 550,
+      "final_val_loss": 0.09,
+      "val_plateau_from_iter": 400,
+      "benchmark_r_w_x3": 0.723,
+      "benchmark_r_w_x5": null
+    }
+  },
+  "finding": {
+    "val_loss_gap": 0.001,
+    "r_w_gap_x3": 0.1898,
+    "conclusion": "A val-loss gap of 0.001 accompanies an R_w gap of 0.190. Selecting on validation loss would have been a coin flip between these two runs."
+  }
+}
