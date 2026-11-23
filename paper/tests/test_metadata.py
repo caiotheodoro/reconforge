@@ -28,7 +28,13 @@ def test_zenodo_json_is_what_the_paper_generates():
 
 def test_zenodo_metadata_is_the_deposit_we_intend():
     z = json.loads((ROOT / ".zenodo.json").read_text())
-    assert z["creators"] == [{"name": "Theodoro, Caio", "orcid": "0009-0005-7343-981X"}]
+    assert z["creators"] == [
+        {"name": "Theodoro, Caio", "affiliation": "Avenza Labs", "orcid": "0009-0005-7343-981X"},
+        {"name": "Basso Sberse, João Vitor", "affiliation": "Avenza Labs", "orcid": "0009-0005-7111-1474"},
+    ]
+    assert z["publication_date"] == "2026-08-07"
+    assert z["version"] == "paper-v2.0"
+    assert "7 August 2026" in z["notes"] and "23 November 2026" in z["notes"]
     assert z["license"] == "cc-by-4.0" and z["upload_type"] == "publication" and z["publication_type"] == "preprint"
     assert "Not peer reviewed" in z["description"]
     assert z["description"].startswith(texutil.abstract())

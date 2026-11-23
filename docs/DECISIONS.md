@@ -978,3 +978,29 @@ measured evidence.
 - Reversal: if a calculation defect is found in `paper/derive_class_analysis.py`, its output
   `docs/validation/class-decomposition-and-clustering.json` is regenerated under a later entry.
 
+## 2026-11-23 — P4 — Paper v2 revamp, per-class decomposition results, date (2026-08-07), Avenza Labs affiliation, and DESIGN-V2
+- Post-hoc results (`paper/derive_class_analysis.py` -> `docs/validation/class-decomposition-and-clustering.json`,
+  run after P3 `886d959`):
+  - Across all 4 HIGH-severity classes, both models sit at or near ceiling (DeepSeek A misses 1 of 37
+    `COUNTERPARTY_MISMATCH`; DeepSeek C reaches 100% on all 4 HIGH classes).
+  - Excluding `PARTIAL_MATCH` (leaving 349 exception tasks across 8 classes), the published `+0.0288`
+    margin vanishes (`-0.0036`, 95% paired bootstrap CI `[-0.0178, +0.0105]`, `0.9145` vs `0.9181`;
+    identical under vote correction `E'-A`). DeepSeek's exploratory lead persists without
+    `PARTIAL_MATCH`: `D-C` = `-0.0186 [-0.0300, -0.0084]`, `E'-C` = `-0.0524 [-0.0742, -0.0326]`.
+- Paper v2 (`paper/reconforge.tex`, `paper/reconforge.pdf`):
+  - Retitled to lead with the empirical findings (*When a Small Fine-Tune's Margin Sits Inside Its
+    Training-Seed Spread: Variance Decomposition, Class Memorization, and Prompt Confounds in
+    Financial Reconciliation*); abstract leads with the five diagnostic findings while retaining the
+    retraction and the registered "underpowered rather than reversed" verdict.
+  - Added contribution bullets (§1), nine-class decomposition Table 3 (§4.2), a dedicated Conclusion
+    (§7), and moved repo timeline and the six internal-review corrections into Appendix A.
+  - Set author affiliation to Avenza Labs (`avenza.cloud`) across `paper/reconforge.tex`,
+    `CITATION.cff`, and `.zenodo.json`.
+  - Set publication date to `2026-08-07` (first repository commit `de7405f`) in `CITATION.cff` and
+    `.zenodo.json` (`version: "paper-v2.0"`, `notes` recording 2026-08-07 work start, 2026-11-23 v1
+    deposit, and 2026-11-23 v2 revision).
+  - Drafted `docs/DESIGN-V2.md` for the confirmatory `seed-999` multi-seed study.
+- Reversal: `paper-v1.0` stays at tag `5598896` and Zenodo record 24455455; any further correction
+  goes up as a new version under concept DOI `10.5281/zenodo.24455454`.
+
+

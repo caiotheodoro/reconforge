@@ -20,9 +20,14 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 REPO_URL = "https://github.com/caiotheodoro/reconforge"
 ORCID = "0009-0005-7343-981X"
-VERSION = "paper-v1"
-PUBLICATION_DATE = "2026-11-23"  # first public release of the paper (this commit)
-KEYWORDS = ["negative results", "retraction", "random seeds", "fine-tuning", "pre-registration", "LoRA", "evaluation"]
+VERSION = "paper-v2.0"
+PUBLICATION_DATE = "2026-08-07"  # first repository commit (de7405f), per owner date rule
+NOTES = (
+    "Work begun 7 August 2026 (first repository commit de7405f); first preprint version "
+    "(paper-v1.0, Zenodo record 24455455) compiled and deposited 23 November 2026. "
+    "This version, paper-v2.0, is of 23 November 2026."
+)
+KEYWORDS = ["fine-tuning", "random seeds", "variance decomposition", "LoRA", "pre-registration", "evaluation"]
 
 ACCENTS = {r'{\"e}': "ë", r"{\c{c}}": "ç", r"{\'e}": "é"}
 
@@ -76,10 +81,14 @@ def zenodo() -> dict:
         "title": texutil.title(),
         "upload_type": "publication",
         "publication_type": "preprint",
-        "creators": [{"name": "Theodoro, Caio", "orcid": ORCID}],
+        "creators": [
+            {"name": "Theodoro, Caio", "affiliation": "Avenza Labs", "orcid": ORCID},
+            {"name": "Basso Sberse, João Vitor", "affiliation": "Avenza Labs", "orcid": "0009-0005-7111-1474"},
+        ],
         "publication_date": PUBLICATION_DATE,
         "license": "cc-by-4.0",
         "description": desc,
+        "notes": NOTES,
         "keywords": KEYWORDS,
         "language": "eng",
         "references": [reference_string(e) for e in entries],

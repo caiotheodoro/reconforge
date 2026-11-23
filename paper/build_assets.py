@@ -300,6 +300,22 @@ def build_numbers() -> dict[str, str]:
     N["tempChamp"] = str(rc["reconforge_recon"]["temperature"])
     N["samplesChamp"] = str(rc["reconforge_recon"]["samples_per_task"])
     N["tempDS"] = str(rc["deepseek_v4_flash"]["temperature"])
+
+    # --- post hoc per-class decomposition and non-PARTIAL_MATCH sensitivity (P3) ------
+    cd_ = J("class-decomposition-and-clustering.json")
+    nopm = cd_["excluding_partial_match"]
+    N["noPmExcN"] = str(nopm["E_minus_A"]["n_exceptions_kept"])
+    N["noPmPub"] = sgn4(nopm["E_minus_A"]["point"])
+    N["noPmPubLo"] = sgn4(nopm["E_minus_A"]["ci95"][0])
+    N["noPmPubHi"] = sgn4(nopm["E_minus_A"]["ci95"][1])
+    N["noPmBest"] = sgn4(nopm["Eprime_minus_C"]["point"])
+    N["noPmBestLo"] = sgn4(nopm["Eprime_minus_C"]["ci95"][0])
+    N["noPmBestHi"] = sgn4(nopm["Eprime_minus_C"]["ci95"][1])
+    N["noPmMat"] = sgn4(nopm["D_minus_C"]["point"])
+    N["noPmMatLo"] = sgn4(nopm["D_minus_C"]["ci95"][0])
+    N["noPmMatHi"] = sgn4(nopm["D_minus_C"]["ci95"][1])
+    pm_row = next(r for r in cd_["per_class"] if r["exception_type"] == "PARTIAL_MATCH")
+    N["partialC"] = str(pm_row["caught_C"])
     return N
 
 
@@ -430,6 +446,22 @@ def tables(N: dict[str, str]) -> dict[str, str]:
     T["tab_floors"] = (
         "\\begin{tabular}{@{}lrrr@{}}\n\\toprule\nPolicy or model & Accuracy & $R_w$ & Flag F1 \\\\\n\\midrule\n"
         + "\n".join(f"{n} & {v['accuracy']:.4f} & {v['severity_weighted_recall']:.4f} & {v['flag_f1']:.4f} \\\\" for n, v in fl)
+        + "\n\\bottomrule\n\\end{tabular}\n"
+    )
+
+    cd_ = J("class-decomposition-and-clustering.json")
+    clines = []
+    for r in cd_["per_class"]:
+        name = r["exception_type"].replace("_", "\\_")
+        clines.append(
+            f"\\texttt{{{name}}} & {r['severity']} & {r['weight']:.1f} & {r['n']} & "
+            f"{r['recall_E']:.3f} & {r['recall_A']:.3f} & {r['recall_C']:.3f} & "
+            f"{sgn4(r['contrib_E_minus_A'])} & {sgn4(r['contrib_Eprime_minus_C'])} \\\\"
+        )
+    T["tab_per_class"] = (
+        "\\begin{tabular}{@{}llrrrrrrr@{}}\n\\toprule\n"
+        "Exception class & Sev. & $w$ & $n$ & E & A & C & $\\Delta$(E$-$A) & $\\Delta$(E$'-$C) \\\\\n\\midrule\n"
+        + "\n".join(clines)
         + "\n\\bottomrule\n\\end{tabular}\n"
     )
     return T

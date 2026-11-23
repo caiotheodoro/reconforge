@@ -1,23 +1,29 @@
 {
-  "title": "A fine-tuning headline inside its training-seed spread: a retraction, and the instrument that would have caught it",
+  "title": "When a Small Fine-Tune's Margin Sits Inside Its Training-Seed Spread: Variance Decomposition, Class Memorization, and Prompt Confounds in Financial Reconciliation",
   "upload_type": "publication",
   "publication_type": "preprint",
   "creators": [
     {
       "name": "Theodoro, Caio",
+      "affiliation": "Avenza Labs",
       "orcid": "0009-0005-7343-981X"
+    },
+    {
+      "name": "Basso Sberse, João Vitor",
+      "affiliation": "Avenza Labs",
+      "orcid": "0009-0005-7111-1474"
     }
   ],
-  "publication_date": "2026-11-23",
+  "publication_date": "2026-08-07",
   "license": "cc-by-4.0",
-  "description": "I published that a 1.7B-parameter model, fine-tuned with LoRA on a laptop, beat a frontier model on severity-weighted recall (R_w) for financial reconciliation exceptions: 0.9007 against 0.8719, a margin of 0.0288, on 800 synthetic tasks. The claim is retracted. A pre-registered rule, written before the runs, said that if the standard deviation across training seeds exceeded the margin, no single-run claim in either direction was supportable. Four runs of one recipe, differing in the seed and in how often validation ran, scored R_w 0.7457 to 0.9451 on one development pool (SD 0.0823, 2.86 times the margin), and the shipped model was the highest. The shipped run was chosen because it scored well, so its inclusion inflates that spread; the three runs trained afterwards give SD 0.0479, 1.66 times the margin, with a 95% interval on the SD that includes the margin, and the shipped run sits 0.1448 above their mean. The comparison is underpowered rather than reversed. An exploratory rerun that gave both models a prompt defining every class and five samples reversed the margin to -0.0288, and the fine-tune failed two of five pre-registered guards; with each model on the prompt it suits the frontier model still leads by 0.0701. Limits: four runs; the spread was measured on a 300-task pool and the margin on a different 800-task pool; the frontier model was not scored on the spread pool; no score on the frozen test pool exists; one model size, one synthetic task family. Reading the margin against the spread of several training seeds would have caught the claim; deciding a margin this small takes tens of runs, not three. The registration came three weeks after the headline and has no third-party timestamp. Not peer reviewed. Code, data and artifacts: https://github.com/caiotheodoro/reconforge",
+  "description": "Small fine-tuned language models are frequently reported to beat frontier models on narrow structured tasks from a single training run and a task-resampling confidence interval. We audit one such previously published claim---a 1.7B-parameter LoRA fine-tune outperforming DeepSeek v4-flash on severity-weighted recall (R_w) across 800 synthetic financial reconciliation tasks (0.9007 against 0.8719, margin 0.0288)---against a pre-registered seed-spread rule and five independent diagnostics. First, across four runs of one recipe on a 300-task development pool, R_w spans 0.7457 to 0.9451 (SD 0.0823, 2.86 times the margin), with the shipped run at the top; across the three unselected runs trained afterwards, SD is 0.0479 (1.66 times the margin, whose 95% chi-square interval includes the margin) and the shipped run sits 0.1448 above their mean. Accordingly, the single-run headline is retracted: the comparison is underpowered rather than reversed. Second, a nine-class decomposition shows that one class (\\texttt{PARTIAL\\_MATCH}, 32 tasks built from 9 abbreviation pairs that all appear in training) accounts for 112% of the margin; excluding it eliminates the lead (-0.0036, 95% CI [-0.0178, +0.0105]). Third, an exploratory rerun matching both models on a defined-class prompt and five-sample voting reverses the margin to -0.0288 (the fine-tune fails two of five guards), and comparing each model on its own best prompt still leaves DeepSeek ahead by 0.0701 (-0.0524 without \\texttt{PARTIAL\\_MATCH}). Fourth, the zero-shot base model (0.6002) scores below a constant-flagging floor (0.6673), and validation loss decouples from R_w across 14 checkpoints ($\\rho = $ -0.608, spread 0.259). Reading a fine-tuning margin against training-seed variance, per-class contributions, trivial floors, and matched comparator budgets catches each failure cheaply; resolving a margin of 0.0288 requires tens of training runs on an untouched test pool rather than three. Not peer reviewed. Code, data and artifacts: https://github.com/caiotheodoro/reconforge",
+  "notes": "Work begun 7 August 2026 (first repository commit de7405f); first preprint version (paper-v1.0, Zenodo record 24455455) compiled and deposited 23 November 2026. This version, paper-v2.0, is of 23 November 2026.",
   "keywords": [
-    "negative results",
-    "retraction",
-    "random seeds",
     "fine-tuning",
-    "pre-registration",
+    "random seeds",
+    "variance decomposition",
     "LoRA",
+    "pre-registration",
     "evaluation"
   ],
   "language": "eng",
@@ -213,5 +219,5 @@
       "scheme": "arxiv"
     }
   ],
-  "version": "paper-v1"
+  "version": "paper-v2.0"
 }

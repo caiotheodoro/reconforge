@@ -1,0 +1,211 @@
+{
+  "_comment": "Post hoc nine-class R_w decomposition and non-PARTIAL_MATCH paired sensitivity (P3), computed from committed per-task exports under docs/validation/ using the same paired bootstrap estimator (10,000 resamples, seed 11) as paper/derive_best_prompt.py.",
+  "resamples": 10000,
+  "seed": 11,
+  "total_exception_weight": 263.9,
+  "per_class": [
+    {
+      "exception_type": "AMOUNT_MISMATCH",
+      "severity": "HIGH",
+      "weight": 1.0,
+      "n": 73,
+      "caught_E": 73,
+      "caught_Eprime": 73,
+      "caught_A": 73,
+      "caught_C": 73,
+      "recall_E": 1.0,
+      "recall_Eprime": 1.0,
+      "recall_A": 1.0,
+      "recall_C": 1.0,
+      "contrib_E_minus_A": 0.0,
+      "contrib_Eprime_minus_A": 0.0,
+      "contrib_Eprime_minus_C": 0.0
+    },
+    {
+      "exception_type": "FX_CONVERSION_ERROR",
+      "severity": "HIGH",
+      "weight": 1.0,
+      "n": 32,
+      "caught_E": 32,
+      "caught_Eprime": 32,
+      "caught_A": 32,
+      "caught_C": 32,
+      "recall_E": 1.0,
+      "recall_Eprime": 1.0,
+      "recall_A": 1.0,
+      "recall_C": 1.0,
+      "contrib_E_minus_A": 0.0,
+      "contrib_Eprime_minus_A": 0.0,
+      "contrib_Eprime_minus_C": 0.0
+    },
+    {
+      "exception_type": "BENEFICIARY_MISMATCH",
+      "severity": "HIGH",
+      "weight": 0.9,
+      "n": 42,
+      "caught_E": 42,
+      "caught_Eprime": 42,
+      "caught_A": 42,
+      "caught_C": 42,
+      "recall_E": 1.0,
+      "recall_Eprime": 1.0,
+      "recall_A": 1.0,
+      "recall_C": 1.0,
+      "contrib_E_minus_A": 0.0,
+      "contrib_Eprime_minus_A": 0.0,
+      "contrib_Eprime_minus_C": 0.0
+    },
+    {
+      "exception_type": "COUNTERPARTY_MISMATCH",
+      "severity": "HIGH",
+      "weight": 0.9,
+      "n": 37,
+      "caught_E": 37,
+      "caught_Eprime": 37,
+      "caught_A": 36,
+      "caught_C": 37,
+      "recall_E": 1.0,
+      "recall_Eprime": 1.0,
+      "recall_A": 0.973,
+      "recall_C": 1.0,
+      "contrib_E_minus_A": 0.0034,
+      "contrib_Eprime_minus_A": 0.0034,
+      "contrib_Eprime_minus_C": 0.0
+    },
+    {
+      "exception_type": "VALUE_DATE_MISMATCH",
+      "severity": "MEDIUM",
+      "weight": 0.6,
+      "n": 52,
+      "caught_E": 36,
+      "caught_Eprime": 36,
+      "caught_A": 40,
+      "caught_C": 52,
+      "recall_E": 0.6923,
+      "recall_Eprime": 0.6923,
+      "recall_A": 0.7692,
+      "recall_C": 1.0,
+      "contrib_E_minus_A": -0.0091,
+      "contrib_Eprime_minus_A": -0.0091,
+      "contrib_Eprime_minus_C": -0.0364
+    },
+    {
+      "exception_type": "MISSING_MESSAGE",
+      "severity": "MEDIUM",
+      "weight": 0.6,
+      "n": 45,
+      "caught_E": 45,
+      "caught_Eprime": 45,
+      "caught_A": 44,
+      "caught_C": 45,
+      "recall_E": 1.0,
+      "recall_Eprime": 1.0,
+      "recall_A": 0.9778,
+      "recall_C": 1.0,
+      "contrib_E_minus_A": 0.0023,
+      "contrib_Eprime_minus_A": 0.0023,
+      "contrib_Eprime_minus_C": 0.0
+    },
+    {
+      "exception_type": "DUPLICATE",
+      "severity": "LOW",
+      "weight": 0.2,
+      "n": 31,
+      "caught_E": 0,
+      "caught_Eprime": 0,
+      "caught_A": 0,
+      "caught_C": 17,
+      "recall_E": 0.0,
+      "recall_Eprime": 0.0,
+      "recall_A": 0.0,
+      "recall_C": 0.5484,
+      "contrib_E_minus_A": 0.0,
+      "contrib_Eprime_minus_A": 0.0,
+      "contrib_Eprime_minus_C": -0.0129
+    },
+    {
+      "exception_type": "FIELD_CORRUPTION",
+      "severity": "LOW",
+      "weight": 0.2,
+      "n": 37,
+      "caught_E": 10,
+      "caught_Eprime": 10,
+      "caught_A": 10,
+      "caught_C": 10,
+      "recall_E": 0.2703,
+      "recall_Eprime": 0.2703,
+      "recall_A": 0.2703,
+      "recall_C": 0.2703,
+      "contrib_E_minus_A": 0.0,
+      "contrib_Eprime_minus_A": 0.0,
+      "contrib_Eprime_minus_C": 0.0
+    },
+    {
+      "exception_type": "PARTIAL_MATCH",
+      "severity": "MEDIUM",
+      "weight": 0.5,
+      "n": 32,
+      "caught_E": 22,
+      "caught_Eprime": 21,
+      "caught_A": 5,
+      "caught_C": 32,
+      "recall_E": 0.6875,
+      "recall_Eprime": 0.6562,
+      "recall_A": 0.1562,
+      "recall_C": 1.0,
+      "contrib_E_minus_A": 0.0322,
+      "contrib_Eprime_minus_A": 0.0303,
+      "contrib_Eprime_minus_C": -0.0208
+    }
+  ],
+  "excluding_partial_match": {
+    "E_minus_A": {
+      "n_tasks_kept": 768,
+      "n_exceptions_kept": 349,
+      "rw_a": 0.9145,
+      "rw_b": 0.9181,
+      "point": -0.0036,
+      "ci95": [
+        -0.0178,
+        0.0105
+      ],
+      "excludes_zero": false
+    },
+    "Eprime_minus_A": {
+      "n_tasks_kept": 768,
+      "n_exceptions_kept": 349,
+      "rw_a": 0.9145,
+      "rw_b": 0.9181,
+      "point": -0.0036,
+      "ci95": [
+        -0.0174,
+        0.0101
+      ],
+      "excludes_zero": false
+    },
+    "D_minus_C": {
+      "n_tasks_kept": 768,
+      "n_exceptions_kept": 349,
+      "rw_a": 0.9484,
+      "rw_b": 0.9669,
+      "point": -0.0186,
+      "ci95": [
+        -0.03,
+        -0.0084
+      ],
+      "excludes_zero": true
+    },
+    "Eprime_minus_C": {
+      "n_tasks_kept": 768,
+      "n_exceptions_kept": 349,
+      "rw_a": 0.9145,
+      "rw_b": 0.9669,
+      "point": -0.0524,
+      "ci95": [
+        -0.0742,
+        -0.0326
+      ],
+      "excludes_zero": true
+    }
+  }
+}

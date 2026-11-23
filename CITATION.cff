@@ -1,26 +1,31 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite the paper."
-title: "A fine-tuning headline inside its training-seed spread: a retraction, and the instrument that would have caught it"
+title: "When a Small Fine-Tune's Margin Sits Inside Its Training-Seed Spread: Variance Decomposition, Class Memorization, and Prompt Confounds in Financial Reconciliation"
 type: article
 authors:
   - family-names: Theodoro
     given-names: Caio
+    affiliation: "Avenza Labs"
     orcid: "https://orcid.org/0009-0005-7343-981X"
-date-released: 2026-11-23
+  - family-names: Basso Sberse
+    given-names: "João Vitor"
+    affiliation: "Avenza Labs"
+    orcid: "https://orcid.org/0009-0005-7111-1474"
+date-released: 2026-08-07
 doi: 10.5281/zenodo.24455455
 url: "https://doi.org/10.5281/zenodo.24455455"
 license: Apache-2.0
 repository-code: "https://github.com/caiotheodoro/reconforge"
 keywords:
-  - negative results
-  - retraction
-  - random seeds
   - fine-tuning
-  - pre-registration
+  - random seeds
+  - variance decomposition
   - LoRA
+  - pre-registration
   - evaluation
 abstract: >-
-  A retraction. A 1.7B LoRA fine-tune was reported to beat a frontier model on
-  severity-weighted recall by 0.0288; a pre-registered rule on the spread across
-  training seeds fired against it. Code is Apache-2.0, the paper CC BY 4.0. Not
-  peer reviewed.
+  An empirical variance decomposition and diagnostic audit of a previously published
+  +0.0288 severity-weighted recall margin for a 1.7B LoRA fine-tune over a frontier
+  model on synthetic financial reconciliation tasks, isolating training-seed spread,
+  single-class memorization, prompt and decode-budget confounds, trivial floors, and
+  validation-loss decoupling. Code is Apache-2.0, the paper CC BY 4.0.
