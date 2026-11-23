@@ -1,0 +1,194 @@
+\begin{thebibliography}{26}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Agarwal et~al.(2021)Agarwal, Schwarzer, Castro, Courville, and
+  Bellemare]{agarwal2021precipice}
+Rishabh Agarwal, Max Schwarzer, Pablo~Samuel Castro, Aaron Courville, and
+  Marc~G. Bellemare.
+\newblock Deep reinforcement learning at the edge of the statistical precipice.
+\newblock \emph{arXiv preprint arXiv:2108.13264}, 2021.
+
+\bibitem[Bell and Kampman(2021)]{bell2021psychology}
+Samuel~J. Bell and Onno~P. Kampman.
+\newblock Perspectives on machine learning from psychology's reproducibility
+  crisis.
+\newblock \emph{arXiv preprint arXiv:2104.08878}, 2021.
+
+\bibitem[Biderman et~al.(2024)Biderman, Schoelkopf, Sutawika, Gao, Tow, Abbasi,
+  Aji, Ammanamanchi, Black, Clive, DiPofi, Etxaniz, Fattori, Forde, Foster,
+  Hsu, Jaiswal, Lee, Li, Lovering, Muennighoff, Pavlick, Phang, Skowron, Tan,
+  Tang, Wang, Winata, Yvon, and Zou]{biderman2024trenches}
+Stella Biderman, Hailey Schoelkopf, Lintang Sutawika, Leo Gao, Jonathan Tow,
+  Baber Abbasi, Alham~Fikri Aji, Pawan~Sasanka Ammanamanchi, Sidney Black,
+  Jordan Clive, Anthony DiPofi, Julen Etxaniz, Benjamin Fattori, Jessica~Zosa
+  Forde, Charles Foster, Jeffrey Hsu, Mimansa Jaiswal, Wilson~Y. Lee, Haonan
+  Li, Charles Lovering, Niklas Muennighoff, Ellie Pavlick, Jason Phang, Aviya
+  Skowron, Samson Tan, Xiangru Tang, Kevin~A. Wang, Genta~Indra Winata,
+  Fran{\c{c}}ois Yvon, and Andy Zou.
+\newblock Lessons from the trenches on reproducible evaluation of language
+  models.
+\newblock \emph{arXiv preprint arXiv:2405.14782}, 2024.
+
+\bibitem[Bouthillier et~al.(2021)Bouthillier, Delaunay, Bronzi, Trofimov,
+  Nichyporuk, Szeto, Sepah, Raff, Madan, Voleti, Ebrahimi~Kahou, Michalski,
+  Serdyuk, Arbel, Pal, Varoquaux, and Vincent]{bouthillier2021variance}
+Xavier Bouthillier, Pierre Delaunay, Mirko Bronzi, Assya Trofimov, Brennan
+  Nichyporuk, Justin Szeto, Naz Sepah, Edward Raff, Kanika Madan, Vikram
+  Voleti, Samira Ebrahimi~Kahou, Vincent Michalski, Dmitriy Serdyuk, Tal Arbel,
+  Chris Pal, Ga{\"e}l Varoquaux, and Pascal Vincent.
+\newblock Accounting for variance in machine learning benchmarks.
+\newblock \emph{arXiv preprint arXiv:2103.03098}, 2021.
+
+\bibitem[Bowman and Dahl(2021)]{bowman2021benchmarking}
+Samuel~R. Bowman and George~E. Dahl.
+\newblock What will it take to fix benchmarking in natural language
+  understanding?
+\newblock \emph{arXiv preprint arXiv:2104.02145}, 2021.
+
+\bibitem[Bui et~al.(2025)Bui, Savova, and Wang]{bui2025seeds}
+Nghia Bui, Guergana Savova, and Lijing Wang.
+\newblock Assessing the macro and micro effects of random seeds on fine-tuning
+  large language models.
+\newblock \emph{arXiv preprint arXiv:2503.07329}, 2025.
+
+\bibitem[Carammia et~al.(2024)Carammia, Iacus, and
+  Porro]{carammia2024rethinking}
+Marcello Carammia, Stefano~Maria Iacus, and Giuseppe Porro.
+\newblock Rethinking scale: The efficacy of fine-tuned open-source {LLMs} in
+  large-scale reproducible social science research.
+\newblock \emph{arXiv preprint arXiv:2411.00890}, 2024.
+
+\bibitem[Card et~al.(2020)Card, Henderson, Khandelwal, Jia, Mahowald, and
+  Jurafsky]{card2020power}
+Dallas Card, Peter Henderson, Urvashi Khandelwal, Robin Jia, Kyle Mahowald, and
+  Dan Jurafsky.
+\newblock With little power comes great responsibility.
+\newblock \emph{arXiv preprint arXiv:2010.06595}, 2020.
+
+\bibitem[Dodge et~al.(2020)Dodge, Ilharco, Schwartz, Farhadi, Hajishirzi, and
+  Smith]{dodge2020finetuning}
+Jesse Dodge, Gabriel Ilharco, Roy Schwartz, Ali Farhadi, Hannaneh Hajishirzi,
+  and Noah Smith.
+\newblock Fine-tuning pretrained language models: Weight initializations, data
+  orders, and early stopping.
+\newblock \emph{arXiv preprint arXiv:2002.06305}, 2020.
+
+\bibitem[Du and Nguyen(2023)]{du2023instability}
+Yupei Du and Dong Nguyen.
+\newblock Measuring the instability of fine-tuning.
+\newblock \emph{arXiv preprint arXiv:2302.07778}, 2023.
+
+\bibitem[Henderson et~al.(2017)Henderson, Islam, Bachman, Pineau, Precup, and
+  Meger]{henderson2017rl}
+Peter Henderson, Riashat Islam, Philip Bachman, Joelle Pineau, Doina Precup,
+  and David Meger.
+\newblock Deep reinforcement learning that matters.
+\newblock \emph{arXiv preprint arXiv:1709.06560}, 2017.
+
+\bibitem[Hofman et~al.(2023)Hofman, Chatzimparmpas, Sharma, Watts, and
+  Hullman]{hofman2023prereg}
+Jake~M. Hofman, Angelos Chatzimparmpas, Amit Sharma, Duncan~J. Watts, and
+  Jessica Hullman.
+\newblock Pre-registration for predictive modeling.
+\newblock \emph{arXiv preprint arXiv:2311.18807}, 2023.
+
+\bibitem[Kapoor and Narayanan(2022)]{kapoor2022leakage}
+Sayash Kapoor and Arvind Narayanan.
+\newblock Leakage and the reproducibility crisis in {ML}-based science.
+\newblock \emph{arXiv preprint arXiv:2207.07048}, 2022.
+
+\bibitem[Lee et~al.(2021)Lee, Ippolito, Nystrom, Zhang, Eck, Callison-Burch,
+  and Carlini]{lee2021dedup}
+Katherine Lee, Daphne Ippolito, Andrew Nystrom, Chiyuan Zhang, Douglas Eck,
+  Chris Callison-Burch, and Nicholas Carlini.
+\newblock Deduplicating training data makes language models better.
+\newblock \emph{arXiv preprint arXiv:2107.06499}, 2021.
+
+\bibitem[Lipton and Steinhardt(2018)]{lipton2018troubling}
+Zachary~C. Lipton and Jacob Steinhardt.
+\newblock Troubling trends in machine learning scholarship.
+\newblock \emph{arXiv preprint arXiv:1807.03341}, 2018.
+
+\bibitem[Madaan et~al.(2024)Madaan, Singh, Schaeffer, Poulton, Koyejo,
+  Stenetorp, Narang, and Hupkes]{madaan2024variance}
+Lovish Madaan, Aaditya~K. Singh, Rylan Schaeffer, Andrew Poulton, Sanmi Koyejo,
+  Pontus Stenetorp, Sharan Narang, and Dieuwke Hupkes.
+\newblock Quantifying variance in evaluation benchmarks.
+\newblock \emph{arXiv preprint arXiv:2406.10229}, 2024.
+
+\bibitem[Miller(2024)]{miller2024errorbars}
+Evan Miller.
+\newblock Adding error bars to evals: A statistical approach to language model
+  evaluations.
+\newblock \emph{arXiv preprint arXiv:2411.00640}, 2024.
+
+\bibitem[Mosbach et~al.(2020)Mosbach, Andriushchenko, and
+  Klakow]{mosbach2020stability}
+Marius Mosbach, Maksym Andriushchenko, and Dietrich Klakow.
+\newblock On the stability of fine-tuning {BERT}: Misconceptions, explanations,
+  and strong baselines.
+\newblock \emph{arXiv preprint arXiv:2006.04884}, 2020.
+
+\bibitem[Picard(2021)]{picard2021seed}
+David Picard.
+\newblock Torch.manual\_seed(3407) is all you need: On the influence of random
+  seeds in deep learning architectures for computer vision.
+\newblock \emph{arXiv preprint arXiv:2109.08203}, 2021.
+
+\bibitem[Pietrowski et~al.(2021)Pietrowski, Gajda, Yamamoto, Kobayashi,
+  Sinapayen, and Watanabe]{pietrowski2021gpu}
+Maciej Pietrowski, Andrzej Gajda, Takuto Yamamoto, Taisuke Kobayashi, Lana
+  Sinapayen, and Eiji Watanabe.
+\newblock Impact of {GPU} uncertainty on the training of predictive deep neural
+  networks.
+\newblock \emph{arXiv preprint arXiv:2109.01451}, 2021.
+\newblock Marked as retracted on arXiv by the authors.
+
+\bibitem[Recht et~al.(2019)Recht, Roelofs, Schmidt, and
+  Shankar]{recht2019imagenet}
+Benjamin Recht, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar.
+\newblock Do {ImageNet} classifiers generalize to {ImageNet}?
+\newblock \emph{arXiv preprint arXiv:1902.10811}, 2019.
+
+\bibitem[Reimers and Gurevych(2017)]{reimers2017distributions}
+Nils Reimers and Iryna Gurevych.
+\newblock Reporting score distributions makes a difference: Performance study
+  of {LSTM}-networks for sequence tagging.
+\newblock \emph{arXiv preprint arXiv:1707.09861}, 2017.
+
+\bibitem[Sellam et~al.(2021)Sellam, Yadlowsky, Wei, Saphra, D'Amour, Linzen,
+  Bastings, Turc, Eisenstein, Das, Tenney, and Pavlick]{sellam2021multiberts}
+Thibault Sellam, Steve Yadlowsky, Jason Wei, Naomi Saphra, Alexander D'Amour,
+  Tal Linzen, Jasmijn Bastings, Iulia Turc, Jacob Eisenstein, Dipanjan Das, Ian
+  Tenney, and Ellie Pavlick.
+\newblock The {MultiBERTs}: {BERT} reproductions for robustness analysis.
+\newblock \emph{arXiv preprint arXiv:2106.16163}, 2021.
+
+\bibitem[van Miltenburg et~al.(2021)van Miltenburg, van~der Lee, and
+  Krahmer]{vanmiltenburg2021prereg}
+Emiel van Miltenburg, Chris van~der Lee, and Emiel Krahmer.
+\newblock Preregistering {NLP} research.
+\newblock \emph{arXiv preprint arXiv:2103.06944}, 2021.
+
+\bibitem[Zhang et~al.(2024)Zhang, Da, Lee, Robinson, Wu, Song, Zhao, Raja,
+  Zhuang, Slack, Lyu, Hendryx, Kaplan, Lunati, and Yue]{zhang2024gsm1k}
+Hugh Zhang, Jeff Da, Dean Lee, Vaughn Robinson, Catherine Wu, Will Song,
+  Tiffany Zhao, Pranav Raja, Charlotte Zhuang, Dylan Slack, Qin Lyu, Sean
+  Hendryx, Russell Kaplan, Michele Lunati, and Summer Yue.
+\newblock A careful examination of large language model performance on grade
+  school arithmetic.
+\newblock \emph{arXiv preprint arXiv:2405.00332}, 2024.
+
+\bibitem[Zhao et~al.(2024)Zhao, Wang, Abid, Angus, Garg, Kinnison, Sherstinsky,
+  Molino, Addair, and Rishi]{zhao2024loraland}
+Justin Zhao, Timothy Wang, Wael Abid, Geoffrey Angus, Arnav Garg, Jeffery
+  Kinnison, Alex Sherstinsky, Piero Molino, Travis Addair, and Devvret Rishi.
+\newblock {LoRA} land: 310 fine-tuned {LLMs} that rival {GPT-4}, a technical
+  report.
+\newblock \emph{arXiv preprint arXiv:2405.00732}, 2024.
+
+\end{thebibliography}

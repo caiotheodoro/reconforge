@@ -1,0 +1,16 @@
+[project]
+name = "reconforge-paper"
+version = "0.1.0"
+description = "Builds the paper's tables, figures and number macros from the committed artifacts, and checks the prose against them."
+requires-python = ">=3.11"
+dependencies = ["matplotlib>=3.8", "numpy", "scipy"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

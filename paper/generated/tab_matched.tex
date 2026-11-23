@@ -1,0 +1,10 @@
+\begin{tabular}{@{}cp{6.6cm}rrrr@{}}
+\toprule
+ & Condition & Accuracy & $R_w$ & Flag prec. & Flag F1 \\
+\midrule
+A & DeepSeek, shared prompt, 1 greedy sample (as published) & 0.8762 & 0.8719 & 1.0000 & 0.9036 \\
+C & DeepSeek, defined-class prompt, 5 samples & 0.9487 & 0.9689 & 1.0000 & 0.9604 \\
+E$'$ & Fine-tune, shared prompt, 5 samples (as published, vote corrected) & 0.8050 & 0.8988 & 0.8263 & 0.8252 \\
+D & Fine-tune, defined-class prompt, 5 samples & 0.4338 & 0.9401 & 0.5083 & 0.6649 \\
+\bottomrule
+\end{tabular}

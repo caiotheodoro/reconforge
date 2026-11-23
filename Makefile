@@ -1,4 +1,4 @@
-.PHONY: validate sync forge-test knowledge-test model-test system-test study compose-up compose-down
+.PHONY: validate sync forge-test knowledge-test model-test system-test study compose-up compose-down paper paper-test
 
 PY = uv run python
 
@@ -9,7 +9,7 @@ PY = uv run python
 sync:
 	for d in forge knowledge model system; do cd $$d && uv sync --no-editable && chflags -R nohidden .venv && cd ..; done
 
-validate: forge-test knowledge-test model-test system-test
+validate: forge-test knowledge-test model-test system-test paper-test
 
 forge-test:
 	cd forge && uv run pytest -q
@@ -31,3 +31,12 @@ compose-up:
 
 compose-down:
 	docker compose down
+
+# The paper: numbers, tables and figures are generated from docs/validation/*.json;
+# paper-test fails if the prose carries a figure that does not trace to an artifact or if
+# the rendered PDF has lost text. Needs tectonic and pdftotext for the render checks.
+paper:
+	cd paper && uv run python build_assets.py && uv run python export_metadata.py && tectonic reconforge.tex
+
+paper-test:
+	cd paper && uv run pytest -q

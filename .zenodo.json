@@ -1,0 +1,217 @@
+{
+  "title": "A fine-tuning headline smaller than its training-seed spread: a retraction, and the instrument that would have caught it",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Theodoro, Caio",
+      "orcid": "0009-0005-7343-981X"
+    }
+  ],
+  "publication_date": "2026-11-23",
+  "license": "cc-by-4.0",
+  "description": "I published that a 1.7B-parameter model, fine-tuned with LoRA on a laptop, beat a frontier model on severity-weighted recall (R_w) for financial reconciliation exceptions: 0.9007 against 0.8719, a margin of 0.0288, on 800 synthetic tasks. The claim is retracted. A pre-registered rule, written before the runs, said that if the standard deviation across training seeds exceeded the margin, no single-run claim in either direction was supportable. Four runs of the same recipe scored R_w 0.7457 to 0.9451 on one development pool (SD 0.0823, 2.86 times the margin), and the shipped model was the highest. The shipped run was chosen because it scored well, so its inclusion inflates that spread; the three runs trained afterwards give SD 0.0479, 1.66 times the margin, with a 95% interval on the SD that includes the margin, and the shipped run sits 0.1448 above their mean. The comparison is underpowered rather than reversed. An exploratory rerun that gave both models a prompt defining every class and five samples reversed the margin to -0.0288, and the fine-tune failed two of five pre-registered guards; with each model on its own best prompt the frontier model still leads by 0.0701. Limits: four runs; the spread was measured on a 300-task pool and the margin on a different 800-task pool; the frontier model was not scored on the spread pool; no score on the frozen test pool exists; one model size, one synthetic task family. The instrument that would have caught the claim before it was made is three or more training seeds, read against the margin. Not peer reviewed. Code, data and artifacts: https://github.com/caiotheodoro/reconforge",
+  "keywords": [
+    "negative results",
+    "retraction",
+    "random seeds",
+    "fine-tuning",
+    "pre-registration",
+    "LoRA",
+    "evaluation"
+  ],
+  "language": "eng",
+  "references": [
+    "Jesse Dodge, Gabriel Ilharco, Roy Schwartz, Ali Farhadi, Hannaneh Hajishirzi, and Noah Smith. Fine-Tuning Pretrained Language Models: Weight Initializations, Data Orders, and Early Stopping. arXiv preprint arXiv:2002.06305, 2020.",
+    "Marius Mosbach, Maksym Andriushchenko, and Dietrich Klakow. On the Stability of Fine-tuning BERT: Misconceptions, Explanations, and Strong Baselines. arXiv preprint arXiv:2006.04884, 2020.",
+    "Thibault Sellam, Steve Yadlowsky, Jason Wei, Naomi Saphra, Alexander D'Amour, Tal Linzen, Jasmijn Bastings, Iulia Turc, Jacob Eisenstein, Dipanjan Das, Ian Tenney, and Ellie Pavlick. The MultiBERTs: BERT Reproductions for Robustness Analysis. arXiv preprint arXiv:2106.16163, 2021.",
+    "Yupei Du and Dong Nguyen. Measuring the Instability of Fine-Tuning. arXiv preprint arXiv:2302.07778, 2023.",
+    "Nghia Bui, Guergana Savova, and Lijing Wang. Assessing the Macro and Micro Effects of Random Seeds on Fine-Tuning Large Language Models. arXiv preprint arXiv:2503.07329, 2025.",
+    "David Picard. Torch.manual_seed(3407) is all you need: On the influence of random seeds in deep learning architectures for computer vision. arXiv preprint arXiv:2109.08203, 2021.",
+    "Peter Henderson, Riashat Islam, Philip Bachman, Joelle Pineau, Doina Precup, and David Meger. Deep Reinforcement Learning that Matters. arXiv preprint arXiv:1709.06560, 2017.",
+    "Rishabh Agarwal, Max Schwarzer, Pablo Samuel Castro, Aaron Courville, and Marc G. Bellemare. Deep Reinforcement Learning at the Edge of the Statistical Precipice. arXiv preprint arXiv:2108.13264, 2021.",
+    "Nils Reimers and Iryna Gurevych. Reporting Score Distributions Makes a Difference: Performance Study of LSTM-networks for Sequence Tagging. arXiv preprint arXiv:1707.09861, 2017.",
+    "Dallas Card, Peter Henderson, Urvashi Khandelwal, Robin Jia, Kyle Mahowald, and Dan Jurafsky. With Little Power Comes Great Responsibility. arXiv preprint arXiv:2010.06595, 2020.",
+    "Xavier Bouthillier, Pierre Delaunay, Mirko Bronzi, Assya Trofimov, Brennan Nichyporuk, Justin Szeto, Naz Sepah, Edward Raff, Kanika Madan, Vikram Voleti, Samira Ebrahimi Kahou, Vincent Michalski, Dmitriy Serdyuk, Tal Arbel, Chris Pal, Gaël Varoquaux, and Pascal Vincent. Accounting for Variance in Machine Learning Benchmarks. arXiv preprint arXiv:2103.03098, 2021.",
+    "Lovish Madaan, Aaditya K. Singh, Rylan Schaeffer, Andrew Poulton, Sanmi Koyejo, Pontus Stenetorp, Sharan Narang, and Dieuwke Hupkes. Quantifying Variance in Evaluation Benchmarks. arXiv preprint arXiv:2406.10229, 2024.",
+    "Evan Miller. Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations. arXiv preprint arXiv:2411.00640, 2024.",
+    "Stella Biderman, Hailey Schoelkopf, Lintang Sutawika, Leo Gao, Jonathan Tow, Baber Abbasi, Alham Fikri Aji, Pawan Sasanka Ammanamanchi, Sidney Black, Jordan Clive, Anthony DiPofi, Julen Etxaniz, Benjamin Fattori, Jessica Zosa Forde, Charles Foster, Jeffrey Hsu, Mimansa Jaiswal, Wilson Y. Lee, Haonan Li, Charles Lovering, Niklas Muennighoff, Ellie Pavlick, Jason Phang, Aviya Skowron, Samson Tan, Xiangru Tang, Kevin A. Wang, Genta Indra Winata, François Yvon, and Andy Zou. Lessons from the Trenches on Reproducible Evaluation of Language Models. arXiv preprint arXiv:2405.14782, 2024.",
+    "Zachary C. Lipton and Jacob Steinhardt. Troubling Trends in Machine Learning Scholarship. arXiv preprint arXiv:1807.03341, 2018.",
+    "Justin Zhao, Timothy Wang, Wael Abid, Geoffrey Angus, Arnav Garg, Jeffery Kinnison, Alex Sherstinsky, Piero Molino, Travis Addair, and Devvret Rishi. LoRA Land: 310 Fine-tuned LLMs that Rival GPT-4, A Technical Report. arXiv preprint arXiv:2405.00732, 2024.",
+    "Marcello Carammia, Stefano Maria Iacus, and Giuseppe Porro. Rethinking Scale: The Efficacy of Fine-Tuned Open-Source LLMs in Large-Scale Reproducible Social Science Research. arXiv preprint arXiv:2411.00890, 2024.",
+    "Benjamin Recht, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar. Do ImageNet Classifiers Generalize to ImageNet?. arXiv preprint arXiv:1902.10811, 2019.",
+    "Hugh Zhang, Jeff Da, Dean Lee, Vaughn Robinson, Catherine Wu, Will Song, Tiffany Zhao, Pranav Raja, Charlotte Zhuang, Dylan Slack, Qin Lyu, Sean Hendryx, Russell Kaplan, Michele Lunati, and Summer Yue. A Careful Examination of Large Language Model Performance on Grade School Arithmetic. arXiv preprint arXiv:2405.00332, 2024.",
+    "Sayash Kapoor and Arvind Narayanan. Leakage and the Reproducibility Crisis in ML-based Science. arXiv preprint arXiv:2207.07048, 2022.",
+    "Samuel R. Bowman and George E. Dahl. What Will it Take to Fix Benchmarking in Natural Language Understanding?. arXiv preprint arXiv:2104.02145, 2021.",
+    "Katherine Lee, Daphne Ippolito, Andrew Nystrom, Chiyuan Zhang, Douglas Eck, Chris Callison-Burch, and Nicholas Carlini. Deduplicating Training Data Makes Language Models Better. arXiv preprint arXiv:2107.06499, 2021.",
+    "Emiel van Miltenburg, Chris van der Lee, and Emiel Krahmer. Preregistering NLP Research. arXiv preprint arXiv:2103.06944, 2021.",
+    "Jake M. Hofman, Angelos Chatzimparmpas, Amit Sharma, Duncan J. Watts, and Jessica Hullman. Pre-registration for Predictive Modeling. arXiv preprint arXiv:2311.18807, 2023.",
+    "Samuel J. Bell and Onno P. Kampman. Perspectives on Machine Learning from Psychology's Reproducibility Crisis. arXiv preprint arXiv:2104.08878, 2021.",
+    "Maciej Pietrowski, Andrzej Gajda, Takuto Yamamoto, Taisuke Kobayashi, Lana Sinapayen, and Eiji Watanabe. Impact of GPU uncertainty on the training of predictive deep neural networks. arXiv preprint arXiv:2109.01451, 2021. Marked as retracted on arXiv by the authors."
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "https://github.com/caiotheodoro/reconforge",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2002.06305",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2006.04884",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2106.16163",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2302.07778",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2503.07329",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2109.08203",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:1709.06560",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2108.13264",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:1707.09861",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2010.06595",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2103.03098",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2406.10229",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2411.00640",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2405.14782",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:1807.03341",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2405.00732",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2411.00890",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:1902.10811",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2405.00332",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2207.07048",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2104.02145",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2107.06499",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2103.06944",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2311.18807",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2104.08878",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    },
+    {
+      "relation": "cites",
+      "identifier": "arXiv:2109.01451",
+      "resource_type": "publication-preprint",
+      "scheme": "arxiv"
+    }
+  ],
+  "version": "paper-v1"
+}

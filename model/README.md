@@ -57,13 +57,25 @@ model-index:
 
 # ReconForge Recon — Financial Reconciliation Verdict Model
 
-A LoRA fine-tune of Qwen3-1.7B for financial back-office reconciliation. It
-trades raw accuracy (0.805 vs DeepSeek v4-flash's 0.876) for severity-weighted
-recall (0.901 vs 0.872) and perfect recall on HIGH-severity exceptions — the
-error class that actually costs money — at zero API cost, offline, on Apple
-Silicon. Both the accuracy loss and the R_w gain are statistically significant
-(95% bootstrap CI over 10,000 resamples, paired on the same 800-task set — see
-Results). Trained in ~100 minutes on an M5.
+> **Retraction.** This card first presented the adapter as beating DeepSeek v4-flash
+> on severity-weighted recall (0.901 vs 0.872, a margin of 0.0288). That claim is
+> withdrawn. Four runs of this recipe differing only in the training seed scored
+> R_w 0.7457 to 0.9451 on one development pool, and this adapter is the 0.9451 run;
+> the spread is 2.86 times the margin (the three unselected runs alone give 1.66
+> times, with an interval that includes it). The comparison is underpowered, and
+> with the same defined-class prompt and five samples for both models DeepSeek
+> leads (exploratory). Read `paper/reconforge.pdf` and `docs/THREATS-TO-VALIDITY.md`
+> in the repository before relying on any figure on this card. The figures below
+> are accurate for this one run on the seed-777 pool, which the headline was
+> selected on; they are not a property of the recipe.
+
+A LoRA fine-tune of Qwen3-1.7B for financial back-office reconciliation. On the
+seed-777 benchmark this one run trades raw accuracy (0.805 vs DeepSeek v4-flash's
+0.876) for severity-weighted recall (0.901 vs 0.872) and perfect recall on
+HIGH-severity exceptions, at zero API cost, offline, on Apple Silicon (95%
+bootstrap CI over 10,000 task resamples, paired on the same 800-task set). The
+retraction above applies to reading that as a property of the recipe. Trained in
+~100 minutes on an M5.
 
 **The trade-off has a second side.** R_w is scored over the exception subset
 only, so it cannot see false positives on clean pairs. On the flag-level F1

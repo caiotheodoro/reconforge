@@ -1,0 +1,13 @@
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Policy or model & Accuracy & $R_w$ & Flag F1 \\
+\midrule
+Always MATCH & 0.5238 & 0.0000 & 0.0000 \\
+Always EXCEPTION (AMOUNT\_MISMATCH) & 0.0912 & 0.6673 & 0.6452 \\
+Stratified random & 0.2913 & 0.3903 & 0.5181 \\
+Base Qwen3-1.7B & 0.6775 & 0.6002 & 0.7173 \\
+DeepSeek v4-flash & 0.8762 & 0.8719 & 0.9036 \\
+Fine-tuned 1.7B, shipped run & 0.8050 & 0.9007 & 0.8241 \\
+Rules oracle (ceiling by construction) & 1.0000 & 1.0000 & 1.0000 \\
+\bottomrule
+\end{tabular}

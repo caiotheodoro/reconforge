@@ -1,0 +1,9 @@
+\begin{tabular}{@{}lrlrrrr@{}}
+\toprule
+Model & Accuracy & $R_w$ [95\% CI] & Flag prec. & Flag F1 & Cost & HIGH rec. \\
+\midrule
+Fine-tune, shipped run ($\times$5) & 0.8050 & 0.9007 [0.876, 0.924] & 0.824 & 0.824 & 0.000 & 1.000 \\
+DeepSeek v4-flash, zero-shot & 0.8762 & 0.8719 [0.843, 0.899] & 1.000 & 0.904 & 0.013 & -- \\
+Base Qwen3-1.7B, zero-shot & 0.6775 & 0.6002 [0.547, 0.650] & 0.852 & 0.717 & 0.145 & -- \\
+\bottomrule
+\end{tabular}
