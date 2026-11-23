@@ -126,6 +126,12 @@ def build_numbers() -> dict[str, str]:
     N["shipGapFresh"] = f4(tsv["champion_r_w_same_pool"] - fm)
     N["shipGapOverMargin"] = f2((tsv["champion_r_w_same_pool"] - fm) / margin)
     N["freshMax"] = f4(max(fv))
+    from scipy.stats import t as tdist  # noqa: PLC0415
+
+    tstat = (fm - ds_rw) / (fsd / len(fv) ** 0.5)
+    N["tFresh"] = "$-$" + f2(abs(tstat))
+    N["pFresh"] = f2(2 * tdist.sf(abs(tstat), len(fv) - 1))
+    N["freshGapToDS"] = f4(ds_rw - fm)
     # Runs needed to see a margin this size against this SD (one-sample, two-sided 5%,
     # power 80%), taking the SD from all four runs. A planning figure, not a result.
     za, zb = norm.ppf(0.975), norm.ppf(0.80)
@@ -134,6 +140,8 @@ def build_numbers() -> dict[str, str]:
     # Same weights, two pools: the champion on the seed-777 pool and on the dev pool.
     var = J("variance-decomposition.json")
     N["rwChampPoolBench"] = f4(J("baselines.json")["models"]["champion_x5"]["severity_weighted_recall"])
+    dev_mean = J("multiseed-matrix.json")["across_seed"]["severity_weighted_recall"]["mean"]
+    N["poolMeanShift"] = f4(dev_mean - float(N["rwChampPoolBench"]))
     N["poolShift"] = f4(tsv["champion_r_w_same_pool"] - float(N["rwChampPoolBench"]))
     N["poolShiftOverMargin"] = f2((tsv["champion_r_w_same_pool"] - float(N["rwChampPoolBench"])) / margin)
     N["rwSamplingMarginal"] = f4(var["sampling_marginal"]["delta"])
@@ -141,9 +149,12 @@ def build_numbers() -> dict[str, str]:
     N["rwEvalPoolSD"] = f4(var["eval_pool_seed"]["sd"])
     N["evalPoolOverMargin"] = f2(var["eval_pool_seed"]["sd_as_fraction_of_margin"])
     N["rwEvalPoolLow"] = f4(min(var["eval_pool_seed"]["values"]))
+    N["devPoolSeedList"] = ", ".join(sorted(J("multiseed-matrix.json")["per_seed"], key=int))
+    N["evalPoolRange"] = f4(var["eval_pool_seed"]["range"])
     N["rwEvalPoolHigh"] = f4(max(var["eval_pool_seed"]["values"]))
     N["rwChampXthree"] = f4(var["sampling_marginal"]["champion_x3"])
     N["rwTrainSeedGapOld"] = f4(var["training_seed"]["delta"])
+    N["marginXthree"] = f4(var["sampling_marginal"]["champion_x3"] - ds_rw)
     N["rwSiblingXthree"] = f4(var["training_seed"]["sibling_run_same_recipe"])
 
     # --- the published comparison ----------------------------------------------------
@@ -317,13 +328,13 @@ def tables(N: dict[str, str]) -> dict[str, str]:
     rows = [
         row("Fine-tune, shipped run ($\\times$5)", f4(ch["accuracy"]),
             f4(ch["severity_weighted_recall"]), ci(iv["reconforge_recon"]["severity_weighted_recall"]),
-            f"{ch['flag_precision']:.3f}", f"{ch['flag_f1']:.3f}", f"{ch['normalized_cost']:.3f}", N["highRecall"]),
+            f"{ch['flag_precision']:.3f}", f"{ch['flag_f1']:.3f}", f"{ch['normalized_cost']:.3f}", f3(iv["reconforge_recon"]["severity_band_recall"]["HIGH"]["point"])),
         row("DeepSeek v4-flash, zero-shot", f4(dsm["accuracy"]), f4(dsm["severity_weighted_recall"]),
             ci(iv["deepseek_v4_flash"]["severity_weighted_recall"]), f"{dsm['flag_precision']:.3f}",
-            f"{dsm['flag_f1']:.3f}", f"{dsm['normalized_cost']:.3f}", "--"),
+            f"{dsm['flag_f1']:.3f}", f"{dsm['normalized_cost']:.3f}", f3(iv["deepseek_v4_flash"]["severity_band_recall"]["HIGH"]["point"])),
         row("Base Qwen3-1.7B, zero-shot", f4(bm["accuracy"]), f4(bm["severity_weighted_recall"]),
             ci(iv["base_qwen3_1_7b"]["severity_weighted_recall"]), f"{bm['flag_precision']:.3f}",
-            f"{bm['flag_f1']:.3f}", f"{bm['normalized_cost']:.3f}", "--"),
+            f"{bm['flag_f1']:.3f}", f"{bm['normalized_cost']:.3f}", f3(iv["base_qwen3_1_7b"]["severity_band_recall"]["HIGH"]["point"])),
     ]
     T["tab_published"] = (
         "\\begin{tabular}{@{}lrlrrrr@{}}\n\\toprule\n"
@@ -388,7 +399,7 @@ def tables(N: dict[str, str]) -> dict[str, str]:
             eline("Same prompt and budget for the frontier model, C$-$A", "combined_definition_plus_budget_C_minus_A"),
             eline("Defined-class prompt for the fine-tune, D$-$E$'$", "rubric_cost_to_champion_D_minus_Eprime"),
             eline("Matched margin, D$-$C (exploratory)", "matched_margin_D_minus_C"),
-            f"Each model on its own best prompt, E$'-$C & {sgn4(bpe['point'])} & [{sgn4(bpe['ci95'][0])}, {sgn4(bpe['ci95'][1])}] \\\\",
+            f"Each model on its own prompt, E$'-$C & {sgn4(bpe['point'])} & [{sgn4(bpe['ci95'][0])}, {sgn4(bpe['ci95'][1])}] \\\\",
         ]) + "\n\\bottomrule\n\\end{tabular}\n"
     )
 

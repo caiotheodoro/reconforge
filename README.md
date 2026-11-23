@@ -5,8 +5,9 @@
 > ## ⚠ Status: the headline is retracted
 >
 > This repository first said that a 1.7B model fine-tuned on a laptop beats a
-> frontier model (DeepSeek v4-flash) on severity-weighted recall, R_w 0.9007
-> against 0.8719, a margin of 0.0288 on the 800-task seed-777 pool. That claim
+> frontier model (DeepSeek v4-flash) on severity-weighted recall: R_w 0.9128
+> against 0.8719 at three samples (2026-08-08), restated on 2026-08-27 as 0.9007
+> at five samples, a margin of 0.0288 on the 800-task seed-777 pool. That claim
 > is withdrawn. The paper is [`paper/reconforge.pdf`](paper/reconforge.pdf)
 > (source `paper/reconforge.tex`); it is not peer reviewed.
 >
