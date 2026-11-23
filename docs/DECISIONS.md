@@ -949,3 +949,32 @@ measured evidence.
   is corrected and this log gets a new entry. If the paper is withdrawn, the record is marked so on
   Zenodo and a later entry here says why; the retraction of the claim itself stands either way and is
   reversed only by the test named in P1.
+
+## 2026-11-23 — P3 — Pre-analysis plan for paper v2: per-class margin decomposition, non-PARTIAL_MATCH sensitivity, and v2 framing
+- Context. After v1 (`5598896`, Zenodo record 24455455), an audit of all six papers noted that
+  `paper/reconforge.tex` leads with confessional retraction framing ("I published that... The claim
+  is retracted", title beginning with "a retraction"), carries repo housekeeping and a self-audit
+  mistake list in the main body (§8 "Errors found in my own analysis"), lacks a Conclusion section,
+  recommends decomposing the margin by class (§6 item 3) without printing the nine-class table, and
+  does not report the paired margin excluding the memorised `PARTIAL_MATCH` class.
+- Pre-specified zero-spend post-hoc analyses (written before running `paper/derive_class_analysis.py`
+  on the committed `docs/validation/bench-*.json` per-task exports):
+  1. **Complete nine-class decomposition.** For each of the nine exception classes in `taxonomy.json`,
+     compute $n$, severity, weight, recall under conditions E (published fine-tune, x5), E' (vote-corrected
+     fine-tune, x5), A (DeepSeek base, x1), and C (DeepSeek defined-class prompt, x5), plus exact signed
+     contribution to `E - A`, `E' - A`, and `E' - C`.
+  2. **Non-`PARTIAL_MATCH` paired margin sensitivity.** Excluding the 32 `PARTIAL_MATCH` tasks (whose 9
+     abbreviation pairs all appear in training), compute the paired difference in $R_w$ over the remaining
+     8 exception classes (349 exception tasks) for `E - A`, `E' - A`, `D - C`, and `E' - C` with 10,000
+     paired bootstrap resamples (seed 11, same estimator as `paper/derive_best_prompt.py`).
+  3. **Paper v2 revamp, date, and affiliation.** Reframe `paper/reconforge.tex` to lead with the five
+     diagnostic findings (retaining the retraction and the registered "underpowered rather than reversed"
+     verdict), add contribution bullets and a Conclusion section, move the repo timeline and analysis
+     corrections to Appendix A, set the publication date to `2026-08-07` (first repository commit
+     `de7405f`, following the owner's date rule across all repositories), set affiliation to Avenza Labs
+     (`avenza.cloud`), and draft `docs/DESIGN-V2.md` for the confirmatory `seed-999` study.
+- What stays untouched: `PRE-REGISTRATION.md` (SHA-256 unchanged), every previously committed artifact
+  under `docs/validation/`, and the retraction verdict.
+- Reversal: if a calculation defect is found in `paper/derive_class_analysis.py`, its output
+  `docs/validation/class-decomposition-and-clustering.json` is regenerated under a later entry.
+
